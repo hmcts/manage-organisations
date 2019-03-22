@@ -1,0 +1,154 @@
+
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Organisations
+{% endblock %}
+
+{% set pageId = 'organisations' %}
+
+{% block content %}
+
+{{ hmctsBanner({
+  html: '3 organisations are pending approval. <a href="/v1/pending">Check now</a>.'
+}) }}
+
+{{ hmctsPageHeaderWithActions({
+  title: {
+    html: '<h1 class="govuk-heading-xl">Organisations</h1>'
+  },
+  items: [{
+    text: 'Add organisations',
+    href: '/v1/new'
+  }]
+}) }}
+
+{{ govukTable({
+  head: [
+    {
+      text: "Reference"
+    },
+    {
+      text: "Name"
+    },
+    {
+      text: "Administrator"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: ""
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "123456"
+      },
+      {
+        text: "Speak Limited"
+      },
+      {
+        html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Approved', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: '<a href="#">Deactivate</a>'
+      }
+    ],
+    [
+      {
+        text: "243123"
+      },
+      {
+        text: "Miamora Limited"
+      },
+      {
+        html: 'Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Approved', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: '<a href="#">Deactivate</a>'
+      }
+    ],
+    [
+      {
+        text: "123432"
+      },
+      {
+        text: "Turpin Limited"
+      },
+      {
+        html: 'Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Approved', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: '<a href="#">Deactivate</a>'
+      }
+    ],
+    [
+      {
+        text: "333212"
+      },
+      {
+        text: "Silver Limited"
+      },
+      {
+        html: 'Adam Silver<br><span class="govuk-caption-m govuk-!-font-size-16">adam@silver.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Approved', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: '<a href="#">Deactivate</a>'
+      }
+    ]
+  ]
+}) }}
+
+{{hmctsPagination({
+  results: {
+  from: 1,
+  to: 10,
+  count: 256
+  },
+
+  previous: {
+    text: 'Previous',
+    href: ''
+  },
+  next: {
+    text: 'Next',
+    href: ''
+  },
+  items: [{
+    text: '1',
+    href: '/page=1'
+  }, {
+  type: 'dots'
+  }, {
+  text: '5',
+  href: '/page=5'
+  }, {
+  text: '6',
+  href: '/page=6',
+  selected: true
+  }, {
+  text: '7',
+  href: '/page=7'
+  }, {
+  type: 'dots'
+  }, {
+  text: '10',
+  href: '/page=10'
+  }]
+  })}}
+
+{% endblock %}

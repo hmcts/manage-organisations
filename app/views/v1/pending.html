@@ -1,0 +1,65 @@
+
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Organisations
+{% endblock %}
+
+{% set pageId = 'pending' %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/v1/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <form>
+
+    {% from "checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  idPrefix: "pending",
+  name: "pending",
+  fieldset: {
+    legend: {
+      text: "Organisations pending approval",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "1",
+      text: "Speak Limited",
+      hint: {
+        text: "Matt Speake, matt@speak.com"
+      }
+    },
+    {
+      value: "2",
+      text: "Miamora Limited",
+      hint: {
+        text: "Mia Mamatora, mia@mamatora.com"
+      }
+    },
+    {
+      value: "3",
+      text: "	Turpin Limited",
+      hint: {
+        text: "Gareth Turpin, gareth@turpin.com"
+      }
+    }
+  ]
+}) }}
+
+
+    {{govukButton({
+      text: 'Approve'
+    })}}
+  </form>
+
+
+{% endblock %}
