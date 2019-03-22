@@ -13,15 +13,8 @@
   html: '3 organisations are pending approval. <a href="/v1/pending">Check now</a>.'
 }) }}
 
-{{ hmctsPageHeaderWithActions({
-  title: {
-    html: '<h1 class="govuk-heading-xl">Organisations</h1>'
-  },
-  items: [{
-    text: 'Add organisations',
-    href: '/v1/new'
-  }]
-}) }}
+
+<h1 class="govuk-heading-xl">Organisations</h1>
 
 {{ govukTable({
   head: [
@@ -53,10 +46,7 @@
         html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
       },
       {
-        html: hmctsBadge({ text: 'Approved', classes: 'hmcts-badge--green'})
-      },
-      {
-        html: '<a href="#">Deactivate</a>'
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
       }
     ],
     [
@@ -70,10 +60,7 @@
         html: 'Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span>'
       },
       {
-        html: hmctsBadge({ text: 'Approved', classes: 'hmcts-badge--green'})
-      },
-      {
-        html: '<a href="#">Deactivate</a>'
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
       }
     ],
     [
@@ -87,10 +74,7 @@
         html: 'Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span>'
       },
       {
-        html: hmctsBadge({ text: 'Approved', classes: 'hmcts-badge--green'})
-      },
-      {
-        html: '<a href="#">Deactivate</a>'
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
       }
     ],
     [
@@ -98,16 +82,96 @@
         text: "333212"
       },
       {
-        text: "Silver Limited"
+        text: "Gold Limited"
       },
       {
-        html: 'Adam Silver<br><span class="govuk-caption-m govuk-!-font-size-16">adam@silver.com</span>'
+        html: 'Steph Gold<br><span class="govuk-caption-m govuk-!-font-size-16">steph@gold.com</span>'
       },
       {
-        html: hmctsBadge({ text: 'Approved', classes: 'hmcts-badge--green'})
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      }
+    ],
+    [
+      {
+        text: "533212"
       },
       {
-        html: '<a href="#">Deactivate</a>'
+        text: "Green Limited"
+      },
+      {
+        html: 'James Green<br><span class="govuk-caption-m govuk-!-font-size-16">james@green.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      }
+    ],[
+    {
+      text: "333212"
+    },
+    {
+      text: "Silver Limited"
+    },
+    {
+      html: 'Adam Silver<br><span class="govuk-caption-m govuk-!-font-size-16">adam@silver.com</span>'
+    },
+    {
+      html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+    }
+  ],
+  [
+      {
+        text: "123432"
+      },
+      {
+        text: "Turpin Limited"
+      },
+      {
+        html: 'Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      }
+    ],
+    [
+      {
+        text: "123456"
+      },
+      {
+        text: "Speak Limited"
+      },
+      {
+        html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      }
+    ],
+    [
+      {
+        text: "243125"
+      },
+      {
+        text: "Mora Limited"
+      },
+      {
+        html: 'Mama Tora<br><span class="govuk-caption-m govuk-!-font-size-16">mama@mora.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Suspended', classes: 'hmcts-badge--red'})
+      }
+    ],
+    [
+      {
+        text: "443123"
+      },
+      {
+        text: "Law Limited"
+      },
+      {
+        html: 'Lee Laurel<br><span class="govuk-caption-m govuk-!-font-size-16">lee@law.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
       }
     ]
   ]
@@ -117,37 +181,27 @@
   results: {
   from: 1,
   to: 10,
-  count: 256
+  count: 40
   },
 
-  previous: {
-    text: 'Previous',
-    href: ''
-  },
   next: {
     text: 'Next',
     href: ''
   },
   items: [{
     text: '1',
-    href: '/page=1'
+    href: '/page=1',
+    selected: true
   }, {
-  type: 'dots'
+  text: '2',
+  href: '/page=2'
   }, {
-  text: '5',
-  href: '/page=5'
+  text: '3',
+  href: '/page=3'
+
   }, {
-  text: '6',
-  href: '/page=6',
-  selected: true
-  }, {
-  text: '7',
-  href: '/page=7'
-  }, {
-  type: 'dots'
-  }, {
-  text: '10',
-  href: '/page=10'
+  text: '4',
+  href: '/page=4'
   }]
   })}}
 
