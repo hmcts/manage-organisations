@@ -2,64 +2,206 @@
 {% extends "./base.html" %}
 
 {% block pageTitle %}
-  Organisations
+  Organisations pending approval
 {% endblock %}
 
-{% set pageId = 'pending' %}
+{% set pageId = 'organisations' %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "/v1/"
-  }) }}
+{{ govukBackLink({
+  text: "Back",
+  href: "/v1/"
+}) }}
 {% endblock %}
 
 {% block content %}
 
-  <form>
+<h1 class="govuk-heading-xl">Organisations pending approval</h1>
 
-    {% from "checkboxes/macro.njk" import govukCheckboxes %}
-
-{{ govukCheckboxes({
-  idPrefix: "pending",
-  name: "pending",
-  fieldset: {
-    legend: {
-      text: "Organisations pending approval",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
-    }
-  },
-  items: [
+{{ govukTable({
+  head: [
     {
-      value: "1",
-      text: "Speak Limited",
-      hint: {
-        text: "Matt Speake, matt@speak.com"
-      }
+      text: "Reference"
     },
     {
-      value: "2",
-      text: "Miamora Limited",
-      hint: {
-        text: "Mia Mamatora, mia@mamatora.com"
-      }
+      text: "Name"
     },
     {
-      value: "3",
-      text: "	Turpin Limited",
-      hint: {
-        text: "Gareth Turpin, gareth@turpin.com"
-      }
+      text: "Address"
+    },
+    {
+      text: "Administrator"
     }
+  ],
+  rows: [
+    [
+      {
+        html: '<a href="/v1/show-pending">123456</a>'
+      },
+      {
+        text: "Speak Limited"
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+      }
+    ],
+    [
+      {
+        html: '<a href="/v1/show-pending">243123</a>'
+      },
+      {
+        text: "Miamora Limited"
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span>'
+      }
+    ],
+    [
+      {
+        html: '<a href="/v1/show-pending">123432</a>'
+      },
+      {
+        text: "Turpin Limited"
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span>'
+      }
+    ],
+    [
+      {
+        html: '<a href="/v1/show-pending">333212</a>'
+      },
+      {
+        text: "Gold Limited"
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Steph Gold<br><span class="govuk-caption-m govuk-!-font-size-16">steph@gold.com</span>'
+      }
+    ],
+    [
+      {
+        html: '<a href="/v1/show-pending">533212</a>'
+      },
+      {
+        text: "Green Limited"
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'James Green<br><span class="govuk-caption-m govuk-!-font-size-16">james@green.com</span>'
+      }
+    ],[
+    {
+      html: '<a href="/v1/show-pending">333321</a>'
+    },
+    {
+      text: "Silver Limited"
+    },
+    {
+      html: "72 Guild Street<br>London<br>SE23 6FH"
+    },
+    {
+      html: 'Adam Silver<br><span class="govuk-caption-m govuk-!-font-size-16">adam@silver.com</span>'
+    }
+  ],
+  [
+      {
+        html: '<a href="/v1/show-pending">123432</a>'
+      },
+      {
+        text: "Turpin Limited"
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span>'
+      }
+    ],
+    [
+      {
+        html: '<a href="/v1/show-pending">123456</a>'
+      },
+      {
+        text: "Speak Limited"
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+      }
+    ],
+    [
+      {
+        html: '<a href="/v1/show-pending">243125</a>'
+      },
+      {
+        text: "Mora Limited"
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Mama Tora<br><span class="govuk-caption-m govuk-!-font-size-16">mama@mora.com</span>'
+      }
+    ],
+    [
+      {
+        html: '<a href="/v1/show-pending">443123</a>'
+      },
+      {
+        text: "Law Limited"
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Lee Laurel<br><span class="govuk-caption-m govuk-!-font-size-16">lee@law.com</span>'
+      }
+    ]
   ]
 }) }}
 
+{{hmctsPagination({
+  results: {
+  from: 1,
+  to: 10,
+  count: 40
+  },
 
-    {{govukButton({
-      text: 'Approve'
-    })}}
-  </form>
+  next: {
+    text: 'Next',
+    href: ''
+  },
+  items: [{
+    text: '1',
+    href: '/page=1',
+    selected: true
+  }, {
+  text: '2',
+  href: '/page=2'
+  }, {
+  text: '3',
+  href: '/page=3'
 
+  }, {
+  text: '4',
+  href: '/page=4'
+  }]
+  })}}
 
 {% endblock %}
