@@ -12,13 +12,20 @@
   {{ hmctsIdentityBar({
     title: { html: 'Speake Law Limited' },
     items: [{
-      text: 'Approve',
-      href: '/v1/show-just-approved'
+      text: 'Suspend',
+      href: '/v1/show-pending'
     }]
   }) }}
 {% endblock %}
 
 {% block content %}
+
+  {{ hmctsBanner({
+    type: 'success',
+    text: 'You have approved the organisation.',
+    iconFallbackText: 'Success'
+  }) }}
+
 
 <h1 class="govuk-heading-xl">Organisation details</h1>
 
