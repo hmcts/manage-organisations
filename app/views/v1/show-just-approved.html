@@ -10,7 +10,7 @@
 {% block header %}
   {{ super() }}
   {{ hmctsIdentityBar({
-    title: { html: 'Speake Law Limited' }
+    title: { html: 'Speake Law Limited ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
   }) }}
 {% endblock %}
 
