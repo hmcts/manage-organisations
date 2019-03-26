@@ -21,6 +21,10 @@
   </div>
 {% endmacro %}
 
+{% macro tableLink(params) %}
+  <a href="{{params.href}}">{{params.text}}</a>
+{% endmacro %}
+
 {% block content %}
 
   <h1 class="govuk-heading-xl">Organisations pending approval</h1>
@@ -40,9 +44,6 @@
           text: "Reference"
         },
         {
-          text: "Name"
-        },
-        {
           text: "Address"
         },
         {
@@ -58,10 +59,7 @@
             html: tableCheckbox({ id: 'pending1', name: 'pending' })
           },
           {
-            html: '<a href="/v1/show-pending">123456</a>'
-          },
-          {
-            text: "Speak Limited"
+            html: 'Speake Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
           {
             html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -71,6 +69,9 @@
           },
           {
             html: hmctsBadge({ text: 'Pending'})
+          },
+          {
+            html: tableLink({ text: 'View', href: "/v1/show-pending"})
           }
         ],
         [
@@ -78,10 +79,7 @@
             html: tableCheckbox({ id: 'pending1', name: 'pending' })
           },
           {
-            html: '<a href="/v1/show-pending">243123</a>'
-          },
-          {
-            text: "Miamora Limited"
+            html: 'Miamora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
           {
             html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -91,6 +89,9 @@
           },
           {
             html: hmctsBadge({ text: 'Pending'})
+          },
+          {
+            html: tableLink({ text: 'View', href: "/v1/show-pending"})
           }
         ],
         [
@@ -98,10 +99,7 @@
             html: tableCheckbox({ id: 'pending1', name: 'pending' })
           },
           {
-            html: '<a href="/v1/show-pending">123432</a>'
-          },
-          {
-            text: "Turpin Limited"
+            html: 'Turpin Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
           {
             html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -111,6 +109,9 @@
           },
           {
             html: hmctsBadge({ text: 'Pending'})
+          },
+          {
+            html: tableLink({ text: 'View', href: "/v1/show-pending"})
           }
         ],
         [
@@ -118,10 +119,7 @@
             html: tableCheckbox({ id: 'pending1', name: 'pending' })
           },
           {
-            html: '<a href="/v1/show-pending">333212</a>'
-          },
-          {
-            text: "Gold Limited"
+            html: 'Gold Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
           {
             html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -131,6 +129,9 @@
           },
           {
             html: hmctsBadge({ text: 'Pending'})
+          },
+          {
+            html: tableLink({ text: 'View', href: "/v1/show-pending"})
           }
         ],
         [
@@ -138,10 +139,7 @@
             html: tableCheckbox({ id: 'pending1', name: 'pending' })
           },
           {
-            html: '<a href="/v1/show-pending">533212</a>'
-          },
-          {
-            text: "Green Limited"
+            html: 'Green Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
           {
             html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -151,6 +149,9 @@
           },
           {
             html: hmctsBadge({ text: 'Pending'})
+          },
+          {
+            html: tableLink({ text: 'View', href: "/v1/show-pending"})
           }
         ],
         [
@@ -158,10 +159,7 @@
             html: tableCheckbox({ id: 'pending1', name: 'pending' })
           },
           {
-            html: '<a href="/v1/show-pending">333321</a>'
-          },
-          {
-            text: "Silver Limited"
+            html: 'Silver Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
           {
             html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -171,6 +169,9 @@
           },
           {
             html: hmctsBadge({ text: 'Pending'})
+          },
+          {
+            html: tableLink({ text: 'View', href: "/v1/show-pending"})
           }
         ],
         [
@@ -178,10 +179,7 @@
             html: tableCheckbox({ id: 'pending1', name: 'pending' })
           },
           {
-            html: '<a href="/v1/show-pending">123432</a>'
-          },
-          {
-            text: "Turpin Limited"
+            html: 'Turpin Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
           {
             html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -191,6 +189,9 @@
           },
           {
             html: hmctsBadge({ text: 'Pending'})
+          },
+          {
+            html: tableLink({ text: 'View', href: "/v1/show-pending"})
           }
         ],
         [
@@ -198,10 +199,7 @@
             html: tableCheckbox({ id: 'pending1', name: 'pending' })
           },
           {
-            html: '<a href="/v1/show-pending">123456</a>'
-          },
-          {
-            text: "Speak Limited"
+            html: 'Speed Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
           {
             html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -211,6 +209,9 @@
           },
           {
             html: hmctsBadge({ text: 'Pending'})
+          },
+          {
+            html: tableLink({ text: 'View', href: "/v1/show-pending"})
           }
         ],
         [
@@ -218,10 +219,7 @@
             html: tableCheckbox({ id: 'pending1', name: 'pending' })
           },
           {
-            html: '<a href="/v1/show-pending">243125</a>'
-          },
-          {
-            text: "Mora Limited"
+            html: 'Mora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
           {
             html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -231,6 +229,9 @@
           },
           {
             html: hmctsBadge({ text: 'Pending'})
+          },
+          {
+            html: tableLink({ text: 'View', href: "/v1/show-pending"})
           }
         ],
         [
@@ -238,10 +239,7 @@
             html: tableCheckbox({ id: 'pending1', name: 'pending' })
           },
           {
-            html: '<a href="/v1/show-pending">443123</a>'
-          },
-          {
-            text: "Law Limited"
+            html: 'Law Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
           {
             html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -251,6 +249,9 @@
           },
           {
             html: hmctsBadge({ text: 'Pending'})
+          },
+          {
+            html: tableLink({ text: 'View', href: "/v1/show-pending"})
           }
         ]
       ]

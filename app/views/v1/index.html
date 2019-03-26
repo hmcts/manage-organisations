@@ -14,15 +14,16 @@
 }) }}
 
 
+{% macro tableLink(params) %}
+  <a href="{{params.href}}">{{params.text}}</a>
+{% endmacro %}
+
 <h1 class="govuk-heading-xl">Organisations</h1>
 
 {{ govukTable({
   head: [
     {
       text: "Reference"
-    },
-    {
-      text: "Name"
     },
     {
       text: "Address"
@@ -32,15 +33,15 @@
     },
     {
       text: "Status"
+    },
+    {
+      text: ""
     }
   ],
   rows: [
     [
       {
-        html: '<a href="/v1/show">123456</a>'
-      },
-      {
-        text: "Speak Limited"
+        html: 'Speak Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12345678</span>'
       },
       {
         html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -50,14 +51,14 @@
       },
       {
         html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v1/show"})
       }
     ],
     [
       {
-        html: '<a href="/v1/show">243123</a>'
-      },
-      {
-        text: "Miamora Limited"
+        html: 'Miamora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">23456433</span>'
       },
       {
         html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -67,14 +68,14 @@
       },
       {
         html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v1/show"})
       }
     ],
     [
       {
-        html: '<a href="/v1/show">123432</a>'
-      },
-      {
-        text: "Turpin Limited"
+        html: 'Turpin Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343299</span>'
       },
       {
         html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -84,14 +85,14 @@
       },
       {
         html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v1/show"})
       }
     ],
     [
       {
-        html: '<a href="/v1/show">333212</a>'
-      },
-      {
-        text: "Gold Limited"
+        html: 'Gold Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
       },
       {
         html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -101,14 +102,14 @@
       },
       {
         html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v1/show"})
       }
     ],
     [
       {
-        html: '<a href="/v1/show">533212</a>'
-      },
-      {
-        text: "Green Limited"
+        html: 'Green Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
       },
       {
         html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -118,13 +119,13 @@
       },
       {
         html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v1/show"})
       }
     ],[
     {
-      html: '<a href="/v1/show">333321</a>'
-    },
-    {
-      text: "Silver Limited"
+      html: 'Silver Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
     },
     {
       html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -134,15 +135,15 @@
     },
     {
       html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+    },
+    {
+      html: tableLink({ text: 'View', href: "/v1/show"})
     }
   ],
   [
-      {
-        html: '<a href="/v1/show">123432</a>'
-      },
-      {
-        text: "Turpin Limited"
-      },
+  {
+    html: 'Turpine Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+  },
       {
         html: "72 Guild Street<br>London<br>SE23 6FH"
       },
@@ -151,15 +152,15 @@
       },
       {
         html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v1/show"})
       }
     ],
     [
-      {
-        html: '<a href="/v1/show">123456</a>'
-      },
-      {
-        text: "Speak Limited"
-      },
+    {
+      html: 'Padent Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+    },
       {
         html: "72 Guild Street<br>London<br>SE23 6FH"
       },
@@ -168,14 +169,14 @@
       },
       {
         html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v1/show"})
       }
     ],
     [
       {
-        html: '<a href="/v1/show">243125</a>'
-      },
-      {
-        text: "Mora Limited"
+        html: 'Mora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
       },
       {
         html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -185,14 +186,14 @@
       },
       {
         html: hmctsBadge({ text: 'Inactive', classes: 'hmcts-badge--red'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v1/show"})
       }
     ],
     [
       {
-        html: '<a href="/v1/show">443123</a>'
-      },
-      {
-        text: "Law Limited"
+        html: 'Jury Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
       },
       {
         html: "72 Guild Street<br>London<br>SE23 6FH"
@@ -202,6 +203,9 @@
       },
       {
         html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v1/show"})
       }
     ]
   ]
