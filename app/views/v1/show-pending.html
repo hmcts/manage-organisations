@@ -10,12 +10,16 @@
 {% block header %}
   {{ super() }}
   {{ hmctsIdentityBar({
-    title: { html: 'Speake Law Limited ' + hmctsBadge({ text: 'pending' }) }
+    title: { html: 'Speake Law Limited ' + hmctsBadge({ text: 'pending' }) },
+    items: [{
+      href: '/v1/show-just-approved',
+      text: 'Approve'
+    }]
   }) }}
 {% endblock %}
 
 {% block content %}
-
+<!--
 {% set bannerHtml %}
 
 <p class="govuk-body">This organisation is pending approval.</p>
@@ -26,7 +30,7 @@
 
 {{ hmctsBanner({
   html: bannerHtml
-}) }}
+}) }} -->
 
 <h1 class="govuk-heading-xl">Organisation details</h1>
 
