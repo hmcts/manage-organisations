@@ -27,12 +27,12 @@
 
 {% block content %}
 
-  <h1 class="govuk-heading-xl">Organisations pending approval</h1>
+  <h1 class="govuk-heading-xl">Organisations pending activation</h1>
 
   <form action="/v1/check-selected">
 
     {{govukButton({
-      text: 'Approve organisations'
+      text: 'Activate organisations'
     })}}
 
     {{ govukTable({
