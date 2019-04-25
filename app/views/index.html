@@ -18,9 +18,17 @@
 
       <h2 class="govuk-heading-l">Iterations</h2>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/v1">Iteration 1</a></li>
-      </ul>
+      {% set iterationOneHtml %}
+        <p class="govuk-body">First version lets users approve an organisation—either in bulk or one at a time. You can't deactivate an account yet.</p>
+        <ul class="govuk-list">
+          <li><a href="/v1">View prototype</a></li>
+        </ul>
+      {% endset %}
+
+      {{ govukDetails({
+        summaryHtml: '<div class="govuk-!-font-size-24 govuk-!-font-weight-bold">Iteration 1</div>',
+        html: iterationOneHtml
+      }) }}
     </div>
 </div>
 
