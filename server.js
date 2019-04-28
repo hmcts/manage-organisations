@@ -116,7 +116,7 @@ app.use('/public', express.static(path.join(__dirname, '/public')))
 app.use('/node_modules/govuk-frontend', express.static(path.join(__dirname, '/node_modules/govuk-frontend')))
 
 
-app.use('/assets', express.static(path.join(__dirname, 'node_modules', '@hmcts', 'frontend', 'assets')));
+app.use('/hmcts-assets', express.static(path.join(__dirname, 'node_modules', '@hmcts', 'frontend', 'assets')));
 app.use('/node_modules/hmcts-frontend', express.static(path.join(__dirname, '/node_modules/@hmcts/frontend')));
 
 
