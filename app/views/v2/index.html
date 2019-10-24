@@ -1,0 +1,244 @@
+
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Organisations
+{% endblock %}
+
+{% set pageId = 'organisations' %}
+
+{% block content %}
+
+{{ hmctsBanner({
+  html: '41 organisations are pending activation. <a href="/v2/pending">Check now</a>.',
+  type: 'information',
+  iconFallbackText: 'information'
+}) }}
+
+
+{% macro tableLink(params) %}
+  <a href="{{params.href}}">{{params.text}}</a>
+{% endmacro %}
+
+<h1 class="govuk-heading-xl">Organisations</h1>
+
+{{ govukTable({
+  head: [
+    {
+      text: "Reference"
+    },
+    {
+      text: "Address"
+    },
+    {
+      text: "Administrator"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: ""
+    }
+  ],
+  rows: [
+    [
+      {
+        html: 'Speak Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12345678</span>'
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v2/show"})
+      }
+    ],
+    [
+      {
+        html: 'Miamora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">23456433</span>'
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v2/show"})
+      }
+    ],
+    [
+      {
+        html: 'Turpin Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343299</span>'
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v2/show"})
+      }
+    ],
+    [
+      {
+        html: 'Gold Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Steph Gold<br><span class="govuk-caption-m govuk-!-font-size-16">steph@gold.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v2/show"})
+      }
+    ],
+    [
+      {
+        html: 'Green Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'James Green<br><span class="govuk-caption-m govuk-!-font-size-16">james@green.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v2/show"})
+      }
+    ],[
+    {
+      html: 'Silver Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+    },
+    {
+      html: "72 Guild Street<br>London<br>SE23 6FH"
+    },
+    {
+      html: 'Adam Silver<br><span class="govuk-caption-m govuk-!-font-size-16">adam@silver.com</span>'
+    },
+    {
+      html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+    },
+    {
+      html: tableLink({ text: 'View', href: "/v2/show"})
+    }
+  ],
+  [
+  {
+    html: 'Turpine Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+  },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v2/show"})
+      }
+    ],
+    [
+    {
+      html: 'Padent Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+    },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v2/show"})
+      }
+    ],
+    [
+      {
+        html: 'Mora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Mama Tora<br><span class="govuk-caption-m govuk-!-font-size-16">mama@mora.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v2/show"})
+      }
+    ],
+    [
+      {
+        html: 'Jury Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+      },
+      {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      },
+      {
+        html: 'Lee Laurel<br><span class="govuk-caption-m govuk-!-font-size-16">lee@law.com</span>'
+      },
+      {
+        html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
+      },
+      {
+        html: tableLink({ text: 'View', href: "/v2/show"})
+      }
+    ]
+  ]
+}) }}
+
+{{hmctsPagination({
+  results: {
+  from: 1,
+  to: 10,
+  count: 40
+  },
+
+  next: {
+    text: 'Next',
+    href: ''
+  },
+  items: [{
+    text: '1',
+    href: '/page=1',
+    selected: true
+  }, {
+  text: '2',
+  href: '/page=2'
+  }, {
+  text: '3',
+  href: '/page=3'
+
+  }, {
+  text: '4',
+  href: '/page=4'
+  }]
+  })}}
+
+{% endblock %}
