@@ -32,9 +32,21 @@
   <div class="govuk-grid-column-two-thirds">
 <form action="/v1b/show-pending">
 
-
-
-    {% call govukFieldset({
+              {{ govukErrorSummary({
+          "titleText": "There is a problem",
+          "errorList": [
+          {
+          "text": "Enter a valid PBA number",
+          "href": "#org-pba"
+          },
+ {
+          "text": "Enter a valid PBA number",
+          "href": "#org-pba"
+          }
+          
+          ]
+        }) }}
+          {% call govukFieldset({
         legend: {
           text: "Organisation payment by account (PBA) number",
           classes: "govuk-fieldset__legend--xl",
@@ -42,13 +54,16 @@
         }
       }) %}
 
-        {{ govukInput({
+              {{ govukInput({
           label: {
             html: 'PBA number 1 (optional)',
             classes: 'govuk-label--m'
           },
           id: "address-line-1",
           name: "address-line-1",
+           errorMessage: {
+    text: "Enter a valid PBA number"
+  },
           classes: 'govuk-input--width-20'
         }) }}
 
@@ -59,10 +74,15 @@
           },
           id: "address-line-1",
           name: "address-line-1",
+           errorMessage: {
+    text: "Enter a valid PBA number"
+  },
           classes: 'govuk-input--width-20'
         }) }}
 
-     {% endcall %}
+      {% endcall %}
+
+
 
 <button type="submit" class="govuk-button">
   Submit

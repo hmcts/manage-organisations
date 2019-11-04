@@ -17,7 +17,7 @@
 {% block header %}
   {{ super() }}
   {{ hmctsIdentityBar({
-    title: { html: 'Speake Law Limited ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
   }) }}
 {% endblock %}
 
@@ -36,58 +36,41 @@
   html: bannerHtml
 }) }} -->
 
-<h1 class="govuk-heading-xl">Organisation payment by account (PBA) number</h1>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 <form action="/v1b/show">
-<!--
- {% call govukFieldset({
-  legend: {
-    text: "Organisation payment by account (PBA) number",
-    classes: "govuk-fieldset__legend--xl",
-    isPageHeading: true
-  }
-}) %}
-
-  {{ govukInput({
-    label: {
-      html: '<span class="govuk-body-l govuk-!-font-weight-bold">PBA number 1 (optional)</span>'
-    },
-    id: "pba-1",
-    name: "pba-1"
-  }) }}
-
-  {{ govukInput({
-    label: {
-      html: '<span class="govuk-body-l govuk-!-font-weight-bold">PBA number 2 (optional)</span>'
-    },
-    id: "pba-2",
-    name: "pba-2"
-  }) }}
-  {% endcall %}
-
--->
-<div class="govuk-form-group">
-  <label class="govuk-label govuk-label--m" for="address-line-1">
-    PBA number 1 (optional)
-  </label>
 
 
-  <input class="govuk-input govuk-input--width-20" id="address-line-1" name="address-line-1" type="text" value="PBA1234567" id="pba-1">
-</div>
+    {% call govukFieldset({
+        legend: {
+          text: "Organisation payment by account (PBA) number",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
 
+        {{ govukInput({
+          label: {
+            html: 'PBA number 1 (optional)',
+            classes: 'govuk-label--m'
+          },
+          id: "address-line-1",
+          name: "address-line-1",
+          classes: 'govuk-input--width-20'
+        }) }}
 
-        
+        {{ govukInput({
+          label: {
+            html: 'PBA number 2 (optional)',
+            classes: 'govuk-label--m'
+          },
+          id: "address-line-1",
+          name: "address-line-1",
+          classes: 'govuk-input--width-20'
+        }) }}
 
-<div class="govuk-form-group">
-  <label class="govuk-label govuk-label--m" for="address-line-1">
-    PBA number 2 (optional)
-  </label>
-
-
-  <input class="govuk-input govuk-input--width-20" id="address-line-1" name="address-line-1" type="text" value="PBA2233444" id="pba-2">
-</div>
+     {% endcall %}
 
 
 <button type="submit" class="govuk-button">
