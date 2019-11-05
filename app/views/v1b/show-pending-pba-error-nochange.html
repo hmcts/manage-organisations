@@ -1,0 +1,100 @@
+
+{% extends "./base.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/v1b/show-pending"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'pending' }) },
+    items: [{
+      href: '/v1b/show-just-approved',
+      text: 'Activate'
+    }]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<form action="/v1b/show-pending">
+
+              {{ govukErrorSummary({
+          "titleText": "There is a problem",
+          "errorList": [
+          {
+          "text": "You need to make a change before submitting.  If you don't make a change, these PBA numbers will stay the same",
+          "href": "#org-pba"
+          },
+ {
+          "text": "You need to make a change before submitting. If you don't make a change, these permissions will stay the same",
+          "href": "#org-pba"
+          }
+          
+          ]
+        }) }}
+
+
+          {% call govukFieldset({
+        legend: {
+          text: "Organisation payment by account (PBA) number",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+              {{ govukInput({
+
+
+          label: {
+            html: 'PBA number 1 (optional)',
+            classes: 'govuk-label--m'
+          },
+          id: "address-line-1",
+          name: "address-line-1",
+           errorMessage: {
+    text: "You need to make a change before submitting. If you don't make a change, these permissions will stay the same"
+  },
+          classes: 'govuk-input--width-20'
+        }) }}
+
+        {{ govukInput({
+          label: {
+            html: 'PBA number 2 (optional)',
+            classes: 'govuk-label--m'
+          },
+          id: "address-line-1",
+          name: "address-line-1",
+           errorMessage: {
+    text: "You need to make a change before submitting. If you don't make a change, these permissions will stay the same"
+  },
+          classes: 'govuk-input--width-20'
+        }) }}
+
+      {% endcall %}
+
+
+
+<button type="submit" class="govuk-button">
+  Submit
+</button>
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}
