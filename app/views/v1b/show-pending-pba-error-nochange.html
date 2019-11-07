@@ -33,23 +33,7 @@
 <form action="/v1b/show-pending">
 
 
-              {{ govukErrorSummary({
-          "titleText": "There is a problem",
-          "errorList": [
-          {
-          "text": "You need to make a change before submitting.  If you don't make a change, these PBA numbers will stay the same",
-          "href": "#org-pba"
-          },
- {
-          "text": "You need to make a change before submitting. If you don't make a change, these permissions will stay the same",
-          "href": "#org-pba"
-          }
-          
-          ]
-        }) }}
-
-
-          {% call govukFieldset({
+    {% call govukFieldset({
         legend: {
           text: "Organisation payment by account (PBA) number",
           classes: "govuk-fieldset__legend--xl",
@@ -57,18 +41,13 @@
         }
       }) %}
 
-              {{ govukInput({
-
-
+        {{ govukInput({
           label: {
             html: 'PBA number 1 (optional)',
             classes: 'govuk-label--m'
           },
           id: "address-line-1",
           name: "address-line-1",
-           errorMessage: {
-    text: "You need to make a change before submitting. If you don't make a change, these permissions will stay the same"
-  },
           classes: 'govuk-input--width-20'
         }) }}
 
@@ -79,20 +58,17 @@
           },
           id: "address-line-1",
           name: "address-line-1",
-           errorMessage: {
-    text: "You need to make a change before submitting. If you don't make a change, these permissions will stay the same"
-  },
           classes: 'govuk-input--width-20'
         }) }}
 
-      {% endcall %}
+     {% endcall %}
 
 
 
-<button type="submit" class="govuk-button">
-  Submit
-</button>
-
+{{ govukButton({
+  text: "Submit",
+  disabled: true
+}) }}
       </form>
 
   </div>
