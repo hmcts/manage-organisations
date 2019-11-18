@@ -1,0 +1,123 @@
+{% extends "./base.html" %}
+{% block pageTitle %}
+Organisations pending approval
+{% endblock %}
+{% set pageId = 'organisations' %}
+{% block beforeContent %}
+{% endblock %}
+{% macro tableCheckbox(params) %}
+{% endmacro %}
+{% macro tableLink(params) %}
+<a href="{{params.href}}">{{params.text}}</a>
+{% endmacro %}
+{% block content %}
+   {{hmctsSubNavigation({
+        items: [ {
+        text: 'Pending approval',
+        href: '/v2/',
+        active: false
+        }, 
+        {
+        text: 'In progress',
+        href: '/v2/in-progress',
+        active: false
+        }, 
+        {
+        text: 'Approved',
+        href: '/v2/approved',
+        active: false
+        },
+        {
+     text: 'Rejected',
+        href: '/v2/rejected',
+        active: true
+        }
+        ]
+        })}}
+<h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold"> <span class="govuk-caption-xl">Organisations</span>
+    Rejected
+</h1>
+<form action="/v2/check-selected">
+    {{ govukTable({
+    head: [
+    {
+    text: "Reference"
+    },
+    {
+    text: "Address"
+    },
+    {
+    text: "Administrator"
+    },
+    {
+    text: "Reason"
+    },{}
+    ],
+    rows: [
+    [
+    {
+    html: 'Speake Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+    },
+    {
+    html: "72 Guild Street<br>London<br>SE23 6FH"
+    },
+    {
+    html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+    },
+    {
+    html: hmctsBadge({ text: 'insufficient information'})
+    },
+    {
+    html: tableLink({ text: 'View', href: "/v2/show-pending"})
+    }
+    ],
+    [
+    {
+    html: 'Miamora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+    },
+    {
+    html: "72 Guild Street<br>London<br>SE23 6FH"
+    },
+    {
+    html: 'Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span>'
+    },
+    {
+    html: hmctsBadge({ text: 'Duplicate'})
+    },
+    {
+    html: tableLink({ text: 'View', href: "/v2/show-pending"})
+    }
+    ],
+    [
+    {
+    html: 'Turpin Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+    },
+    {
+    html: "72 Guild Street<br>London<br>SE23 6FH"
+    },
+    {
+    html: 'Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span>'
+    },
+    {
+    html: hmctsBadge({ text: 'Duplicate'})
+    },
+    {
+    html: tableLink({ text: 'View', href: "/v2/show-pending"})
+    }
+    ]
+    ]
+    }) }}
+</form>
+{{hmctsPagination({
+results: {
+from: 1,
+to: 3,
+count: 3
+},
+items: [{
+text: '1',
+href: '/page=1',
+selected: true
+}]
+})}}
+{% endblock %}

@@ -40,6 +40,7 @@
 {%- from "hmcts-menu/macro.njk" import hmctsMenu %}
 {%- from "hmcts-badge/macro.njk" import hmctsBadge %}
 
+
 {% block head %}
   {% include "includes/head.html" %}
 {% endblock %}
@@ -65,17 +66,37 @@
         href: '/sign-out'
       }]
     }
-
   }) }}
 
-  {{ hmctsPrimaryNavigation({
-    label: 'Primary navigation',
-    items: [{
-      text: 'Organisations',
-      href: '/v2',
-      active: pageId == 'organisations'
-    }]
-  }) }}
+{% set inlineSearchHtml %}
+{{ hmctsSearch({
+classes: 'hmcts-search--ondark hmcts-search--inline',
+input: {
+  id: 'search1',
+  name: 'search1'
+},
+label: {
+  text: 'Search',
+  classes: 'govuk-visually-hidden'
+},
+button: {
+  text: 'Search'
+}
+}) }}
+{% endset %}
+
+{{ hmctsPrimaryNavigation({
+label: 'Primary navigation',
+items: [{
+text: 'Organisations',
+href: '#1',
+active: true
+}],
+searchHtml: inlineSearchHtml
+}) }} 
+
+
+
 {% endblock %}
 
 {% if useAutoStoreData %}
@@ -104,3 +125,4 @@
   {% endblock %}
   <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
 {% endblock %}
+<!-- -->

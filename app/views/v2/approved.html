@@ -1,0 +1,48 @@
+{% extends "./base.html" %}
+{% block pageTitle %}
+Organisations
+{% endblock %}
+{% set pageId = 'organisations' %}
+{% block content %}
+   {{hmctsSubNavigation({
+        items: [ {
+        text: 'Pending approval',
+        href: '/v2/',
+        active: false
+        }, 
+        {
+        text: 'In progress',
+        href: '/v2/in-progress',
+        active: false
+        }, 
+        {
+        text: 'Approved',
+        href: '/v2/approved',
+        active: true
+        },
+        {
+     text: 'Rejected',
+        href: '/v2/rejected',
+        active: false
+        }
+        ]
+        })}}
+{% macro tableLink(params) %}
+<a href="{{params.href}}">{{params.text}}</a>
+{% endmacro %}
+<h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold"> <span class="govuk-caption-xl">Organisations</span>
+    Approved
+</h1>
+{{ hmctsSearch({
+input: {
+id: 'bill',
+name: 'bill'
+},
+hint: {
+text: 'Search for approved organisations'
+},
+button: {
+text: 'Search'
+}
+}) }}
+{% endblock %}
