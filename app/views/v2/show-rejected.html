@@ -2,7 +2,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
 text: "Back",
-href: "/v2/in-progress"
+href: "/v2/rejected"
 }) }}
 {% endblock %}
 {% block pageTitle %}
@@ -25,7 +25,7 @@ Organisation details
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         
-            <h1 class="govuk-heading-xl"><span class="govuk-caption-xl">In progress</span>Speake Limited</h1><div class="hmcts-menu__wrapper">
+            <h1 class="govuk-heading-xl"><span class="govuk-caption-xl">Rejected</span>Speake Limited</h1><div class="hmcts-menu__wrapper">
           </div>
                 
         
@@ -39,7 +39,8 @@ Organisation details
             text: "Status"
             },
             value: {
-            html: hmctsBadge({ text: 'Awaiting feedback'})
+            html: hmctsBadge({ text: '  INSUFFICIENT INFORMATION',
+classes: 'hmcts-badge'})
             }
           },
           {
@@ -99,8 +100,8 @@ Organisation details
            
               
                 {{ govukButton({
-                text: 'Reject',
-                classes: "govuk-button--secondary",
+                text: 'Delete',
+                classes: "govuk-button--warning",
                 href: "/v2/show-pending-reject"
                 }) }}
             </form>

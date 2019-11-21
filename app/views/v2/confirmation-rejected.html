@@ -1,0 +1,28 @@
+
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Confirmation
+{% endblock %}
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% from "panel/macro.njk" import govukPanel %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "Application rejected"
+      }) }}
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+       The administrator will receive an email informing them the application has been rejected.
+      </p>
+
+      <p class="govuk-body"><a href="/v2/">Back to organisations</a></p>
+    </div>
+  </div>
+{% endblock %}

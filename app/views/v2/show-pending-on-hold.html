@@ -1,0 +1,61 @@
+{% extends "./base.html" %}
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "show-pending"
+}) }}
+{% endblock %}
+{% block pageTitle %}
+Organisation details
+{% endblock %}
+{% set pageId = 'organisation-details' %}
+{% block content %}
+<!--
+{% set bannerHtml %}
+
+<p class="govuk-body">This organisation is pending approval.</p>
+{{govukButton({ text: 'Approve', href: '/v1/show-just-approved', classes: 'govuk-!-margin-bottom-0' })}}
+
+{% endset %}
+
+
+{{ hmctsBanner({
+  html: bannerHtml
+}) }} -->
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-heading-xl"><span class="govuk-caption-xl">Put on hold</span>Speake Limited</h1>
+    </legend>
+    <span id="changed-name-hint" class="govuk-hint">
+      Reason for putting on hold
+    </span>
+    <div class="govuk-radios govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="awaiting_feedback">
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+          Awaiting feedback
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="incomplete">
+        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+          Incomplete
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+            <form action="/v2/confirmation">
+                {{ govukButton({
+                text: 'Submit',
+                href: "/v2/confirmation-on-hold"
+                }) }}
+      
+            </form>
+        </div>
+    </div>
+    {% endblock %}

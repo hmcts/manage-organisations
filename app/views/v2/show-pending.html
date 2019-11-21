@@ -85,20 +85,24 @@ classes: 'hmcts-badge--red'})
             }
             ]
             }) }}
-            <form action="/v2/confirmation">
+            <form>
                 {{ govukButton({
-                text: 'Approve organisation'
+                text: 'Approve organisation',
+                href: "/v2/confirmation"
                 }) }}
+           
             
-             <form action="/v2/confirmation">
                 {{ govukButton({
                 text: 'Put on hold',
-                classes: "govuk-button--secondary"
+                classes: "govuk-button--secondary",
+                href: "/v2/show-pending-on-hold"
                 }) }}
-                <form action="/v2/confirmation">
+           
+              
                 {{ govukButton({
                 text: 'Reject',
-                classes: "govuk-button--warning"
+                classes: "govuk-button--secondary",
+                href: "/v2/show-pending-reject"
                 }) }}
             </form>
         </div>
