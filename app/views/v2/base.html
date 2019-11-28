@@ -68,22 +68,10 @@
     }
   }) }}
 
-{% set inlineSearchHtml %}
-{{ hmctsSearch({
-classes: 'hmcts-search--ondark hmcts-search--inline',
-input: {
-  id: 'search1',
-  name: 'search1'
-},
-label: {
-  text: 'Search',
-  classes: 'govuk-visually-hidden'
-},
-button: {
-  text: 'Search'
-}
-}) }}
-{% endset %}
+  {% set searchHtml %}
+   
+  {% endset %}
+
 
 {{ hmctsPrimaryNavigation({
 label: 'Primary navigation',
@@ -94,8 +82,6 @@ active: true
 }],
 searchHtml: inlineSearchHtml
 }) }} 
-
-
 
 {% endblock %}
 
