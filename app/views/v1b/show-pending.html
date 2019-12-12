@@ -34,6 +34,14 @@
   html: bannerHtml
 }) }} -->
 
+{% from "hmcts-banner/macro.njk" import hmctsBanner %}
+
+{{ hmctsBanner({
+type: 'information',
+text: 'There is a problem retrieving the account name. Try again later.',
+iconFallbackText: 'information'
+}) }} 
+
 <h1 class="govuk-heading-xl">Organisation details</h1>
 
 <div class="govuk-grid-row">
@@ -56,24 +64,22 @@
             html: "72 Guild Street<br>London<br>SE23 6FH"
           }
         },
-        {
+         {
           key: {
-            text: "PBA number"
+            html: 'PBA number<span class="govuk-caption-m govuk-!-font-size-16">Account Name</span>'
           },
           value: {
-            text: "PBA1234567,PBA2233444",
-            html: data['pba-1'],
-            html: data['pba-2']
+            html: '<p>PBA1234567<span class="govuk-caption-m govuk-!-font-size-16">Wedlake Bell - Account A</span></p><p>PBA2233444<span class="govuk-caption-m govuk-!-font-size-16">	Wedlake Bell - Account B</span></p>'
           },
           actions: {
-        items: [
-          {
-            href: "show-pending-pba",
-            text: "Change",
-            visuallyHiddenText: "name"
+            items: [
+              {
+                href: "show-pending-pba",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
           }
-        ]
-      }
         },
         {
           key: {
