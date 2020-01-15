@@ -7,6 +7,10 @@
 {% set pageId = 'organisations' %}
 
 
+
+
+
+
 {% macro tableCheckbox(params) %}
   <div class="govuk-radios__item">
     <input class="govuk-radios__input" id="{{params.id}}" name="{{params.name}}" type="radio" value="{{params.value}}">
@@ -31,13 +35,15 @@
 
   <form action="/v1b/check-selected">
 
- <!--   {{govukButton({
+    {{govukButton({
       text: 'Activate organisation'
-    })}} -->
+    })}}
 
     {{ govukTable({
       head: [
-       
+       {
+          
+        }, 
         {
           text: "Reference"
         },
@@ -49,12 +55,13 @@
         },
         {
           text: "Status"
-        },
-        {}
+        }
       ],
       rows: [
         [
-         
+          {
+            html: tableCheckbox({ id: 'pending1', name: 'pending' })
+          },
           {
             html: 'Speak Law Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
@@ -72,7 +79,9 @@
           }
         ],
         [
-       
+          {
+            html: tableCheckbox({ id: 'pending1', name: 'pending' })
+          },
           {
             html: 'Miamora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
@@ -90,7 +99,9 @@
           }
         ],
         [
-        
+          {
+            html: tableCheckbox({ id: 'pending1', name: 'pending' })
+          },
           {
             html: 'Turpin Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
@@ -108,7 +119,9 @@
           }
         ],
         [
-         
+          {
+            html: tableCheckbox({ id: 'pending1', name: 'pending' })
+          },
           {
             html: 'Gold Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
@@ -126,7 +139,9 @@
           }
         ],
         [
-         
+          {
+            html: tableCheckbox({ id: 'pending1', name: 'pending' })
+          },
           {
             html: 'Green Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
@@ -144,7 +159,9 @@
           }
         ],
         [
-        
+          {
+            html: tableCheckbox({ id: 'pending1', name: 'pending' })
+          },
           {
             html: 'Silver Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
@@ -162,7 +179,9 @@
           }
         ],
         [
-         
+          {
+            html: tableCheckbox({ id: 'pending1', name: 'pending' })
+          },
           {
             html: 'Turpin Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
@@ -180,7 +199,9 @@
           }
         ],
         [
-         
+          {
+            html: tableCheckbox({ id: 'pending1', name: 'pending' })
+          },
           {
             html: 'Speed Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
@@ -198,7 +219,9 @@
           }
         ],
         [
-        
+          {
+            html: tableCheckbox({ id: 'pending1', name: 'pending' })
+          },
           {
             html: 'Mora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },
@@ -216,7 +239,9 @@
           }
         ],
         [
-       
+          {
+            html: tableCheckbox({ id: 'pending1', name: 'pending' })
+          },
           {
             html: 'Law Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           },

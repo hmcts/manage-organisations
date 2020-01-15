@@ -1,0 +1,63 @@
+
+{% extends "./base.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/v1b/show-pending-nopba"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'pending' }) },
+    items: [{
+      href: '/v1b/show-pending-nopba',
+      text: 'Activate'
+    }]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+<form action="/v1b/show-pending-addedpba">
+
+
+
+    {% call govukFieldset({
+        legend: {
+          text: "Enter your organisation SRA ID",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+        {{ govukInput({
+          
+          id: "address-line-1",
+          name: "address-line-1",
+          classes: 'govuk-input--width-30'
+        }) }}
+
+     {% endcall %}
+
+<button type="submit" class="govuk-button">
+  Submit
+</button>
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

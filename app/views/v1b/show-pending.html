@@ -7,6 +7,12 @@
 {% endblock %}
 
 {% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/v1b"
+}) }}
+{% endblock %}
 
 {% block header %}
   {{ super() }}
@@ -101,15 +107,37 @@
         },
 {
           key: {
-            text: "SRA Id"
+            text: "SRA ID"
           },
           value: {
             html: 'SRA3347232'
+          },
+          actions: {
+        items: [
+          {
+            href: "show-pending-sra",
+            text: "Change",
+            visuallyHiddenText: "name"
           }
+        ]
+      }
         }
       ]
     }) }}
-
+     <form>
+                {{ govukButton({
+                text: 'Activate organisation',
+                href: "/v1b/confirmation"
+                }) }}
+           
+            
+                {{ govukButton({
+                text: 'Delete organisation',
+                classes: "govuk-button--secondary",
+                href: "/v1b/delete"
+                }) }}
+           
+            </form>
   </div>
 </div>
 
