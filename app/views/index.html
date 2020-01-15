@@ -15,10 +15,23 @@ GOV.UK Prototype Kit
         <ul class="govuk-list">
             <li><span class="govuk-!-font-weight-bold">Whats new:</span></li>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a href="/v1b/pending">View organisations pending activation</a>
-                    <br>
+                
+                    <li><a href="/v1b/show">Active organisation - With users </a>
+                    <br><span class="form-hint">EUI-1355, view users of an active organisation</span></li>
+                    <li><a href="/v1b/user">Active organisation - User all permissions </a>
+                    <br><span class="form-hint">EUI-1355, view users of an active organisation</span></li>
+                     <li><a href="/v1b/user-2">Active organisation - Limited permissions </a>
+                    <br><span class="form-hint">EUI-1355, view users of an active organisation</span></li>
+ <li><a href="/v1b/show-2">Active organisation - Without users </a>
+                    <br><span class="form-hint">EUI-1355, no active users</span></li>
+
+                    <li><a href="/v1b/">View organisations pending activation</a>
+                    <br><span class="form-hint">EUI-1285, Pending Organisations first page when you log in to AO</span></li>
+
+                <li><a href="/v1b/">View organisations pending activation</a><br>
                     <span class="form-hint">EUI-371, Replaced check-boxes with radio buttons<br> EUI-371, Removed ability to select all<br>EUI-371, Renamed CTA button to 'Activate organisation'</span>
                 </li>
+
                 <li><a href="/v1b/show-pending">Change PBA number - Pending organisation</a>
                 </li>
                 <li><a href="/v1b/show">Change PBA number - Active organisation</a>
@@ -35,7 +48,7 @@ GOV.UK Prototype Kit
                 <li><a href="/v1b/show-pending-pba-error-existing">Error message PBA number - already exists</a><br>
                     <span class="form-hint">EUI-1076, sceanario 1</span>
                 </li>
-                 <li><a href="/v1b/show-pending-pba-error-request">Error message PBA number - couldn't complete request</a><br>
+                <li><a href="/v1b/show-pending-pba-error-request">Error message PBA number - couldn't complete request</a><br>
                     <span class="form-hint">EUI-1076, sceanario 1</span>
                 </li>
                 <li><a href="/v1b/show-pending-pba-error-wrong-format">Error message PBA number - wrong format</a><br>
@@ -45,10 +58,10 @@ GOV.UK Prototype Kit
             <p>
                 <h2 class="govuk-heading-l">Latest wireframe</h2>
                 {% set iterationTwoHtml %}
-                <p class="govuk-body">Removed ability for administrator to approve multiple organisations at a time </p>
+                <p class="govuk-body">Removed ability for administrator to approve multiple organisations at a time. Pending organisation has been made the default screen. </p>
                 <ul class="govuk-list">
                     <li><a href="/v1b">View prototype</a><br>
-                    <li><a href="/v1b/pending">View organisations pending activation</a></li>
+                    <li><a href="/v1b/approved">View approved organisations</a></li>
                 </ul>
                 {% endset %}
                 {{ govukDetails({

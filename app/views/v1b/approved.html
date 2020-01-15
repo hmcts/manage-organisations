@@ -16,18 +16,14 @@
 
 {% block content %}
 
-{{ hmctsBanner({
-  html: '41 organisations are pending activation. <a href="/v1b/pending">Check now</a>.',
-  type: 'information',
-  iconFallbackText: 'information'
-}) }}
+
 
 
 {% macro tableLink(params) %}
   <a href="{{params.href}}">{{params.text}}</a>
 {% endmacro %}
 
-<h1 class="govuk-heading-xl">Organisations</h1>
+<h1 class="govuk-heading-xl">Active organisations</h1>
 
 {{ govukTable({
   head: [
@@ -50,13 +46,13 @@
   rows: [
     [
       {
-        html: 'Speak Law Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12345678</span>'
+        html: 'Wedlake Bell<br><span class="govuk-caption-m govuk-!-font-size-16">12345678</span>'
       },
       {
         html: "72 Guild Street<br>London<br>SE23 6FH"
       },
       {
-        html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+        html: 'Peter Gold<br><span class="govuk-caption-m govuk-!-font-size-16">peter.gold@wedlakebell.com</span>'
       },
       {
         html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
@@ -79,7 +75,7 @@
         html: hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'})
       },
       {
-        html: tableLink({ text: 'View', href: "/v1b/show"})
+        html: tableLink({ text: 'View', href: "/v1b/show-2"})
       }
     ],
     [

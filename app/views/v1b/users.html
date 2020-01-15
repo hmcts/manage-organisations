@@ -1,0 +1,101 @@
+
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/v1b/approved"
+}) }}
+{% endblock %}
+
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: 'Wedlake Bell ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+   {{hmctsSubNavigation({
+        items: [ {
+        text: 'Organisation details',
+        href: '/v1b/show',
+        active: false
+        }, 
+        {
+        text: 'Active users',
+        href: '/v1b/users',
+        active: true
+        }
+        ]
+        })}}
+
+<h1 class="govuk-heading-xl">Active users</h1>
+
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  
+  
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">Name</th>
+                    <th class="govuk-table__header" scope="col">Email address</th>
+                    <!--
+    
+      <th class="govuk-table__header" scope="col">Manage cases</th>
+    
+      <th class="govuk-table__header" scope="col">Manage organisation</th>
+    
+      <th class="govuk-table__header" scope="col">Manage users</th>
+    -->
+                    <th class="govuk-table__header" scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="/v1b/user">Peter Gold</a></td>
+                    <td class="govuk-table__cell">peter.gold@wedlakebell.com</td>
+                    <!--   
+      <td class="govuk-table__cell">Yes</td>
+      
+    
+      
+      <td class="govuk-table__cell">Yes</td>
+      
+    
+      
+      <td class="govuk-table__cell">Yes</td>
+      
+    -->
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="user-2">Amy Venkatanarasimharaj</a></td>
+                    <td class="govuk-table__cell">amyvenkatanarasimharaj@wedlakebell.com</td>
+                    <!--    
+      <td class="govuk-table__cell">Yes</td>
+      
+    
+      
+      <td class="govuk-table__cell">No</td>
+      
+    
+      
+      <td class="govuk-table__cell">No</td>
+      -->
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+</div>
+
+{% endblock %}
