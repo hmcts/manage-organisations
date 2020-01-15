@@ -127,17 +127,30 @@
      <form>
                 {{ govukButton({
                 text: 'Activate organisation',
-                href: "/v1b/show-pending-confirmation"
+                href: "/v1b/confirmation"
                 }) }}
            
             
                 {{ govukButton({
                 text: 'Delete pending organisation',
                 classes: "govuk-button--secondary",
-                href: "/v1b/show-pending-delete"
+                href: "/v1b/delete"
                 }) }}
            
-   
+            </form>
+
+                   <form action="/v1b/confirmation">
+                    <div id="timeout-dialog" class="timeout-dialog" role="dialog" aria-labelledby="timeout-message" tabindex="-1" aria-live="polite">
+                        <h1 class="govuk-heading-m push--top">Confirm activation</h1>
+                        <p id="govuk-body" role="text">You are about to activate this registration request.</p>
+                        {{ govukButton({
+                        text: "Confirm"
+                        }) }}
+                        <p id="govuk-body"> <a href="/v1b/show-pending">Cancel</a></p>
+                    </div>
+                    <div id="timeout-overlay" class="timeout-overlay"></div>
+            </div>
+            </form>
   </div>
 </div>
 
