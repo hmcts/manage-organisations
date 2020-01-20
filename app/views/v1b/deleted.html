@@ -29,6 +29,38 @@
 
   <h1 class="govuk-heading-xl">Organisations pending activation</h1>
 
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+
+<div class="hmcts-search">
+
+<form action="" method="get">
+
+<div class="govuk-form-group">
+  <label class="govuk-label hmcts-search__label govuk-label--m" for="bill">
+    Search
+  </label>
+
+  <span id="bill-hint" class="govuk-hint hmcts-search__hint ">
+    Search pending organisations by name or unique reference
+  </span>
+
+  <input class="govuk-input hmcts-search__input " id="bill" name="bill" type="search" aria-describedby="bill-hint">
+</div>
+
+<button class="govuk-button hmcts-search__button " data-module="govuk-button">
+  Search
+</button>
+<button class="govuk-button govuk-button--secondary hmcts-search__button" data-module="govuk-button">
+  Reset
+</button>
+
+</form>
+</div>
+</div>
+</div>
+<p>
+
   <form action="/v1b/check-selected">
 
  <!--   {{govukButton({
