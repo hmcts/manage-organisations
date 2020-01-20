@@ -51,7 +51,7 @@
             text: "Name"
           },
           value: {
-            text: "Miamora Limited"
+             html: 'Miamora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           }
         },
         {
@@ -63,18 +63,16 @@
           }
         },
         {
-          key: {
+         key: {
             text: "PBA number"
           },
           value: {
-            text: "PBA556889",
-            html: data['pba-1'],
-            html: data['pba-2']
+            html: 'PBA1234567<br><span class="govuk-caption-m govuk-!-font-size-16">Account name: Account A'
           },
           actions: {
         items: [
           {
-            href: "show-pending-addpba",
+            href: "show-pending-pba",
             text: "Change",
             visuallyHiddenText: "name"
           }
@@ -126,13 +124,13 @@
     }) }}
      <form>
                 {{ govukButton({
-                text: 'Activate organisation',
+                text: 'Approve organisation',
                 href: "/v1b/confirmation"
                 }) }}
            
             
                 {{ govukButton({
-                text: 'Delete pending organisation',
+                text: 'Delete organisation',
                 classes: "govuk-button--secondary",
                 href: "#"
                 }) }}

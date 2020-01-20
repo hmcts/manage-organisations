@@ -51,7 +51,7 @@
             text: "Name"
           },
           value: {
-            text: "Miamora Limited"
+            html: 'Miamora Limited<span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           }
         },
         {
@@ -126,13 +126,13 @@
     }) }}
      <form>
                 {{ govukButton({
-                text: 'Activate organisation',
+                text: 'Approve organisation',
                 href: "/v1b/confirmation"
                 }) }}
            
             
                 {{ govukButton({
-                text: 'Delete pending organisation',
+                text: 'Delete organisation',
                 classes: "govuk-button--secondary",
                 href: "#"
                 }) }}

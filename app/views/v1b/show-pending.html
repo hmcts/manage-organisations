@@ -51,7 +51,7 @@
             text: "Name"
           },
           value: {
-            text: "Speak Law Limited"
+            html: 'Speak Law Limited<span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           }
         },
         {
@@ -124,13 +124,13 @@
     }) }}
      <form>
                 {{ govukButton({
-                text: 'Activate organisation',
+                text: 'Approve organisation',
                 href: "/v1b/show-pending-confirmation"
                 }) }}
            
             
                 {{ govukButton({
-                text: 'Delete pending organisation',
+                text: 'Delete organisation',
                 classes: "govuk-button--secondary",
                 href: "/v1b/show-pending-delete"
                 }) }}

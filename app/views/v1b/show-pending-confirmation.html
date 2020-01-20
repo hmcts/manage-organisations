@@ -51,7 +51,7 @@
             text: "Name"
           },
           value: {
-            text: "Speak Law Limited"
+            html: 'Speak Law Limited<span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           }
         },
         {
@@ -63,13 +63,11 @@
           }
         },
         {
-          key: {
+           key: {
             text: "PBA number"
           },
           value: {
-            text: "PBA1234567,PBA2233444",
-            html: data['pba-1'],
-            html: data['pba-2']
+            html: 'PBA1234567<br><span class="govuk-caption-m govuk-!-font-size-16">Account name: Account A</span>PBA2233444<span class="govuk-caption-m govuk-!-font-size-16">Account name: Account B</span>'
           },
           actions: {
         items: [
@@ -126,13 +124,13 @@
     }) }}
      <form>
                 {{ govukButton({
-                text: 'Activate organisation',
+                text: 'Approve organisation',
                 href: "/v1b/confirmation"
                 }) }}
            
             
                 {{ govukButton({
-                text: 'Delete pending organisation',
+                text: 'Delete organisation',
                 classes: "govuk-button--secondary",
                 href: "/v1b/delete"
                 }) }}
@@ -141,8 +139,8 @@
 
                    <form action="/v1b/confirmation">
                     <div id="timeout-dialog" class="timeout-dialog" role="dialog" aria-labelledby="timeout-message" tabindex="-1" aria-live="polite">
-                        <h1 class="govuk-heading-m push--top">Confirm activation</h1>
-                        <p id="govuk-body" role="text">You are about to activate this registration request.</p>
+                        <h1 class="govuk-heading-m push--top">Confirm approval</h1>
+                        <p id="govuk-body" role="text">You are about to approve this organisation.</p>
                         {{ govukButton({
                         text: "Confirm"
                         }) }}
