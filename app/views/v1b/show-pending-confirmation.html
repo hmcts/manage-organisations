@@ -10,7 +10,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-  href: "/v1b"
+  href: "/v1b/show-pending"
 }) }}
 {% endblock %}
 
@@ -27,20 +27,8 @@
 {% endblock %}
 
 {% block content %}
-<!--
-{% set bannerHtml %}
 
-<p class="govuk-body">This organisation is pending approval.</p>
-{{govukButton({ text: 'Approve', href: '/v1b/show-just-approved', classes: 'govuk-!-margin-bottom-0' })}}
-
-{% endset %}
-
-
-{{ hmctsBanner({
-  html: bannerHtml
-}) }} -->
-
-<h1 class="govuk-heading-xl">Organisation details</h1>
+<h1 class="govuk-heading-xl">Check selected organisation details before approval </h1>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -60,95 +48,25 @@
           },
           value: {
             html: "72 Guild Street<br>London<br>SE23 6FH"
-          }
-        },
-        {
-           key: {
-            text: "PBA number"
-          },
-          value: {
-            html: 'PBA1234567<br><span class="govuk-caption-m govuk-!-font-size-16">Account name: Account A</span>PBA2233444<span class="govuk-caption-m govuk-!-font-size-16">Account name: Account B</span>'
-          },
-          actions: {
-        items: [
-          {
-            href: "show-pending-pba",
-            text: "Change",
-            visuallyHiddenText: "name"
-          }
-        ]
-      }
-        },
-        {
-          key: {
-            text: "DX number"
-          },
-          value: {
-            html: '12345567'
-          }
-        },
-        {
-          key: {
-            text: "DX exchange"
-          },
-          value: {
-            html: '12345567'
-          }
-        },
-        {
-          key: {
-            text: "Administrator"
-          },
-          value: {
-            html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
-          }
-        },
-{
-          key: {
-            text: "SRA ID"
-          },
-          value: {
-            html: 'SRA3347232'
-          },
-          actions: {
-        items: [
-          {
-            href: "show-pending-sra",
-            text: "Change",
-            visuallyHiddenText: "name"
-          }
-        ]
-      }
-        }
+          } },
+           {
+                key: {
+                  text: "Administrator"
+                },
+                value: {
+                  html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+                }
+              }
       ]
     }) }}
-     <form>
+
                 {{ govukButton({
-                text: 'Approve organisation',
+                text: 'Confirm',
                 href: "/v1b/confirmation"
                 }) }}
            
             
-                {{ govukButton({
-                text: 'Delete organisation',
-                classes: "govuk-button--secondary",
-                href: "/v1b/delete"
-                }) }}
-           
-            </form>
 
-                   <form action="/v1b/confirmation">
-                    <div id="timeout-dialog" class="timeout-dialog" role="dialog" aria-labelledby="timeout-message" tabindex="-1" aria-live="polite">
-                        <h1 class="govuk-heading-m push--top">Confirm approval</h1>
-                        <p id="govuk-body" role="text">You are about to approve this organisation.</p>
-                        {{ govukButton({
-                        text: "Confirm"
-                        }) }}
-                        <p id="govuk-body"> <a href="/v1b/show-pending">Cancel</a></p>
-                    </div>
-                    <div id="timeout-overlay" class="timeout-overlay"></div>
-            </div>
-            </form>
   </div>
 </div>
 
