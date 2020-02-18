@@ -10,14 +10,14 @@
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-  href: "/v1b"
+  href: "/v1b/on-hold"
 }) }}
 {% endblock %}
 
 {% block header %}
   {{ super() }}
   {{ hmctsIdentityBar({
-    title: { html: '  Miamora Limited ' + hmctsBadge({ text: 'pending' }) },
+    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'On hold' }) },
     items: [{
       href: '/v1b/show-just-approved',
       text: 'Activate'
@@ -51,7 +51,7 @@
             text: "Name"
           },
           value: {
-            html: 'Miamora Limited<span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+            html: 'Speak Law Limited<span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           }
         },
         {
@@ -67,15 +67,13 @@
             text: "PBA number"
           },
           value: {
-            text: "",
-            html: data['pba-1'],
-            html: data['pba-2']
+            html: 'PBA1234567<br><span class="govuk-caption-m govuk-!-font-size-16">Account name: Account A</span>PBA2233444<span class="govuk-caption-m govuk-!-font-size-16">Account name: Account B</span>'
           },
           actions: {
         items: [
           {
-            href: "show-pending-addpba",
-            text: "Add",
+            href: "#",
+            text: "Change",
             visuallyHiddenText: "name"
           }
         ]
@@ -102,21 +100,21 @@
             text: "Administrator"
           },
           value: {
-            html: 'Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span>'
+            html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
           }
         },
 {
-         key: {
+          key: {
             text: "SRA ID"
           },
           value: {
-            html: ''
+            html: 'SRA3347232'
           },
           actions: {
         items: [
           {
-            href: "show-pending-sra-2",
-            text: "Add",
+            href: "#",
+            text: "Change",
             visuallyHiddenText: "name"
           }
         ]
@@ -124,25 +122,25 @@
         }
       ]
     }) }}
-     <form>
+
                 {{ govukButton({
                 text: 'Approve organisation',
-                href: "#"
+                href: "/v1b/show-on-hold-confirmation"
                 }) }}
-           
-                 {{ govukButton({
+<!--
+                {{ govukButton({
                 text: 'Put on hold',
                 classes: "govuk-button--secondary",
-                href: "#"
+                href: "/v1b/on-hold"
                 }) }}
-
+ -->           
                 {{ govukButton({
                 text: 'Delete organisation',
                 classes: "govuk-button--secondary",
-                href: "#"
+                href: "/v1b/show-on-hold-delete"
                 }) }}
            
-            </form>
+   
   </div>
 </div>
 

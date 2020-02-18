@@ -76,3 +76,21 @@ html.noScroll {
   margin: 0;
   padding: .526315em .789473em .263157em;
 }
+.alert-link__text {
+  text-decoration: underline;
+  display: inline-block;
+  margin-right: govuk-spacing(1);
+}
+
+.alert-link__number {
+  @include govuk-font($size: 16, $line-height: 25px);
+  border-radius: 50%;
+  background-color: #fff;
+  color: govuk-colour('blue');
+  font-weight: bold;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+}

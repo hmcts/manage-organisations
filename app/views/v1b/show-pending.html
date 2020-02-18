@@ -127,7 +127,12 @@
                 text: 'Approve organisation',
                 href: "/v1b/show-pending-confirmation"
                 }) }}
-           
+
+                {{ govukButton({
+                text: 'Put on hold',
+                classes: "govuk-button--secondary",
+                href: "/v1b/on-hold"
+                }) }}
             
                 {{ govukButton({
                 text: 'Delete organisation',

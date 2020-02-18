@@ -1,4 +1,39 @@
 {% extends "./base.html" %}
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{{ hmctsHeader({
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+label: 'Account navigation',
+items: [{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
+}) }}
+{{ hmctsPrimaryNavigation({
+label: 'Primary navigation',
+items: [{
+html: 'Pending approval',
+href: '/v2'
+},
+{
+text: 'On hold',
+href: '/v2/in-progress',
+active: true
+},
+{
+text: 'Approved',
+href: '/v2/approved'
+}]
+}) }}
+{% set searchHtml %}
+{% endset %}
+{% endblock %}
 {% block beforeContent %}
 {{ govukBackLink({
 text: "Back",
@@ -10,28 +45,14 @@ Organisation details
 {% endblock %}
 {% set pageId = 'organisation-details' %}
 {% block content %}
-<!--
-{% set bannerHtml %}
 
-<p class="govuk-body">This organisation is pending approval.</p>
-{{govukButton({ text: 'Approve', href: '/v1/show-just-approved', classes: 'govuk-!-margin-bottom-0' })}}
-
-{% endset %}
-
-
-{{ hmctsBanner({
-  html: bannerHtml
-}) }} -->
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         
-            <h1 class="govuk-heading-xl"><span class="govuk-caption-xl">In progress</span>Speake Limited</h1><div class="hmcts-menu__wrapper">
+            <h1 class="govuk-heading-xl"><span class="govuk-caption-xl">On hold</span>Speake Limited</h1><div class="hmcts-menu__wrapper">
           </div>
                 
         
-      
-        
-
             {{ govukSummaryList({
             rows: [
             {
@@ -90,14 +111,14 @@ Organisation details
                 href: "/v2/confirmation"
                 }) }}
            
-            
+           <!-- 
                 {{ govukButton({
                 text: 'Put on hold',
                 classes: "govuk-button--secondary",
                 href: "/v2/show-pending-on-hold"
                 }) }}
            
-              
+              -->
                 {{ govukButton({
                 text: 'Reject',
                 classes: "govuk-button--secondary",

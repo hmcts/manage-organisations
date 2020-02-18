@@ -4,7 +4,41 @@
 {% block pageTitle %}
   Confirmation
 {% endblock %}
-
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{{ hmctsHeader({
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+label: 'Account navigation',
+items: [{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
+}) }}
+{{ hmctsPrimaryNavigation({
+label: 'Primary navigation',
+items: [{
+html: 'Pending approval',
+href: '/v2',
+active: true
+},
+{
+text: 'On hold',
+href: '/v2/in-progress'
+},
+{
+text: 'Approved',
+href: '/v2/approved'
+}]
+}) }}
+{% set searchHtml %}
+{% endset %}
+{% endblock %}
 {% set mainClasses = "govuk-main-wrapper--l" %}
 
 {% from "panel/macro.njk" import govukPanel %}

@@ -50,39 +50,6 @@
 {% endblock %}
 
 {% block header %}
-  {% include "includes/cookie-banner.html" %}
-  {# Set serviceName in config.js. #}
-  {{ hmctsHeader({
-
-    service: {
-      name: serviceName,
-      url: '/'
-    },
-
-    navigation: {
-      label: 'Account navigation',
-      items: [{
-        text: 'Sign out',
-        href: '/sign-out'
-      }]
-    }
-  }) }}
-
-  {% set searchHtml %}
-   
-  {% endset %}
-
-
-{{ hmctsPrimaryNavigation({
-label: 'Primary navigation',
-items: [{
-text: 'Organisations',
-href: '/v2',
-active: true
-}],
-searchHtml: inlineSearchHtml
-}) }} 
-
 {% endblock %}
 
 {% if useAutoStoreData %}

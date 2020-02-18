@@ -3,30 +3,43 @@
 Organisations
 {% endblock %}
 {% set pageId = 'organisations' %}
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{{ hmctsHeader({
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+label: 'Account navigation',
+items: [{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
+}) }}
+{{ hmctsPrimaryNavigation({
+label: 'Primary navigation',
+items: [{
+html: 'Pending approval',
+href: '/v2'
+},
+{
+text: 'On hold',
+href: '/v2/in-progress'
+},
+{
+text: 'Approved',
+href: '/v2/approved',
+active: true
+}]
+}) }}
+{% set searchHtml %}
+{% endset %}
+{% endblock %}
 {% block content %}
-   {{hmctsSubNavigation({
-        items: [ {
-        text: 'Pending approval',
-        href: '/v2/',
-        active: false
-        }, 
-        {
-        text: 'In progress',
-        href: '/v2/in-progress',
-        active: false
-        }, 
-        {
-        text: 'Approved',
-        href: '/v2/approved',
-        active: true
-        },
-        {
-     text: 'Rejected',
-        href: '/v2/rejected',
-        active: false
-        }
-        ]
-        })}}
+
 {% macro tableLink(params) %}
 <a href="{{params.href}}">{{params.text}}</a>
 {% endmacro %}
@@ -60,7 +73,7 @@ Organisations
 </button>
 
 </form>
-</div> 
+</div> <!--
 <p>
 <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
@@ -162,7 +175,7 @@ Organisations
     </fieldset>
 
   </div>
-
+-->
  
 
 </div>

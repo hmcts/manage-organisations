@@ -3,6 +3,41 @@
 Organisations pending approval
 {% endblock %}
 {% set pageId = 'organisations' %}
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{{ hmctsHeader({
+service: {
+name: serviceName,
+url: '/'
+},
+navigation: {
+label: 'Account navigation',
+items: [{
+text: 'Sign out',
+href: '/sign-out'
+}]
+}
+}) }}
+{{ hmctsPrimaryNavigation({
+label: 'Primary navigation',
+items: [{
+html: 'Pending approval',
+href: '/v2'
+},
+{
+text: 'On hold',
+href: '/v2/in-progress',
+active: true
+},
+{
+text: 'Approved',
+href: '/v2/approved'
+}]
+}) }}
+{% set searchHtml %}
+{% endset %}
+{% endblock %}
 {% block beforeContent %}
 {% endblock %}
 {% macro tableCheckbox(params) %}
@@ -11,41 +46,20 @@ Organisations pending approval
 <a href="{{params.href}}">{{params.text}}</a>
 {% endmacro %}
 {% block content %}
-   {{hmctsSubNavigation({
-        items: [ {
-        text: 'Pending approval',
-        href: '/v2/',
-        active: false
-        }, 
-        {
-        text: 'In progress',
-        href: '/v2/in-progress',
-        active: true
-        }, 
-        {
-        text: 'Approved',
-        href: '/v2/approved',
-        active: false
-        },
-        {
-     text: 'Rejected',
-        href: '/v2/rejected',
-        active: false
-        }
-        ]
-        })}}
+{{ hmctsBanner({
+  html: '3 organisations on hold.',
+  type: 'information',
+  iconFallbackText: 'information'
+}) }}
 <h1 class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold"> <span class="govuk-caption-xl">Organisations</span>
-    In progress
+    On hold
 </h1>
-
-
-
 <form action="/v2/check-selected">
     {{ govukTable({
     head: [
     {
     text: "Reference",
-     attributes: {
+    attributes: {
     "aria-sort": "ascending"}
     },
     {
