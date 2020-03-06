@@ -9,7 +9,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-  href: "/v1b/users"
+  href: "/v1b/admin-pending"
 }) }}
 {% endblock %}
 
@@ -24,7 +24,7 @@
 {% block content %}
 
 
-<h1 class="govuk-heading-xl">Administrator</h1>
+<h1 class="govuk-heading-xl">Pending administrator details</h1>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -45,19 +45,16 @@
                                 <!-- <a href="/manage-admin/users/update-email">Change</a> -->
                             </td>
                         </tr>
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="row">Permissions</th>
-                            <td class="govuk-table__cell">
-                                Manage cases<br>
-                                Manage users<p>
-                                    Manage organisation<br>
-                                    Manage fee accounts
-                            </td>
-                            <td class="govuk-table__cell"></td>
-                        </tr>
+                  
                     </tbody>
                 </table>
-
+<div class="govuk-inset-text">
+  <p>This user has already been invited.</p><p>If you resend an invitation, they'll receive an email from HM Courts & Tribunals to finish setting up their account.</p><p>You can't invite the same user more than once an hour.</p>
+</div>
+{{govukButton({
+        text: 'Resend invitation',
+        href: '/v1b/confirmation-admin'
+        })}}
   </div>
 </div>
 

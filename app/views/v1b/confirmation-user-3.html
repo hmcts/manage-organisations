@@ -1,0 +1,20 @@
+{% extends "./base.html" %}
+{% block pageTitle %}
+Confirmation
+{% endblock %}
+{% set mainClasses = "govuk-main-wrapper--l" %}
+{% from "panel/macro.njk" import govukPanel %}
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ govukPanel({
+        titleText: "You've invited",
+        html: 'timbrock@wedlakebell.com'
+        }) }}
+        <h3 class="govuk-heading-m">What happens next</h3>
+        <p class="govuk-body">
+            The recipient will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
+        <p class="govuk-body"><a href="/v1b/users">Go back to manage users</a></p>
+    </div>
+</div>
+{% endblock %}
