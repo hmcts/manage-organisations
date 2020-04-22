@@ -12,19 +12,19 @@ href: "/v1b/approved"
 {% block header %}
 {{ super() }}
 {{ hmctsIdentityBar({
-title: { html: 'Wedlake Bell ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+title: { html: '  Miamora Limited ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
 }) }}
 {% endblock %}
 {% block content %}
 {{hmctsSubNavigation({
 items: [ {
 text: 'Organisation details',
-href: '/v1b/show',
+href: '/v1b/show-a-2',
 active: true
 },
 {
 text: 'Users',
-href: '/v1b/users',
+href: '/v1b/users-a-2',
 active: false
 }
 ]
@@ -39,7 +39,7 @@ active: false
         text: "Name"
         },
         value: {
-        text: "Wedlake Bell"
+        text: "Miamora Limited"
         }
         },
         {
@@ -88,7 +88,7 @@ active: false
         text: "Administrator"
         },
         value: {
-        html: 'Peter Gold<br><span class="govuk-caption-m govuk-!-font-size-16">peter.gold@wedlakebell.com</span>'
+        html: 'Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span>'
         }
         },
         {
@@ -110,7 +110,11 @@ active: false
         }
         ]
         }) }}
-    
+    {{ govukButton({
+  text: "Delete organisation",
+  classes: "govuk-button--secondary",
+  href: "/v1b/show-approved-delete"
+}) }}
     </div>
 </div>
 {% endblock %}
