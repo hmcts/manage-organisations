@@ -4,153 +4,201 @@ GOV.UK Prototype Kit
 {% endblock %}
 {% block content %}
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">
-            Approve organisations
-        </h1>
-        <p>
-            This is the prototype for HMCTS staff to manage organisational data. Also known as professional reference data.
-        </p>
-        <h2 class="govuk-heading-m">Latest wireframe additions</h2>
-        <ul class="govuk-list">
-            <li><span class="govuk-!-font-weight-bold">Whats new:</span></li>
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Approve organisations
+    </h1>
+    <p>
+      This is the prototype for HMCTS staff to manage organisational data. Also known as professional reference data.
+    </p>
+    <h2 class="govuk-heading-m">Latest wireframe additions</h2>
+    <ul class="govuk-list">
+      <li><span class="govuk-!-font-weight-bold">Whats new:</span></li>
+      <p></p>
+      <li><span class="govuk-!-font-weight-bold">Caseworker admin</span></li>
+      <li><a href="/v1b/cwa">Caseworker admin control - upload</a>
+        <br><span class="form-hint">refdata/case-worker/upload-file</span>
+      </li>
+      <li><a href="/v1b/cwa-confirmation">Caseworker admin control - confirmation</a>
+        <br><span class="form-hint">refdata/case-worker/upload-file</span>
+      </li>
+
+      <li><a href="/v1b/cwa-error-1">Error scenario 1</a>
+        <br><span class="form-hint">EUI-2998</span>
+      </li>
+
+      <li><a href="/v1b/cwa-error-2">Error scenario 2</a>
+        <br><span class="form-hint">EUI-2998</span>
+      </li>
+      <li><a href="/v1b/cwa-error-3">Error scenario 3</a>
+        <br><span class="form-hint">EUI-2998</span>
+      </li>
+
+      <li><a href="/v1b/cwa-error-4">Error scenario 4</a>
+        <br><span class="form-hint">EUI-2998</span>
+      </li>
+
+      <li><a href="/v1b/cwa-error-5">Error scenario 5</a>
+        <br><span class="form-hint">EUI-2998</span>
+      </li>
+
+      <li><a href="/v1b/cwa-error-6">Error scenario 6</a>
+        <br><span class="form-hint">EUI-2998</span>
+      </li>
+      <li><a href="/v1b/cwa-error-7">Error scenario 7</a>
+        <br><span class="form-hint">EUI-2998</span>
+      </li>
+      <p></p>
+      <li><span class="govuk-!-font-weight-bold">Organisations</span></li>
+      <p></p>
+
+      <ul class="govuk-list govuk-list--bullet">
 
 
-            <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/v1b/show-a-2">Delete an Active organisation - With administrator only (no users) </a>
+          <br><span class="form-hint">EUI- Delete organisation button added to active organisation where only user is administrator</span>
+        </li>
 
 
- <li><a href="/v1b/show-a-2">Delete an Active organisation - With administrator only (no users) </a>
-                    <br><span class="form-hint">EUI- Delete organisation button added to active organisation where only user is administrator</span></li>
+        <li><a href="/v1b/approved-admin-pending">Active organisation - With pending administrator </a>
+          <br><span class="form-hint">EUI-, Admin has lost their setup account email and needs to be resent</span>
+        </li>
+
+        <li><a href="/v1b/users">Active organisation - With pending user </a>
+          <br><span class="form-hint">EUI-, Admin has lost their setup account email and needs to be resent</span>
+        </li>
 
 
- <li><a href="/v1b/approved-admin-pending">Active organisation - With pending administrator </a>
-                    <br><span class="form-hint">EUI-, Admin has lost their setup account email and needs to be resent</span></li>
-
-                     <li><a href="/v1b/users">Active organisation - With pending user </a>
-                    <br><span class="form-hint">EUI-, Admin has lost their setup account email and needs to be resent</span></li>
-
-
- <li><a href="/v1b/users-service-down">Active organisation - With users - Service down </a>
-                    <br><span class="form-hint">EUI-, unable to view users of an active organisation</span></li>
-<li><a href="/v1b/user-service-down">Active organisation - User - service down</a>
-                    <br><span class="form-hint">EUI-, unable to view specific user of an active organisation </span></li>
+        <li><a href="/v1b/users-service-down">Active organisation - With users - Service down </a>
+          <br><span class="form-hint">EUI-, unable to view users of an active organisation</span>
+        </li>
+        <li><a href="/v1b/user-service-down">Active organisation - User - service down</a>
+          <br><span class="form-hint">EUI-, unable to view specific user of an active organisation </span>
+        </li>
 
 
 
-                 <li><a href="/v1b/">Pending & Active organisation - Search</a>
-                    <br><span class="form-hint">EUI-1274 Search and EUI-1389 Reset, interim implementation of search added to Pending and Active organisation pages.</span></li>
-                    <li><a href="/v1b/users">Active organisation - With users </a>
-                    <br><span class="form-hint">EUI-1355, view users of an active organisation</span></li>
-                    <li><a href="/v1b/user">Active organisation - User all permissions </a>
-                    <br><span class="form-hint">EUI-1355, view users of an active organisation</span></li>
-                     <li><a href="/v1b/user-2">Active organisation - Limited permissions </a>
+        <li><a href="/v1b/">Pending & Active organisation - Search</a>
+          <br><span class="form-hint">EUI-1274 Search and EUI-1389 Reset, interim implementation of search added to Pending and Active organisation pages.</span>
+        </li>
+        <li><a href="/v1b/users">Active organisation - With users </a>
+          <br><span class="form-hint">EUI-1355, view users of an active organisation</span>
+        </li>
+        <li><a href="/v1b/user">Active organisation - User all permissions </a>
+          <br><span class="form-hint">EUI-1355, view users of an active organisation</span>
+        </li>
+        <li><a href="/v1b/user-2">Active organisation - Limited permissions </a>
           <!--          <br><span class="form-hint">EUI-1355, view users of an active organisation</span></li>
  <li><a href="/v1b/show-2">Active organisation - Without users </a> -->
-                    <br><span class="form-hint">EUI-1355, no active users</span></li>
-<li><a href="/v1b/show-pending">Pending organisation - Change </a>
-                    <br><span class="form-hint">EUI-1351 / EUI-1335, Change SRA ID</span></li>
-                    <li><a href="/v1b/show-pending-nopba">Pending organisation - Add</a>
-                    <br><span class="form-hint">EUI-1351 / EUI-1335, Add SRA ID</span></li>
-                    
+          <br><span class="form-hint">EUI-1355, no active users</span>
+        </li>
+        <li><a href="/v1b/show-pending">Pending organisation - Change </a>
+          <br><span class="form-hint">EUI-1351 / EUI-1335, Change SRA ID</span>
+        </li>
+        <li><a href="/v1b/show-pending-nopba">Pending organisation - Add</a>
+          <br><span class="form-hint">EUI-1351 / EUI-1335, Add SRA ID</span>
+        </li>
 
-                    <li><a href="/v1b/">View organisations pending activation</a>
-                    <br><span class="form-hint">EUI-1285, Pending Organisations first page when you log in to AO</span></li>
 
-                <li><a href="/v1b/">View organisations pending activation</a><br>
-                    <span class="form-hint">EUI-371, Replaced check-boxes with radio buttons<br> EUI-371, Removed ability to select all<br>EUI-371, Renamed CTA button to 'Activate organisation'</span>
-                </li>
+        <li><a href="/v1b/">View organisations pending activation</a>
+          <br><span class="form-hint">EUI-1285, Pending Organisations first page when you log in to AO</span>
+        </li>
 
-                <li><a href="/v1b/show-pending">Change PBA number - Pending organisation</a>
-                </li>
-                <li><a href="/v1b/show">Change PBA number - Active organisation</a>
-                </li>
-                <li><a href="/v1b/show-pending-nopba">Add PBA number - Pending organisation</a>
-                </li>
-                </li>
-                <li><a href="/v1b/show-pending-pba-error">Error message PBA number - Pending organisation</a><br>
-                    <span class="form-hint">EUI-974, sceanario 1</span>
-                </li>
-                <li><a href="/v1b/show-pending-pba-error-nochange">Error message PBA number no changes made- Pending organisation</a><br>
-                    <span class="form-hint">EUI-974, sceanario 2</span>
-                </li>
-                <li><a href="/v1b/show-pending-pba-error-existing">Error message PBA number - already exists</a><br>
-                    <span class="form-hint">EUI-1076, sceanario 1</span>
-                </li>
-                <li><a href="/v1b/show-pending-pba-error-request">Error message PBA number - couldn't complete request</a><br>
-                    <span class="form-hint">EUI-1076, sceanario 1</span>
-                </li>
-                <li><a href="/v1b/show-pending-pba-error-wrong-format">Error message PBA number - wrong format</a><br>
-                    <span class="form-hint">EUI-1076, sceanario 2</span>
-                </li>
-            </ul>
-            <p>
-                <h2 class="govuk-heading-l">Latest wireframe</h2>
-                {% set iterationTwoHtml %}
-                <p class="govuk-body">Removed ability for administrator to approve multiple organisations at a time. Pending organisation has been made the default screen. </p>
-                <ul class="govuk-list">
-                    <li><a href="/v1b">View prototype</a><br>
-                    <li><a href="/v1b/approved">View approved organisations</a></li>
-                </ul>
-                {% endset %}
-                {{ govukDetails({
+        <li><a href="/v1b/">View organisations pending activation</a><br>
+          <span class="form-hint">EUI-371, Replaced check-boxes with radio buttons<br> EUI-371, Removed ability to select all<br>EUI-371, Renamed CTA button to 'Activate organisation'</span>
+        </li>
+
+        <li><a href="/v1b/show-pending">Change PBA number - Pending organisation</a>
+        </li>
+        <li><a href="/v1b/show">Change PBA number - Active organisation</a>
+        </li>
+        <li><a href="/v1b/show-pending-nopba">Add PBA number - Pending organisation</a>
+        </li>
+        </li>
+        <li><a href="/v1b/show-pending-pba-error">Error message PBA number - Pending organisation</a><br>
+          <span class="form-hint">EUI-974, sceanario 1</span>
+        </li>
+        <li><a href="/v1b/show-pending-pba-error-nochange">Error message PBA number no changes made- Pending organisation</a><br>
+          <span class="form-hint">EUI-974, sceanario 2</span>
+        </li>
+        <li><a href="/v1b/show-pending-pba-error-existing">Error message PBA number - already exists</a><br>
+          <span class="form-hint">EUI-1076, sceanario 1</span>
+        </li>
+        <li><a href="/v1b/show-pending-pba-error-request">Error message PBA number - couldn't complete request</a><br>
+          <span class="form-hint">EUI-1076, sceanario 1</span>
+        </li>
+        <li><a href="/v1b/show-pending-pba-error-wrong-format">Error message PBA number - wrong format</a><br>
+          <span class="form-hint">EUI-1076, sceanario 2</span>
+        </li>
+      </ul>
+      <p>
+      <h2 class="govuk-heading-l">Latest wireframe</h2>
+      {% set iterationTwoHtml %}
+      <p class="govuk-body">Removed ability for administrator to approve multiple organisations at a time. Pending organisation has been made the default screen. </p>
+      <ul class="govuk-list">
+        <li><a href="/v1b">View prototype</a><br>
+        <li><a href="/v1b/approved">View approved organisations</a></li>
+      </ul>
+      {% endset %}
+      {{ govukDetails({
                 summaryHtml: "Iteration 2",
                 html: iterationTwoHtml
                 }) }}
-                <h2 class="govuk-heading-l">Work in progress</h2>
-                {% set iterationTwoHtml %}
-                <p class="govuk-body">Updated UI<br>Updated sub pages affected by change to UI after ability for administrator to approve multiple organisations at a time was removed</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li><a href="/v2/index">Organisations - landing page</a>
-                        <br>
-                        <span class="form-hint">Reamed service to 'Approve organisations' (UI Refinement)</span><br>
-                    </li>
-                    <li><a href="/v2/show">View activate organisation details</a>
-                        <br>
-                        <span class="form-hint">Added back button to top of page (UI Refinement)
-                            <br>Removed grey banner (UI Refinement)<br>
-                            Renamed page title to 'Details of active organisation' (UI Refinement)</span>
-                    </li>
-                    <li><a href="/v2/pending">View organisations pending activation</a>
-                        <br>
-                        <span class="form-hint">Removed radio buttons (UI Refinement)<br>Removed CTA button (UI Refinement)</span>
-                    </li>
-                    <li><a href="/v2/show-pending">View pending organisation details</a>
-                        <br>
-                        <span class="form-hint">Added back button to top of page (UI Refinement)
-                            <br>Removed grey banner (UI Refinement)<br>
-                            Renamed page title 'Details of pending organisation' (UI Refinement)<br>
-                            Added CTA button 'Approve organisation' to bottom of page UI Refinement)</span>
-                    </li>
-                    </li>
-                    <li><a href="#">Activate organisation</a>
-                        <span class="form-hint">
-                            <br>Removed page (UI Refinement)<br>
-                            Activate is now perfomed from (View)<br>
-                        </span>
-                    </li>
-                    <li><a href="/v2/confirmation">Confirmation</a>
-                        <span class="form-hint">
-                            <br>Renamed green confirmation box text to 'Organisation approved successfully' to reflect singlular action (UI Refinement)<br>
-                            Updated what happens next text to singular 'administrator' (UI Refinement)
-                        </span>
-                    </li>
-                </ul>
-                {% endset %}
-                {{ govukDetails({
+      <h2 class="govuk-heading-l">Work in progress</h2>
+      {% set iterationTwoHtml %}
+      <p class="govuk-body">Updated UI<br>Updated sub pages affected by change to UI after ability for administrator to approve multiple organisations at a time was removed</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/v2/index">Organisations - landing page</a>
+          <br>
+          <span class="form-hint">Reamed service to 'Approve organisations' (UI Refinement)</span><br>
+        </li>
+        <li><a href="/v2/show">View activate organisation details</a>
+          <br>
+          <span class="form-hint">Added back button to top of page (UI Refinement)
+            <br>Removed grey banner (UI Refinement)<br>
+            Renamed page title to 'Details of active organisation' (UI Refinement)</span>
+        </li>
+        <li><a href="/v2/pending">View organisations pending activation</a>
+          <br>
+          <span class="form-hint">Removed radio buttons (UI Refinement)<br>Removed CTA button (UI Refinement)</span>
+        </li>
+        <li><a href="/v2/show-pending">View pending organisation details</a>
+          <br>
+          <span class="form-hint">Added back button to top of page (UI Refinement)
+            <br>Removed grey banner (UI Refinement)<br>
+            Renamed page title 'Details of pending organisation' (UI Refinement)<br>
+            Added CTA button 'Approve organisation' to bottom of page UI Refinement)</span>
+        </li>
+        </li>
+        <li><a href="#">Activate organisation</a>
+          <span class="form-hint">
+            <br>Removed page (UI Refinement)<br>
+            Activate is now perfomed from (View)<br>
+          </span>
+        </li>
+        <li><a href="/v2/confirmation">Confirmation</a>
+          <span class="form-hint">
+            <br>Renamed green confirmation box text to 'Organisation approved successfully' to reflect singlular action (UI Refinement)<br>
+            Updated what happens next text to singular 'administrator' (UI Refinement)
+          </span>
+        </li>
+      </ul>
+      {% endset %}
+      {{ govukDetails({
                 summaryHtml: "Iteration 3",
                 html: iterationTwoHtml
                 }) }}
-                <h2 class="govuk-heading-l">Historic iterations</h2>
-                {% set iterationOneHtml %}
-                <p class="govuk-body">First version lets users approve an organisation—either in bulk or one at a time. You can't deactivate an account yet.</p>
-                <ul class="govuk-list">
-                    <li><a href="/v1">View prototype</a></li>
-                </ul>
-                {% endset %}
-                {{ govukDetails({
+      <h2 class="govuk-heading-l">Historic iterations</h2>
+      {% set iterationOneHtml %}
+      <p class="govuk-body">First version lets users approve an organisation—either in bulk or one at a time. You can't deactivate an account yet.</p>
+      <ul class="govuk-list">
+        <li><a href="/v1">View prototype</a></li>
+      </ul>
+      {% endset %}
+      {{ govukDetails({
                 summaryHtml: "Iteration 1",
                 html: iterationOneHtml
                 }) }}
-    </div>
+  </div>
 </div>
 {% endblock %}

@@ -74,8 +74,17 @@
       text: 'Organisations',
       href: '/v1b',
       active: pageId == 'organisations'
+      },
+      {
+      active: pageId == 'organisations',
+      text: 'Caseworker admin',
+      href: '/v1b/cwa',
+      active: pageId == 'cwa'
     }]
+
   }) }}
+
+
 {% endblock %}
 
 {% if useAutoStoreData %}
