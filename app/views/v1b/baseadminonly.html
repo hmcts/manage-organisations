@@ -51,14 +51,37 @@
 {% block header %}
   {% include "includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
-    serviceUrl: "/ssss",
-    containerClasses: "govuk-width-container"
-  }) }}
-{% endblock %}
+  {{ hmctsHeader({
 
+    service: {
+      name: serviceName,
+      url: '/'
+    },
+
+    navigation: {
+      label: 'Account navigation',
+      items: [{
+        text: 'Sign out',
+        href: '/sign-out'
+      }]
+    }
+
+  }) }}
+
+  {{ hmctsPrimaryNavigation({
+    label: 'Primary navigation',
+    items: [
+      {
+          active: pageId == 'organisations',
+          text: 'Caseworker details',
+          href: '/v1b/cwa',
+          active: pageId == 'cwa'
+    }]
+
+  }) }}
+
+
+{% endblock %}
 
 {% if useAutoStoreData %}
   {% block footer %}

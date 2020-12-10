@@ -71,15 +71,25 @@
   {{ hmctsPrimaryNavigation({
     label: 'Primary navigation',
     items: [{
-      text: 'Organisations',
-      href: '/v1b',
-      active: pageId == 'organisations'
+          text: 'Task list',
+          href: '/v1b',
+          active: pageId == '#'
       },
       {
-      active: pageId == 'organisations',
-      text: 'Caseworker admin',
-      href: '/v1b/cwa',
-      active: pageId == 'cwa'
+          text: 'Task manager',
+          href: '/v1b',
+          active: pageId == '#'
+      },
+      {
+          text: 'Organisations',
+          href: '/v1b',
+          active: pageId == 'organisations'
+      },
+      {
+          active: pageId == 'organisations',
+          text: 'Caseworker details',
+          href: '/v1b/cwa',
+          active: pageId == 'cwa'
     }]
 
   }) }}

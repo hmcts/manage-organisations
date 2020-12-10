@@ -11,44 +11,59 @@ GOV.UK Prototype Kit
     <p>
       This is the prototype for HMCTS staff to manage organisational data. Also known as professional reference data.
     </p>
-    
+
     <h2 class="govuk-heading-m">Latest wireframe additions</h2>
     <ul class="govuk-list">
-      <li><span class="govuk-!-font-weight-bold">Whats new:</span></li>
-      <p></p>
+
+      <li><span class="govuk-!-font-weight-bold">Whats new:</span></li> <br>
+
+
       <li><span class="govuk-!-font-weight-bold">Caseworker admin</span></li>
-      <li><a href="/v1b/cwa">Caseworker admin control - upload</a>
-        <br><span class="form-hint">refdata/case-worker/upload-file</span>
-      </li>
-      <li><a href="/v1b/cwa-confirmation">Caseworker admin control - confirmation</a>
-        <br><span class="form-hint">refdata/case-worker/upload-file</span>
+
+      <li><a href="/v1b/caseworkerdetails?anerror=false&uploaderror=0&">Upload</a><br>
+        <!--<span class="form-hint">refdata/case-worker/upload-file</span>-->
       </li>
 
-      <li><a href="/v1b/cwa-error-1">Error scenario 1</a>
-        <br><span class="form-hint">EUI-2998</span>
+      <li><a href="/v1b/caseworkerdetails-confirmation">Success confirmation</a>
+        <!--<span class="form-hint">refdata/case-worker/upload-file</span>-->
       </li>
 
-      <li><a href="/v1b/cwa-error-2">Error scenario 2</a>
-        <br><span class="form-hint">EUI-2998</span>
-      </li>
-      <li><a href="/v1b/cwa-error-3">Error scenario 3</a>
-        <br><span class="form-hint">EUI-2998</span>
+      <li><br><a href="/v1b/caseworkerdetails?uploaderror=1&anerror=true&">Error scenario 1</a>
+        - File not selected<br>
       </li>
 
-      <li><a href="/v1b/cwa-error-4">Error scenario 4</a>
-        <br><span class="form-hint">EUI-2998</span>
+      <li><a href="/v1b/caseworkerdetails?uploaderror=2&anerror=true&">Error scenario 2</a>
+        - File not password protected  (error code 400)<br>
       </li>
 
-      <li><a href="/v1b/cwa-error-5">Error scenario 5</a>
-        <br><span class="form-hint">EUI-2998</span>
+      <li><a href="/v1b/caseworkerdetails?uploaderror=3&anerror=true&">Error scenario 3</a>
+        - File is not of correct excel format (error code 400)  <br>
       </li>
 
-      <li><a href="/v1b/cwa-error-6">Error scenario 6</a>
-        <br><span class="form-hint">EUI-2998</span>
+      <li><a href="/v1b/caseworkerdetails?uploaderror=4&anerror=true&">Error scenario 4</a>
+        - Header validation failure (error code 400)<br>
       </li>
+
+      <li><a href="/v1b/caseworkerdetails?uploaderror=5&anerror=false&">Error scenario 5</a>
+        - Internal server error (Service Unavailable) (error code 500)<br>
+      </li>
+
+      <li><a href="/v1b/caseworkerdetails?uploaderror=6&anerror=false&">Error scenario 6</a>
+        - User authentication failure (error code 401 or 403) <br>
+      </li>
+
+      <!--<li><a href="/v1b/cwa-error-6">Error scenario 6</a>
+        - User authentication  <br>
+      </li>-->
+
+      <!--
       <li><a href="/v1b/cwa-error-7">Error scenario 7</a>
-        <br><span class="form-hint">EUI-2998</span>
-      </li>
+        - File not password protected  (error code 400) - EUI-2998 <br>
+      </li>-->
+
+
+      <br>
+      <br>
       <p></p>
       <li><span class="govuk-!-font-weight-bold">Organisations</span></li>
       <p></p>

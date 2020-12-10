@@ -1,0 +1,241 @@
+{% extends "./baseadminonly.html" %}
+
+{% block pageTitle %}
+  Case worker admin
+{% endblock %}
+
+{% set pageId = 'cwa' %}
+
+
+{% macro tableCheckbox(params) %}
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="{{params.id}}" name="{{params.name}}" type="radio" value="{{params.value}}">
+    <label class="govuk-label govuk-radios__label" for="{{params.id}}"></label>
+  </div>
+{% endmacro %}
+
+{% macro tableLink(params) %}
+  <a href="{{params.href}}">{{params.text}}</a>
+{% endmacro %}
+
+{% block content %}
+
+
+{% if   data.anerror == 'true'  %}
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+            <li>
+                {% if data.uploaderror == '1' %}
+                    <a href="#uploadarea">You need to select a file to upload. Try again.</a>
+                {% elif data.uploaderror == '2' %}
+                    <a href="#uploadarea">You can only upload a file with a valid password. Try again.</a>
+                {% elif data.uploaderror == '3' %}
+                    <a href="#uploadarea">You can only upload xlsx files. Check it’s saved in the correct format. Try again.</a>
+                {% elif data.uploaderror == '4' %}
+                    <a href="#uploadarea">The template is missing some column headers. Review and upload again.</a>
+                {% elif data.uploaderror == '7' %}
+                    <a href="#uploadarea">PLACEHOLDR: SOME RECORDS DIDN'T UPDATE</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</div>
+{% endif %}
+
+
+
+{% if data.uploaderror == '5' %}
+
+    <h1 class="govuk-heading-l">Sorry, there is a problem with the service.</h1>
+
+    <p class="govuk-body">Try again later.</p>
+
+{% elif data.uploaderror == '6' %}
+
+    <h1 class="govuk-heading-l">Sorry, you're not authorised to perform this action.</h1>
+
+    <p class="govuk-body">Try again later??????????????????????</p>
+
+{% elif data.uploaderror == '7' %}
+<!-- Partial success -->
+    <h1 class="govuk-heading-l">PLACEHOLDER: Reupload what failed</h1>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+
+            <p class="govuk-body">You’ll need to update the missing information in the template and upload it again.</p>
+            <p class="govuk-body">PLACEHOLDR: Remove all rows that uploaded ok the first time??????  Guy isn't sure.</p>
+
+            <p class="govuk-body">The file uploaded with the following errors:</p>
+
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header" style="width:40px;">Row</th>
+                    <th scope="col" class="govuk-table__header">Field</th>
+                    <th scope="col" class="govuk-table__header" style="width:400px;">Error description</th>
+                </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td scope="row" class="govuk-table__cell">2</td>
+                    <td class="govuk-table__cell">First name</td>
+                    <td class="govuk-table__cell">Empty cell</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td scope="row" class="govuk-table__cell">5</td>
+                    <td class="govuk-table__cell">Primary location</td>
+                    <td class="govuk-table__cell">Empty cell</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td scope="row" class="govuk-table__cell">6</td>
+                    <td class="govuk-table__cell">Primary location</td>
+                    <td class="govuk-table__cell">Empty cell</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="file-upload-1">
+                    <strong>Upload file</strong>
+                </label>
+                <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+            </div>
+
+            <br>
+
+            {{ govukButton({
+            text: 'Upload',
+            href: "/v1b/cwa-confirmation"
+            }) }}
+
+        </div>
+    </div>
+
+{% else %}
+
+        <h1 class="govuk-heading-l">Caseworker details</h1>
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-three-quarters">
+
+                <p class="govuk-body">You can add, update or delete existing caseworker details. For example, their name, role and location.</p>
+
+                <p class="govuk-body">You can do this by:</p>
+
+                <ol class="govuk-body">
+                    <li><a href="#">Downloading the caseworker details template</a> You’ll need a password to open this file. Contact XXYYZZ if you don’t have access.</li>
+                    <li>Add, update or delete the caseworker details.</li>
+                    <li>Select and upload the updated template.</li>
+                </ol>
+
+                <p class="govuk-body">You’ll then be able to view the updates in your Task list and Task manager within the Manage Cases application.</p>
+
+                <!-- <p class="govuk-body">Please add the relevant caseworker information in the excel sheet and upload the file.</p>  -->
+
+                {% if data.anerror == 'true' %}
+                    <div class="govuk-form-group  govuk-form-group--error" id="uploadarea">
+                        <label class="govuk-label" for="file-upload-1"><strong>
+                            Upload file</strong>
+                        </label>
+
+                        {% if data.uploaderror == '1' %}
+                            <span id="" class="govuk-error-message">
+                              <span class="govuk-visually-hidden">Error:</span> You need to select a file to upload. Try again.
+                            </span>
+                        {% elif data.uploaderror == '2' %}
+                            <span id="" class="govuk-error-message">
+                              <span class="govuk-visually-hidden">Error:</span> You can only upload a file with a valid password. Try again.
+                            </span>
+                        {% elif data.uploaderror == '3' %}
+                            <span id="" class="govuk-error-message">
+                              <span class="govuk-visually-hidden">Error:</span> You can only upload xlsx files. Check it’s saved in the correct format. Try again.
+                            </span>
+                        {% elif data.uploaderror == '4' %}
+                            <span id="" class="govuk-error-message">
+                              <span class="govuk-visually-hidden">Error:</span> The template is missing some column headers. Review and upload again.
+                            </span>
+                        {% endif %}
+
+                {% else %}
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="file-upload-1"><strong>
+                            Upload file</strong>
+                        </label>
+                {% endif %}
+                    <!--<div id="passport-issued-hint" class="govuk-hint">
+                 The file must be a password protected xlsx or xls and not exceed (x) MB
+               </div> -->
+                    <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+                </div>
+
+                <br>
+
+                {{ govukButton({
+                text: 'Upload',
+                href: "/v1b/cwa-confirmation"
+                }) }}
+
+            </div>
+        </div>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+<form method="post"  action="#" class="for4" style=" float: left; margin-top: 50px;">
+    <select style="height:25px;" onchange="window.location.href='?'+this.value">
+
+        <option value="anerror=false&uploaderror=0&"
+                {% if data.anerror == 'false' %}selected{% endif %}
+        >Default</option>
+
+        <option value="uploaderror=1&anerror=true&"
+                {% if data.uploaderror == '1' and  data.anerror == 'true' %}selected{% endif %}
+        >Error 1 - File not selected</option>
+
+        <option value="uploaderror=2&anerror=true&"
+                {% if data.uploaderror == '2' and  data.anerror == 'true' %}selected{% endif %}
+        >Error 2 - File not password protected</option>
+
+        <option value="uploaderror=3&anerror=true&"
+                {% if data.uploaderror == '3' and  data.anerror == 'true' %}selected{% endif %}
+        >Error 3 - File is not of correct excel format</option>
+
+        <option value="uploaderror=4&anerror=true&"
+                {% if data.uploaderror == '4' and  data.anerror == 'true' %}selected{% endif %}
+        >Error 4 - Header validation failure</option>
+
+        <option value="uploaderror=5&anerror=false&"
+                {% if data.uploaderror == '5' and  data.anerror == 'false' %}selected{% endif %}
+        >Error 5 - Header validation failure</option>
+
+        <option value="uploaderror=6&anerror=false&"
+                {% if data.uploaderror == '6'  and  data.anerror == 'false'%}selected{% endif %}
+        >Error 6 - User authentication failure</option>
+
+        <option value="uploaderror=7&anerror=true&"
+                {% if data.uploaderror == '7'  and  data.anerror == 'true'%}selected{% endif %}
+        >Partial success</option>
+
+
+
+    </select>
+</form>
+
+
+{% endblock %}
