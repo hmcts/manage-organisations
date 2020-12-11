@@ -4,6 +4,7 @@
     <list default="true" id="bd653fd4-557a-436d-a7ad-300aaabb3f8b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/v1b/caseworkerdetails.html" afterPath="$PROJECT_DIR$/app/views/v1b/caseworkerdetails.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/v1b/cwa-confirmation.html" afterPath="$PROJECT_DIR$/app/views/v1b/cwa-confirmation.html" />
     </list>
     <ignored path="manage-organisations.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,7 +28,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.1923075">
+            <state vertical-scroll-proportion="-15.692307">
               <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
               <folding>
                 <marker date="1607609547828" expanded="true" signature="7254:7356" placeholder="{&quot;summaryHtml&quot;: &quot;Iteration 2&quot;...}" />
@@ -41,26 +42,16 @@
       <file leaf-file-name="caseworkerdetails.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/v1b/caseworkerdetails.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3321033">
-              <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.31523642">
+              <caret line="224" column="34" selection-start-line="224" selection-start-column="34" selection-end-line="224" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#form#0;n#div#3;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#select#0;n#form#0;n#div#3;n#!!top" expanded="true" />
-                <marker date="1607678322977" expanded="true" signature="4473:4558" placeholder="{&quot;text&quot;: 'Upload'...}" />
-                <marker date="1607678322977" expanded="true" signature="7877:7974" placeholder="{&quot;text&quot;: 'Upload'...}" />
+                <marker date="1607683159560" expanded="true" signature="4473:4558" placeholder="{&quot;text&quot;: 'Upload'...}" />
+                <marker date="1607683159560" expanded="true" signature="7877:7974" placeholder="{&quot;text&quot;: 'Upload'...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/v1b/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -78,8 +69,8 @@
         <option value="$PROJECT_DIR$/app/views/v1b/baseadminonly.html" />
         <option value="$PROJECT_DIR$/app/views/v1b/cwa.html" />
         <option value="$PROJECT_DIR$/app/views/v1b/cwa-auth-error.html" />
-        <option value="$PROJECT_DIR$/app/views/v1b/cwa-confirmation.html" />
         <option value="$PROJECT_DIR$/app/views/index.html" />
+        <option value="$PROJECT_DIR$/app/views/v1b/cwa-confirmation.html" />
         <option value="$PROJECT_DIR$/app/views/v1b/caseworkerdetails.html" />
       </list>
     </option>
@@ -126,6 +117,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -200,8 +193,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -313,6 +304,49 @@
     <entry file="file://$PROJECT_DIR$/app/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+          <folding>
+            <marker date="1607609547828" expanded="true" signature="7254:7356" placeholder="{&quot;summaryHtml&quot;: &quot;Iteration 2&quot;...}" />
+            <marker date="1607609547828" expanded="true" signature="9481:9583" placeholder="{&quot;summaryHtml&quot;: &quot;Iteration 3&quot;...}" />
+            <marker date="1607609547828" expanded="true" signature="9964:10066" placeholder="{&quot;summaryHtml&quot;: &quot;Iteration 1&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/v1b/caseworkerdetails.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#form#0;n#div#3;n#!!top" expanded="true" />
+            <marker date="1607683159560" expanded="true" signature="4473:4558" placeholder="{&quot;text&quot;: 'Upload'...}" />
+            <marker date="1607683159560" expanded="true" signature="7877:7974" placeholder="{&quot;text&quot;: 'Upload'...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../fees-and-payments-new/app/views/pbaandcardpayment/solicitor/ccdentercasereference.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/v1b/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <marker date="1607609547828" expanded="true" signature="7254:7356" placeholder="{&quot;summaryHtml&quot;: &quot;Iteration 2&quot;...}" />
@@ -331,8 +365,8 @@
             <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#form#0;n#div#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#select#0;n#form#0;n#div#3;n#!!top" expanded="true" />
-            <marker date="1607678322977" expanded="true" signature="4473:4558" placeholder="{&quot;text&quot;: 'Upload'...}" />
-            <marker date="1607678322977" expanded="true" signature="7877:7974" placeholder="{&quot;text&quot;: 'Upload'...}" />
+            <marker date="1607683159560" expanded="true" signature="4473:4558" placeholder="{&quot;text&quot;: 'Upload'...}" />
+            <marker date="1607683159560" expanded="true" signature="7877:7974" placeholder="{&quot;text&quot;: 'Upload'...}" />
           </folding>
         </state>
       </provider>
@@ -404,24 +438,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/v1b/cwa-confirmation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.807692">
-          <caret line="41" column="123" selection-start-line="41" selection-start-column="123" selection-end-line="41" selection-end-column="123" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/v1b/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.1923075">
+        <state vertical-scroll-proportion="-15.692307">
           <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
           <folding>
             <marker date="1607609547828" expanded="true" signature="7254:7356" placeholder="{&quot;summaryHtml&quot;: &quot;Iteration 2&quot;...}" />
@@ -431,17 +450,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../fees-and-payments-new/app/views/pbaandcardpayment/solicitor/ccdentercasereference.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02977233">
+          <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/v1b/cwa-confirmation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/v1b/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02977233">
+          <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/v1b/caseworkerdetails.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3321033">
-          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.31523642">
+          <caret line="224" column="34" selection-start-line="224" selection-start-column="34" selection-end-line="224" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#form#0;n#div#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#select#0;n#form#0;n#div#3;n#!!top" expanded="true" />
-            <marker date="1607678322977" expanded="true" signature="4473:4558" placeholder="{&quot;text&quot;: 'Upload'...}" />
-            <marker date="1607678322977" expanded="true" signature="7877:7974" placeholder="{&quot;text&quot;: 'Upload'...}" />
+            <marker date="1607683159560" expanded="true" signature="4473:4558" placeholder="{&quot;text&quot;: 'Upload'...}" />
+            <marker date="1607683159560" expanded="true" signature="7877:7974" placeholder="{&quot;text&quot;: 'Upload'...}" />
           </folding>
         </state>
       </provider>
