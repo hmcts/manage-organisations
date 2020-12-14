@@ -21,34 +21,109 @@
 {% block content %}
 
 
-    <div class="govuk-grid-row">
-<div class="govuk-grid-column-two-thirds">
-        <div class="govuk-panel govuk-panel--confirmation">
-          <h1 class="govuk-panel__title">
-              Upload successful
-          </h1>
-          <div class="govuk-panel__body">
-            <br><strong></strong>
-          </div>
-        </div>
 
-        <p class="govuk-body"></p>
+{% if data.partialsuccess != 'true' %}
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <div class="govuk-panel govuk-panel--confirmation">
+                      <h1 class="govuk-panel__title">
+                          Upload successful
+                      </h1>
+                      <div class="govuk-panel__body">
+                        <br><strong></strong>
+                      </div>
+                </div>
 
-        <h2 class="govuk-heading-m">What happens next</h2>
+                <p class="govuk-body"></p>
 
-        <p class="govuk-body">It can take [x amount of time] for the caseworker details to be updated.</p>
+                <h2 class="govuk-heading-m">What happens next</h2>
 
-        <p class="govuk-body">
-            You can view the updates in your Task list and Task manager within the <a href="#">Manage Cases application</a>
+                <p class="govuk-body">It can take [x amount of time] for the caseworker details to be updated.</p>
+
+                <p class="govuk-body">
+                    You’ll now be able to assign tasks to your colleagues <a href="#">using the Manage Cases application</a>.
+                </p>
+
+                <p class="govuk-body">
+                  <a href="#" class="govuk-link"></a>
+                </p>
+            </div>
+         </div>
+
+{% elif data.partialsuccess == 'true' %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+
+        <h1 class="govuk-heading-l">Some of the records weren’t updated </h1>
+
+        <p class="govuk-body">X records were created or amended <br>
+            X records were deleted <br>
+            X records failed to upload <br>
         </p>
 
-        <p class="govuk-body">
-          <a href="#" class="govuk-link"></a>
-        </p>
-  </div>
- </div>
+        <h3 class="govuk-heading-m">What went wrong </h3>
+
+        <p class="govuk-body">The file uploaded with the following errors:</p>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header" style="width:40px;">Row</th>
+                <th scope="col" class="govuk-table__header">Field</th>
+                <th scope="col" class="govuk-table__header" style="width:400px;">Error description</th>
+            </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">2</td>
+                <td class="govuk-table__cell">First name</td>
+                <td class="govuk-table__cell">Empty cell</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">5</td>
+                <td class="govuk-table__cell">Primary location</td>
+                <td class="govuk-table__cell">Empty cell</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">6</td>
+                <td class="govuk-table__cell">Primary location</td>
+                <td class="govuk-table__cell">Empty cell</td>
+            </tr>
+            </tbody>
+        </table>
 
 
+        <h3 class="govuk-heading-m">What you need to do</h3>
+        <p class="govuk-body">You’ll need to update the missing information.</p>
+        <p class="govuk-body">Once all the details in the template are correct, you’ll need to <a href="/v1b/caseworkerdetails?anerror=false&uploaderror=0&">upload it again</a>.</p>
+
+
+    </div>
+</div>
+
+
+
+{% endif %}
+
+
+
+
+<form method="post"  action="#" class="for4" style=" float: left; margin-top: 50px;">
+    <select style="height:25px;" onchange="window.location.href='?'+this.value">
+
+        <option value="partialsuccess=false&"
+                {% if data.partialsuccess != 'true' %}selected{% endif %}
+        >Full success</option>
+
+        <option value="partialsuccess=true&"
+                {% if data.partialsuccess == 'true' %}selected{% endif %}
+        >Partial success</option>
+
+    </select>
+</form>
 
 
 

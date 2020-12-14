@@ -58,66 +58,10 @@
 
     <h1 class="govuk-heading-l">Sorry, you're not authorised to perform this action.</h1>
 
-    <p class="govuk-body">Try again later??????????????????????</p>
+    <p class="govuk-body"></p>
 
 {% elif data.uploaderror == '7' %}
 <!-- Partial success -->
-    <h1 class="govuk-heading-l">Caseworker details</h1>
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-three-quarters">
-
-
-
-            <p class="govuk-body">The file uploaded with the following errors:</p>
-
-            <table class="govuk-table">
-                <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header" style="width:40px;">Row</th>
-                    <th scope="col" class="govuk-table__header">Field</th>
-                    <th scope="col" class="govuk-table__header" style="width:400px;">Error description</th>
-                </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                    <td scope="row" class="govuk-table__cell">2</td>
-                    <td class="govuk-table__cell">First name</td>
-                    <td class="govuk-table__cell">Empty cell</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td scope="row" class="govuk-table__cell">5</td>
-                    <td class="govuk-table__cell">Primary location</td>
-                    <td class="govuk-table__cell">Empty cell</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td scope="row" class="govuk-table__cell">6</td>
-                    <td class="govuk-table__cell">Primary location</td>
-                    <td class="govuk-table__cell">Empty cell</td>
-                </tr>
-                </tbody>
-            </table>
-
-            <p class="govuk-body">You’ll need to update the missing information. You should also remove all rows that loaded successfully the first time. (?)</p>
-            <p class="govuk-body">Once all the details in the template are correct, you’ll need to upload it again.</p>
-
-
-            <div class="govuk-form-group"  id="uploadarea">
-                <label class="govuk-label" for="file-upload-1">
-                    <strong>Upload file</strong>
-                </label>
-                <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
-            </div>
-
-            <br>
-
-            {{ govukButton({
-            text: 'Upload',
-            href: "/v1b/cwa-confirmation"
-            }) }}
-
-        </div>
-    </div>
 
 {% else %}
 
@@ -131,12 +75,12 @@
                 <p class="govuk-body">You can do this by:</p>
 
                 <ol class="govuk-body">
-                    <li><a href="#">Downloading the caseworker details template</a> You’ll need a password to open this file. Contact XXYYZZ if you don’t have access.</li>
-                    <li>Adding, updating or deleting the caseworker details.</li>
+                    <li><a href="#">Open your existing caseworker details spreadsheet. Alternatively, find out <a href="#"> how to create a template </a>.</li>
+                    <li>Add, update or delete the caseworker details.</li>
                     <li>Selecting and uploading the updated template.</li>
                 </ol>
 
-                <p class="govuk-body">You’ll then be able to view the updates in your Task list and Task manager within the Manage Cases application.</p>
+                <p class="govuk-body">You’ll then be able to assign tasks to your colleagues using the Manage Cases application.</p>
 
                 <!-- <p class="govuk-body">Please add the relevant caseworker information in the excel sheet and upload the file.</p>  -->
 
@@ -180,7 +124,7 @@
 
                 {{ govukButton({
                 text: 'Upload',
-                href: "/v1b/cwa-confirmation"
+                href: "/v1b/cwa-confirmation?partialsuccess=false&"
                 }) }}
 
             </div>
@@ -228,10 +172,12 @@
                 {% if data.uploaderror == '6'  and  data.anerror == 'false'%}selected{% endif %}
         >Error 6 - User authentication failure</option>
 
+
+        <!--
         <option value="uploaderror=7&anerror=true&"
                 {% if data.uploaderror == '7'  and  data.anerror == 'true'%}selected{% endif %}
         >Partial success</option>
-
+        -->
 
 
     </select>
