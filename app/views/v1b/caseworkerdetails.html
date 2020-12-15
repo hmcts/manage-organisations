@@ -34,7 +34,7 @@
                 {% elif data.uploaderror == '2' %}
                     <a href="#uploadarea">You can only upload a file with a valid password. Try again.</a>
                 {% elif data.uploaderror == '3' %}
-                    <a href="#uploadarea">You can only upload xlsx files. Check it’s saved in the correct format and try again.</a>
+                    <a href="#uploadarea">You can only upload xlsx  or xls files. Check it’s saved in the correct format and try again.</a>
                 {% elif data.uploaderror == '4' %}
                     <a href="#uploadarea">The template is missing some column headers. Review and upload again.</a>
                 {% elif data.uploaderror == '7' %}
@@ -75,8 +75,8 @@
                 <p class="govuk-body">You can do this by:</p>
 
                 <ol class="govuk-body">
-                    <li><a href="#">Open your existing caseworker details spreadsheet. Alternatively, find out <a href="#"> how to create a template </a>.</li>
-                    <li>Add, update or delete the caseworker details.</li>
+                    <li>Opening your existing caseworker details spreadsheet. You can <a href="#"> find out how to create a template</a>.</li>
+                    <li>Updating the caseworker details.</li>
                     <li>Selecting and uploading the updated template.</li>
                 </ol>
 
@@ -100,7 +100,7 @@
                             </span>
                         {% elif data.uploaderror == '3' %}
                             <span id="" class="govuk-error-message">
-                              <span class="govuk-visually-hidden">Error:</span> You can only upload xlsx files. Check it’s saved in the correct format and try again.
+                              <span class="govuk-visually-hidden">Error:</span> You can only upload xlsx or xls files. Check it’s saved in the correct format and try again.
                             </span>
                         {% elif data.uploaderror == '4' %}
                             <span id="" class="govuk-error-message">
