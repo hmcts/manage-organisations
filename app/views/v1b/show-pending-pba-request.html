@@ -4,7 +4,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-  href: "/v1b/show-pending"
+  href: "/v1b/approve-changes"
 }) }}
 {% endblock %}
 
@@ -17,7 +17,7 @@
 {% block header %}
   {{ super() }}
   {{ hmctsIdentityBar({
-    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'pending' }) },
+    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'approved' }) },
     items: [{
       href: '/v1b/show-just-approved',
       text: 'Activate'
@@ -68,8 +68,20 @@
 
             <br />
             {{ govukButton({
-            text: 'Submit',
+            text: 'Approve change',
             href: "/v1b/show-pending-confirmation"
+            }) }}
+
+            {{ govukButton({
+            text: 'Put on hold',
+            classes: "govuk-button--secondary",
+            href: "/v1b/on-hold"
+            }) }}
+        
+            {{ govukButton({
+            text: 'Reject change',
+            classes: "govuk-button--secondary",
+            href: "/v1b/show-pending-delete"
             }) }}
        
 
