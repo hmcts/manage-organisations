@@ -20,13 +20,6 @@
 
 {% block content %}
 
-{{ hmctsBanner({
-  html: '40 organisations are now active. <a href="/v1b/approved">Check now</a>.',
-  type: 'information',
-  iconFallbackText: 'information'
-}) }}
-
-
   <h1 class="govuk-heading-xl">Pending approval</h1>
 
   <div class="govuk-grid-row">
@@ -376,17 +369,24 @@
     {{ govukTabs({
       items: [
         {
-          label: "New registrations",
+          label: "New registrations (40)",
           id: "new-regs",
           panel: {
             html: newRegs
           }
         },
         {
-          label: "Change requests",
+          label: "Change requests (2)",
           id: "change-reqs",
           panel: {
             html: changeReqs
+          }
+        },
+        {
+          label: "Active organisations (47)",
+          id: "active",
+          panel: {
+            html: newRegs
           }
         }
       ]
