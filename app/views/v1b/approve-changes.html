@@ -304,7 +304,7 @@
     {% set changeReqs %}
     <form action="/v1b/check-selected">
 
-      <h2 class="govuk-heading-l">Change requests</h2>
+      <h2 class="govuk-heading-l">New PBAs</h2>
       {{ govukTable({
         head: [
          
@@ -312,7 +312,7 @@
             text: "Organisation"
           },
           {
-            text: "Change type"
+            text: "Address"
           },
           {
             text: "Administrator"
@@ -329,7 +329,7 @@
               html: 'Speak Law Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
             },
             {
-              html: "New PBA number"
+              html: "72 Guild Street<br>London<br>SE23 6FH"
             },
             {
               html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
@@ -347,7 +347,7 @@
               html: 'Miamora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
             },
             {
-              html: "New PBA number"
+              html: "72 Guild Street<br>London<br>SE23 6FH"
             },
             {
               html: 'Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span>'
@@ -376,7 +376,7 @@
           }
         },
         {
-          label: "Change requests (2)",
+          label: "New PBAs (2)",
           id: "change-reqs",
           panel: {
             html: changeReqs
