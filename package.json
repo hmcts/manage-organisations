@@ -45,7 +45,10 @@
     "require-dir": "^1.0.0",
     "sync-request": "^6.0.0",
     "universal-analytics": "^0.4.16",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "nunjucks-date-filter": "^0.1.1",
+    "standard": "^12.0.1",
+    "supertest": "^3.0.0"
   },
   "greenkeeper": {
     "ignore": [
