@@ -83,6 +83,9 @@
           },
           {
             text: "Status"
+          },
+          {
+            text: ""
           }
         ],
         rows: [
@@ -101,10 +104,10 @@
               html: now | date( 'subtract', 3, 'days') | date
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: govukTag({ text: "On hold", classes: "govuk-tag--grey" })
             },
             {
-              html: hmctsBadge({ text: 'On hold', classes: 'hmcts-badge--dark-grey' })
+              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
             }
           ],
           [
@@ -122,10 +125,10 @@
               html: now | date( 'subtract', 3, 'days') | date
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending-nopba"})
+              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: hmctsBadge({ text: 'Pending'})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
             }
           ],
           [
@@ -141,6 +144,9 @@
             },
             {
               html: now | date( 'subtract', 3, 'days') | date
+            },
+            {
+              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
               html: tableLink({ text: 'View', href: "/v1b/show-pending"})
@@ -161,6 +167,9 @@
               html: now | date( 'subtract', 2, 'days') | date
             },
             {
+              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
+            },
+            {
               html: tableLink({ text: 'View', href: "/v1b/show-pending"})
             }
           ],
@@ -177,6 +186,9 @@
             },
             {
               html: now | date( 'subtract', 2, 'days') | date
+            },
+            {
+              html: govukTag({ text: "On hold", classes: "govuk-tag--grey" })
             },
             {
               html: tableLink({ text: 'View', href: "/v1b/show-pending"})
@@ -197,6 +209,9 @@
               html: now | date( 'subtract', 2, 'days') | date
             },
             {
+              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
+            },
+            {
               html: tableLink({ text: 'View', href: "/v1b/show-pending"})
             }
           ],
@@ -213,6 +228,9 @@
             },
             {
               html: now | date( 'subtract', 1, 'days') | date
+            },
+            {
+              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
               html: tableLink({ text: 'View', href: "/v1b/show-pending"})
@@ -233,6 +251,9 @@
               html: now | date( 'subtract', 1, 'days') | date
             },
             {
+              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
+            },
+            {
               html: tableLink({ text: 'View', href: "/v1b/show-pending"})
             }
           ],
@@ -248,7 +269,10 @@
               html: 'Mama Tora<br><span class="govuk-caption-m govuk-!-font-size-16">mama@mora.com</span>'
             },
             {
-              html: now | date( 'subtract', 1, 'days') | date
+              html: now | date
+            },
+            {
+              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
               html: tableLink({ text: 'View', href: "/v1b/show-pending"})
@@ -266,7 +290,10 @@
               html: 'Lee Laurel<br><span class="govuk-caption-m govuk-!-font-size-16">lee@law.com</span>'
             },
             {
-              html: now | date( 'subtract', 1, 'days') | date
+              html: now | date
+            },
+            {
+              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
               html: tableLink({ text: 'View', href: "/v1b/show-pending"})
@@ -326,6 +353,12 @@
           },
           {
             text: "Date received"
+          },
+          {
+            text: "Status"
+          },
+          {
+            text: ""
           }
         ],
         rows: [
@@ -342,6 +375,9 @@
             },
             {
               html: now | date( 'subtract', 3, 'days') | date
+            },
+            {
+              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
               html: tableLink({ text: 'View', href: "/v1b/show-pending-pba-request"})
@@ -361,6 +397,9 @@
             {
               html: now | date( 'subtract', 2, 'days') | date
             },
+            {
+              html: govukTag({ text: "On hold", classes: "govuk-tag--grey" })
+            },  
             {
               html: tableLink({ text: 'View', href: "/v1b/show-pending-pba-request"})
             }

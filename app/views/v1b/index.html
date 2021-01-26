@@ -116,7 +116,10 @@
             html: 'Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span>'
           },
           {
-            html: hmctsBadge({ text: 'Pending'})
+            {{govukTag({
+              text: "Inactive",
+              classes: "govuk-tag--grey"
+            })}}
           },
           {
             html: tableLink({ text: 'View', href: "/v1b/show-pending-nopba"})
