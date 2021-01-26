@@ -80,6 +80,9 @@
           },
           {
             text: "Date received"
+          },
+          {
+            text: "Status"
           }
         ],
         rows: [
@@ -99,6 +102,9 @@
             },
             {
               html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+            },
+            {
+              html: hmctsBadge({ text: 'On hold', classes: 'hmcts-badge--dark-grey' })
             }
           ],
           [
@@ -117,6 +123,9 @@
             },
             {
               html: tableLink({ text: 'View', href: "/v1b/show-pending-nopba"})
+            },
+            {
+              html: hmctsBadge({ text: 'Pending'})
             }
           ],
           [

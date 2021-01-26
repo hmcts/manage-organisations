@@ -86,7 +86,9 @@ middleware.forEach(func => app.use(func))
 var appViews = extensions.getAppViews([
   path.join(__dirname, '/app/views/'),
   path.join(__dirname, '/lib/'),
-  path.join(__dirname, '/node_modules/@hmcts/frontend/components')
+  path.join(__dirname, '/node_modules/@hmcts/frontend/components'),
+  path.join(__dirname, '/node_modules/govuk-frontend/govuk/'),
+  path.join(__dirname, '/node_modules/govuk-frontend/govuk/components')
 ])
 
 var nunjucksConfig = {
@@ -113,9 +115,8 @@ app.set('view engine', 'html')
 app.use('/public', express.static(path.join(__dirname, '/public')))
 
 // Serve govuk-frontend in from node_modules (so not to break pre-extenstions prototype kits)
-app.use('/node_modules/govuk-frontend', express.static(path.join(__dirname, '/node_modules/govuk-frontend')))
-
-
+app.use('/node_modules/govuk-frontend', express.static(path.join(__dirname, '/node_modules/govuk-frontend/govuk')))
+app.use('/assets', express.static(path.join(__dirname, 'node_modules', 'govuk-frontend', 'govuk', 'assets')));
 app.use('/hmcts-assets', express.static(path.join(__dirname, 'node_modules', '@hmcts', 'frontend', 'assets')));
 app.use('/node_modules/hmcts-frontend', express.static(path.join(__dirname, '/node_modules/@hmcts/frontend')));
 
@@ -123,8 +124,8 @@ app.use('/node_modules/hmcts-frontend', express.static(path.join(__dirname, '/no
 // Set up documentation app
 if (useDocumentation) {
   var documentationViews = [
-    path.join(__dirname, '/node_modules/govuk-frontend/'),
-    path.join(__dirname, '/node_modules/govuk-frontend/components'),
+    path.join(__dirname, '/node_modules/govuk-frontend/govuk/'),
+    path.join(__dirname, '/node_modules/govuk-frontend/govuk/components'),
     path.join(__dirname, '/docs/views/'),
     path.join(__dirname, '/lib/')
   ]

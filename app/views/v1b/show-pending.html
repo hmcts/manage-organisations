@@ -123,23 +123,43 @@
       ]
     }) }}
 
-                {{ govukButton({
-                text: 'Approve organisation',
-                href: "/v1b/show-pending-confirmation"
-                }) }}
 
-                {{ govukButton({
-                text: 'Put on hold',
-                classes: "govuk-button--secondary",
-                href: "/v1b/on-hold"
-                }) }}
-            
-                {{ govukButton({
-                text: 'Delete organisation',
-                classes: "govuk-button--secondary",
-                href: "/v1b/show-pending-delete"
-                }) }}
-           
+    <br />
+    
+    {{ govukRadios({
+      classes: "govuk-radios",
+      idPrefix: "decision",
+      name: "decision",
+      fieldset: {
+        legend: {
+          text: "What would you like to do with this registration?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "approve",
+          text: "Approve it"
+        },
+        {
+          value: "Reject",
+          text: "Reject it"
+        },
+        {
+          value: "hold",
+          text: "Put it on hold pending further investigation"
+        }
+      ]
+    }) }}
+
+
+    <br />
+    {{ govukButton({
+    text: 'Submit',
+    href: "/v1b/show-pending-confirmation"
+    }) }}
+
    
   </div>
 </div>

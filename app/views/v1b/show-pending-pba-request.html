@@ -55,30 +55,34 @@
           <p>Speak Law Limited</p>
         </div>
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h1 class="govuk-fieldset__heading">
-                Is this the same organisation?
-              </h1>
-            </legend>
-            <div class="govuk-radios govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="changed-name">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="changed-name-2">
-                  No
-                </label>
-              </div>
-            </div>
 
-          </fieldset>
-        </div>
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "decision",
+          name: "decision",
+          fieldset: {
+            legend: {
+              text: "What would you like to do with this request?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "approve",
+              text: "Approve it"
+            },
+            {
+              value: "Reject",
+              text: "Reject it"
+            },
+            {
+              value: "hold",
+              text: "Put it on hold pending further investigation"
+            }
+          ]
+        }) }}
+
 
         <input type="hidden" name="pba-number" value="PBA3541892" />
 
