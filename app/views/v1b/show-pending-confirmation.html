@@ -30,7 +30,20 @@
 
 <h1 class="govuk-heading-xl">Check your decision</h1>
 
-{{ decision }}
+
+  {% if data['decision'] == 'approve' %}
+  {% set strValue = 'Approve the registration' %}
+  
+  {% elseif data['decision'] == 'reject'  %}
+  {% set strValue = 'Reject the registration' %}
+
+  {% else %}
+  {% set strValue = 'Put the registration on hold' %}
+
+  {% endif %}
+    
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     {{ govukSummaryList({
@@ -47,7 +60,9 @@
           key: {
             text: "Decision"
           },
-          value: data['decision']
+          value: {
+           text: strValue
+          }
         }
       ]
     }) }}
