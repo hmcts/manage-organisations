@@ -28,8 +28,9 @@
 
 {% block content %}
 
-<h1 class="govuk-heading-xl">Check selected organisation details before approval </h1>
+<h1 class="govuk-heading-xl">Check your decision</h1>
 
+{{ decision }}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     {{ govukSummaryList({
@@ -39,31 +40,22 @@
             text: "Name"
           },
           value: {
-            html: 'Speak Law Limited<span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+            html: 'Speak Law Limited'
           }
         },
         {
           key: {
-            text: "Address"
+            text: "Decision"
           },
-          value: {
-            html: "72 Guild Street<br>London<br>SE23 6FH"
-          } },
-           {
-                key: {
-                  text: "Administrator"
-                },
-                value: {
-                  html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
-                }
-              }
+          value: data['decision']
+        }
       ]
     }) }}
 
-                {{ govukButton({
-                text: 'Confirm',
-                href: "/v1b/confirmation"
-                }) }}
+    {{ govukButton({
+    text: 'Confirm',
+    href: "/v1b/confirmation"
+    }) }}
            
             
 

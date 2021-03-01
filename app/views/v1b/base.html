@@ -70,16 +70,7 @@
 
   {{ hmctsPrimaryNavigation({
     label: 'Primary navigation',
-    items: [{
-          text: 'Task list',
-          href: '/v1b',
-          active: pageId == '#'
-      },
-      {
-          text: 'Task manager',
-          href: '/v1b',
-          active: pageId == '#'
-      },
+    items: [
       {
           text: 'Organisations',
           href: '/v1b',
@@ -87,7 +78,7 @@
       },
       {
           active: pageId == 'organisations',
-          text: 'Caseworker details',
+          text: 'Staff details',
           href: '/v1b/cwa',
           active: pageId == 'cwa'
     }]
@@ -105,6 +96,10 @@
           {
             href: "https://govuk-prototype-kit.herokuapp.com/",
             text: "GOV.UK Prototype Kit " + releaseVersion
+          },
+          {
+            href: "/prototype-admin/view-data",
+            text: "View data"
           },
           {
             href: "/prototype-admin/clear-data",

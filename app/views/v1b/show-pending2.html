@@ -40,9 +40,6 @@
   html: bannerHtml
 }) }} -->
 
-
-<form action="show-pending-confirmation">
-
 <h1 class="govuk-heading-xl">Approve organisation</h1>
 
 <div class="govuk-grid-row">
@@ -58,7 +55,7 @@
             text: "Name"
           },
           value: {
-            html: 'Speak Law Limited'
+            html: 'Speak Law Limited<span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
           }
         },
         {
@@ -88,7 +85,6 @@
         }
       ]
     }) }}
-
 
     <br />
 
@@ -121,47 +117,11 @@
       </div>
     </dl>
 
-    <br />
 
-    <h3 class="govuk-heading-m">PBAs</h3>
-
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          PBA number<br /><br />Name on PBA
-        </dt>
-        <dd class="govuk-summary-list__value">
-          PBA646761<br /><br />
-          Speake Law Ltd
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> name</span>
-          </a>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          PBA number<br /><br />Name on PBA
-        </dt>
-        <dd class="govuk-summary-list__value">
-          PBA6843131<br /><br />
-          Slater & Gordon Ltd
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="show-pending-pba">
-            Change<span class="govuk-visually-hidden"> name</span>
-          </a>
-        </dd>
-      </div>
-    </dl>
-
-    <br />
-    
     {{ govukRadios({
       classes: "govuk-radios",
-      idPrefix: "decision",
-      name: "decision",
+      idPrefix: "decision1",
+      name: "decision1",
       fieldset: {
         legend: {
           text: "What would you like to do with this registration?",
@@ -187,14 +147,117 @@
 
 
     <br />
+
+        <br />
+        <h3 class="govuk-heading-m">PBA accounts</h3>
+        <hr />
+
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              PBA number<br /><br />Name on PBA
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PBA646761<br /><br />
+              Speake Law Ltd
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "decision2",
+          name: "decision2",
+          fieldset: {
+            legend: {
+              text: "What would you like to do with this PBA account?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "approve",
+              text: "Approve it"
+            },
+            {
+              value: "Reject",
+              text: "Reject it"
+            },
+            {
+              value: "hold",
+              text: "Put it on hold pending further investigation"
+            }
+          ]
+        }) }}
+
+        <br />
+        <hr />
+
+        <br />
+
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              PBA number<br /><br />Name on PBA
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PBA6843131<br /><br />
+              Slater & Gordon Ltd
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "decision3",
+          name: "decision3",
+          fieldset: {
+            legend: {
+              text: "What would you like to do with this PBA account?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "approve",
+              text: "Approve it"
+            },
+            {
+              value: "Reject",
+              text: "Reject it"
+            },
+            {
+              value: "hold",
+              text: "Put it on hold pending further investigation"
+            }
+          ]
+        }) }}
+
+        <br />
+
+    <br />
+    
+
+    <br />
     {{ govukButton({
-      text: 'Submit'
+    text: 'Submit',
+    href: "/v1b/show-pending-confirmation"
     }) }}
 
    
   </div>
 </div>
-
-</form>
 
 {% endblock %}
