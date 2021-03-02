@@ -22,6 +22,34 @@
 
   <h1 class="govuk-heading-xl">Pending approval</h1>
 
+  {% if data['action'] == 'approve' %}
+
+  {{ hmctsBanner({
+    type: 'success',
+    text: 'Registration approved',
+    iconFallbackText: 'Success'
+  }) }} 
+
+  {% elseif data['action'] == 'reject' %}
+
+  {{ hmctsBanner({
+    type: 'success',
+    text: 'Registration rejected',
+    iconFallbackText: 'Success'
+  }) }} 
+
+  {% elseif data['action'] == 'hold' %}
+
+  {{ hmctsBanner({
+    type: 'success',
+    text: 'Registration put on hold',
+    iconFallbackText: 'Success'
+  }) }} 
+
+  {% endif %}
+
+  {% set data = [] %}
+
   <div class="govuk-grid-row">
       <div class="govuk-grid-column-three-quarters">
 
@@ -107,7 +135,7 @@
               html: govukTag({ text: "On hold", classes: "govuk-tag--grey" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -128,7 +156,7 @@
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -149,7 +177,7 @@
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -170,7 +198,7 @@
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -191,7 +219,7 @@
               html: govukTag({ text: "On hold", classes: "govuk-tag--grey" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -212,7 +240,7 @@
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -233,7 +261,7 @@
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -254,7 +282,7 @@
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -275,7 +303,7 @@
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -296,7 +324,7 @@
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ]
         ]
@@ -380,7 +408,7 @@
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending-pba-request"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending-pba-request?action="})
             }
           ],
           [
@@ -401,7 +429,7 @@
               html: govukTag({ text: "On hold", classes: "govuk-tag--grey" })
             },  
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending-pba-request"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending-pba-request?action="})
             }
           ]
         ]
@@ -451,7 +479,7 @@
               html: now | date
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -487,7 +515,7 @@
               html: now | date
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -505,7 +533,7 @@
               html: now | date
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -523,7 +551,7 @@
               html: now | date( 'subtract', 1, 'days') | date
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -541,7 +569,7 @@
               html: now | date( 'subtract', 1, 'days') | date
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -559,7 +587,7 @@
               html: now | date( 'subtract', 1, 'days') | date
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -577,7 +605,7 @@
               html: now | date( 'subtract', 1, 'days') | date
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -595,7 +623,7 @@
               html: now | date( 'subtract', 1, 'days') | date
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ],
           [
@@ -613,7 +641,7 @@
               html: now | date( 'subtract', 2, 'days') | date
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending"})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
             }
           ]
         ]

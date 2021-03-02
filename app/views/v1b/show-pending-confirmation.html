@@ -30,10 +30,10 @@
 
 <h1 class="govuk-heading-xl">Check your decision</h1>
 
-
+<form method="post" action="/v1b" >
   {% if data['decision'] == 'approve' %}
   {% set strValue = 'Approve the registration' %}
-  
+
   {% elseif data['decision'] == 'reject'  %}
   {% set strValue = 'Reject the registration' %}
 
@@ -41,40 +41,40 @@
   {% set strValue = 'Put the registration on hold' %}
 
   {% endif %}
-    
 
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    {{ govukSummaryList({
-      rows: [
-        {
-          key: {
-            text: "Name"
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              html: 'Speak Law Limited'
+            }
           },
-          value: {
-            html: 'Speak Law Limited'
+          {
+            key: {
+              text: "Decision"
+            },
+            value: {
+             text: strValue
+            }
           }
-        },
-        {
-          key: {
-            text: "Decision"
-          },
-          value: {
-           text: strValue
-          }
-        }
-      ]
-    }) }}
+        ]
+      }) }}
 
-    {{ govukButton({
-    text: 'Confirm',
-    href: "/v1b/confirmation"
-    }) }}
-           
-            
+      <input type="hidden" name="action" value="{{ data['decision'] }}" />
 
+      {{ govukButton({
+        text: 'Confirm'
+      }) }}
+                  
+
+    </div>
   </div>
-</div>
+
+</form>
 
 {% endblock %}
