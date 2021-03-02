@@ -20,7 +20,7 @@
 
 {% block content %}
 
-  <h1 class="govuk-heading-xl">Pending approval</h1>
+  <h1 class="govuk-heading-xl">Organisation approvals</h1>
 
   {% if data['action'] == 'approve' %}
 
@@ -126,27 +126,6 @@
         ],
         rows: [
           [
-           
-            {
-              html: 'Speak Law Limited'
-            },
-            {
-              html: "72 Guild Street<br>London<br>SE23 6FH<br /><span class='govuk-caption-m govuk-!-font-size-16'>+ 1 other</span>"
-            },
-            {
-              html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
-            },
-            {
-              html: now | date( 'subtract', 3, 'days') | date('D MMM YYYY')
-            },
-            {
-              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
-            },
-            {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
-            }
-          ],
-          [
          
             {
               html: 'Cuthbert & Smith Limited'
@@ -156,6 +135,27 @@
             },
             {
               html: 'Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span>'
+            },
+            {
+              html: now | date( 'subtract', 3, 'days') | date('D MMM YYYY')
+            },
+            {
+              html: govukTag({ text: "On hold", classes: "govuk-tag--grey" })
+            },
+            {
+              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
+            }
+          ],
+          [
+           
+            {
+              html: 'Speak Law Limited'
+            },
+            {
+              html: "72 Guild Street<br>London<br>SE23 6FH<br /><span class='govuk-caption-m govuk-!-font-size-16'>+ 1 other</span>"
+            },
+            {
+              html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
             },
             {
               html: now | date( 'subtract', 3, 'days') | date('D MMM YYYY')
@@ -182,7 +182,7 @@
               html: now | date( 'subtract', 3, 'days') | date('D MMM YYYY')
             },
             {
-              html: govukTag({ text: "On hold", classes: "govuk-tag--grey" })
+              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
               html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
@@ -645,7 +645,7 @@
     {{ govukTabs({
       items: [
         {
-          label: "New registrations (40)",
+          label: "New registrations (130)",
           id: "new-regs",
           panel: {
             html: newRegs
