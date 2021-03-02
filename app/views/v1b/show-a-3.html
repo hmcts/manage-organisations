@@ -1,52 +1,35 @@
-
 {% extends "./base.html" %}
-
-
 {% block pageTitle %}
-  Organisation details
+Organisation details
 {% endblock %}
-
 {% set pageId = 'organisation-details' %}
 {% block beforeContent %}
 {{ govukBackLink({
-  text: "Back",
-  href: "/v1b"
+text: "Back",
+href: "/v1b#active"
 }) }}
 {% endblock %}
-
 {% block header %}
-  {{ super() }}
-  {{ hmctsIdentityBar({
-    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'pending' }) },
-    items: [{
-      href: '/v1b/show-just-approved',
-      text: 'Activate'
-    }]
-  }) }}
-
+{{ super() }}
+{{ hmctsIdentityBar({
+title: { html: '  Miamora Limited ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+}) }}
 {% endblock %}
-
 {% block content %}
-<!--
-{% set bannerHtml %}
+{{hmctsSubNavigation({
+items: [ {
+text: 'Organisation details',
+href: '/v1b/show-a-2',
+active: true
+},
+{
+text: 'Users',
+href: '/v1b/users-a-2',
+active: false
+}
+]
+})}}
 
-<p class="govuk-body">This organisation is pending approval.</p>
-{{govukButton({ text: 'Approve', href: '/v1b/show-just-approved', classes: 'govuk-!-margin-bottom-0' })}}
-
-{% endset %}
-
-
-{{ hmctsBanner({
-  html: bannerHtml
-}) }} -->
-
-
-<form action="show-pending-confirmation">
-
-<h1 class="govuk-heading-xl">Approve organisation</h1>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
 
 
     <h3 class="govuk-heading-m">Organisation details</h3>
@@ -58,7 +41,7 @@
             text: "Name"
           },
           value: {
-            html: 'Speak Law Limited'
+            html: 'Earl & Crooker'
           }
         },
         {
@@ -66,7 +49,7 @@
             text: "SRA ID"
           },
           value: {
-            html: 'SRA3347232'
+            html: 'SRA7123232'
           },
           actions: {
             items: [
@@ -83,12 +66,11 @@
             text: "Administrator"
           },
           value: {
-            html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+            html: 'Jimmy Vernon<br><span class="govuk-caption-m govuk-!-font-size-16">jimmy@gmail.com</span>'
           }
         }
       ]
     }) }}
-
 
     <br />
 
@@ -100,8 +82,11 @@
           Address<br /><br /><br /><br />DX 
         </dt>
         <dd class="govuk-summary-list__value">
-          72 Guild Street<br>London<br>SE23 6FH<br /><br />
-          12348, Westminster
+          2 Bakers Yard<br />
+          Uxbridge<br />
+          Middlesex<br />
+          UB8 1JZ<br /><br />
+          12348, Middlesex
 
         </dd>
         <dd class="govuk-summary-list__actions">
@@ -112,8 +97,32 @@
           Address<br /><br /><br /><br />DX 
         </dt>
         <dd class="govuk-summary-list__value">
-          654 High Street<br>Reading<br>RG23 6FH<br /><br />
-          46834, Reading
+          654 High Street<br>Halifax<br>Y23 6FH<br /><br />
+          46834, Halifax
+
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address<br /><br /><br /><br />DX 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          27-31 Verulam Road<br>St Albans<br>Herts<br>AL3 4DG<br /><br />
+          46834, Albans
+
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address<br /><br /><br /><br />DX 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          15 Cove Road<br>Cove<br>Farnborough<br>Hampshire<br /><br />
+          46834, Farnborough
 
         </dd>
         <dd class="govuk-summary-list__actions">
@@ -131,22 +140,8 @@
           PBA number<br /><br />Name on PBA
         </dt>
         <dd class="govuk-summary-list__value">
-          PBA6463761<br /><br />
-          Speak Law Ltd
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="show-pending-pba">
-            Change<span class="govuk-visually-hidden"> name</span>
-          </a>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          PBA number<br /><br />Name on PBA
-        </dt>
-        <dd class="govuk-summary-list__value">
-          PBA6843131<br /><br />
-          Speak Law Ltd
+          PBA6574641<br /><br />
+          Earl & Crooker LLP
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="show-pending-pba">
@@ -156,47 +151,14 @@
       </div>
     </dl>
 
-    <br />
-
-    <input type="hidden" name="org" value="Speak Law Limited" />
-
-    {{ govukRadios({
-      classes: "govuk-radios",
-      idPrefix: "decision",
-      name: "decision",
-      fieldset: {
-        legend: {
-          text: "What would you like to do with this registration?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
-      items: [
-        {
-          value: "approve",
-          text: "Approve it"
-        },
-        {
-          value: "reject",
-          text: "Reject it"
-        },
-        {
-          value: "hold",
-          text: "Put it on hold pending further investigation"
-        }
-      ]
-    }) }}
 
 
-    <br />
+
     {{ govukButton({
-      text: 'Submit'
-    }) }}
-
-   
-  </div>
+  text: "Delete organisation",
+  classes: "govuk-button--secondary",
+  href: "/v1b/show-approved-delete"
+}) }}
+    </div>
 </div>
-
-</form>
-
 {% endblock %}

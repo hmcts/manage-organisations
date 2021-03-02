@@ -173,7 +173,7 @@
               html: 'Broson Law Limited'
             },
             {
-              html: "2 Bakers Yard (A)<br>Uxbridge<br>Middlesex<br>UB8 1JZ"
+              html: "2 Bakers Yard<br>Uxbridge<br>Middlesex<br>UB8 1JZ"
             },
             {
               html: 'Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span>'
@@ -185,7 +185,7 @@
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending2?action="})
             }
           ],
           [
@@ -206,7 +206,7 @@
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending?action="})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending3?action="})
             }
           ],
           [
@@ -373,16 +373,16 @@
           [
            
             {
-              html: 'Speak Law Limited'
+              html: 'Green Limited'
             },
             {
               html: "PBA646761<br />PBA6843131"
             },
             {
-              html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+              html: 'James Green<br><span class="govuk-caption-m govuk-!-font-size-16">james@green.com</span>'
             },
             {
-              html: now | date( 'subtract', 3, 'days') | date('D MMM YYYY')
+              html: now | date( 'subtract', 1, 'days') | date('D MMM YYYY')
             },
             {
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
@@ -535,6 +535,24 @@
             }
           ],
           [
+          
+            {
+              html: 'Earl & Crooker<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span>'
+            },
+            {
+              html: "1 Princes Court<br>Royal Way<br>Loughborough<br>Leics<br /><span class='govuk-caption-m govuk-!-font-size-16'>+ 2 others</span>"
+            },
+            {
+              html: 'Steph Gold<br><span class="govuk-caption-m govuk-!-font-size-16">steph@gmail.com</span>'
+            },
+            {
+              html: now | date( 'subtract', 2, 'days') | date('D MMM YYYY')
+            },
+            {
+              html: tableLink({ text: 'View', href: "/v1b/show-a-3?action="})
+            }
+          ],
+          [
            
             {
               html: 'Williams Limited<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span>'
@@ -645,7 +663,7 @@
     {{ govukTabs({
       items: [
         {
-          label: "New registrations (130)",
+          label: "New registrations (10)",
           id: "new-regs",
           panel: {
             html: newRegs
