@@ -46,6 +46,14 @@
     iconFallbackText: 'Success'
   }) }} 
 
+  {% elseif data['action'] == 'pba' %}
+
+  {{ hmctsBanner({
+    type: 'success',
+    text: 'PBA numbers updated',
+    iconFallbackText: 'Success'
+  }) }} 
+
   {% endif %}
 
   {% set data = [] %}
