@@ -6,7 +6,7 @@ Organisation details
 {% block beforeContent %}
 {{ govukBackLink({
 text: "Back",
-href: "/v1b/approved"
+href: "/v1b#active"
 }) }}
 {% endblock %}
 {% block header %}
@@ -29,87 +29,124 @@ active: false
 }
 ]
 })}}
-<h1 class="govuk-heading-xl">Organisation details</h1>
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        {{ govukSummaryList({
-        rows: [
+
+
+
+    <h3 class="govuk-heading-m">Organisation details</h3>
+
+    {{ govukSummaryList({
+      rows: [
         {
-        key: {
-        text: "Name"
-        },
-        value: {
-        text: "Miamora Limited"
-        }
-        },
-        {
-        key: {
-        text: "Address"
-        },
-        value: {
-        html: "72 Guild Street<br>London<br>SE23 6FH"
-        }
+          key: {
+            text: "Name"
+          },
+          value: {
+            html: 'Miamora Limited'
+          }
         },
         {
-        key: {
-        text: "PBA number"
-        },
-        value: {
-        html: 'PBA1234567<br><span class="govuk-caption-m govuk-!-font-size-16">Account name: Account A</span>PBA2233444<span class="govuk-caption-m govuk-!-font-size-16">Account name: Account B</span>'
-        },
-        actions: {
-        items: [
-        {
-        href: "#",
-        text: "Change",
-        visuallyHiddenText: "name"
-        }
-        ]
-        }
-        },
-        {
-        key: {
-        text: "DX number"
-        },
-        value: {
-        html: '12345567'
-        }
+          key: {
+            text: "SRA ID"
+          },
+          value: {
+            html: 'SRA3347232'
+          },
+          actions: {
+            items: [
+              {
+                href: "show-pending-sra",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
         },
         {
-        key: {
-        text: "DX exchange"
-        },
-        value: {
-        html: '12345567'
+          key: {
+            text: "Administrator"
+          },
+          value: {
+            html: 'Mia Miamora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@miamora.com</span>'
+          }
         }
-        },
-        {
-        key: {
-        text: "Administrator"
-        },
-        value: {
-        html: 'Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span>'
-        }
-        },
-        {
-        key: {
-        text: "SRA ID"
-        },
-        value: {
-        html: 'SRA3347232'
-        },
-        actions: {
-        items: [
-        {
-        href: "#",
-        text: "Change",
-        visuallyHiddenText: "name"
-        }
-        ]
-        }
-        }
-        ]
-        }) }}
+      ]
+    }) }}
+
+
+    <br />
+
+    <h3 class="govuk-heading-m">Addresses</h3>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address<br /><br /><br /><br />DX 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          30 Portland Place<br>
+          London<br />
+          W1B 1LZ<br /><br />
+          12348, Westminster
+
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address<br /><br /><br /><br />DX 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          654 High Street<br>Reading<br>RG23 6FH<br /><br />
+          46834, Reading
+
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+    </dl>
+
+    <br />
+
+    <h3 class="govuk-heading-m">PBAs</h3>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          PBA number<br /><br />Name on PBA
+        </dt>
+        <dd class="govuk-summary-list__value">
+          PBA646761<br /><br />
+          Miamora Limited
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          PBA number<br /><br />Name on PBA
+        </dt>
+        <dd class="govuk-summary-list__value">
+          PBA6843131<br /><br />
+          Miamora Limited
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="show-pending-pba">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+    <br />
+
+
+
+
+
     {{ govukButton({
   text: "Delete organisation",
   classes: "govuk-button--secondary",

@@ -4,7 +4,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-  href: "/v1b/approve-changes"
+  href: "/v1b"
 }) }}
 {% endblock %}
 
@@ -31,7 +31,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="/v1b/show-pending-pba-request">
+      <form action="/v1b/show-pending-pba-requests">
 
         <h1 class="govuk-heading-xl hmcts-add-another__heading">Approve new PBA number</h1>
 
@@ -92,7 +92,7 @@
 
         {{ govukButton({
         text: 'Submit',
-        href: "/v1b/approve-changes#change-reqs"
+        href: "/v1b#change-reqs"
         }) }} 
 
         {% else %}
