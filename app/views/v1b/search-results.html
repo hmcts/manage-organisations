@@ -1,0 +1,233 @@
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Organisations pending approval
+{% endblock %}
+
+{% set pageId = 'organisations' %}
+
+
+{% macro tableCheckbox(params) %}
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="{{params.id}}" name="{{params.name}}" type="radio" value="{{params.value}}">
+    <label class="govuk-label govuk-radios__label" for="{{params.id}}"></label>
+  </div>
+{% endmacro %}
+
+{% macro tableLink(params) %}
+  <a href="{{params.href}}">{{params.text}}</a>
+{% endmacro %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">Search results</h1>
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+
+        <div class="hmcts-search">
+
+          <form action="search-results" method="get">
+
+            <div class="govuk-form-group">
+              <label class="govuk-label hmcts-search__label govuk-label--m" for="search">
+                Search
+              </label>
+
+              <span id="search-hint" class="govuk-hint hmcts-search__hint ">
+                Search for an organisation, for example by name or postcode
+              </span>
+
+              <input class="govuk-input hmcts-search__input " id="search" name="search" type="search" aria-describedby="search-hint" value="{{ data['search'] }}" />
+            </div>
+
+            <button class="govuk-button hmcts-search__button " data-module="govuk-button">
+              Search
+            </button>
+
+            <a href="/v1b" class="govuk-button govuk-button--secondary hmcts-search__button">Reset</a>
+
+          </form>
+
+        </div>
+      </div>
+  </div>
+
+  <br />
+<p>
+
+ <!--   {{govukButton({
+      text: 'Activate organisation'
+    })}} -->
+
+    {% set newRegs %}
+    <form action="/v1b/check-selected">
+
+      <h2 class="govuk-heading-l">New registrations</h2>
+      {{ govukTable({
+        head: [
+         
+          {
+            text: "Organisation"
+          },
+          {
+            text: "Addresses"
+          },
+          {
+            text: "Administrator"
+          },
+          {
+            text: "Date received"
+          },
+          {
+            text: "Status"
+          },
+          {
+            text: ""
+          }
+        ],
+        rows: [
+          [
+           
+            {
+              html: 'Moon Beever LLP'
+            },
+            {
+              html: "260 Avenue West<br />Skyline 120<br />Great Notley<br />Braintree<br />Essex<br />CM77 7AA<br /><span class='govuk-caption-m govuk-!-font-size-16'>+ 1 other</span>"
+            },
+            {
+              html: 'Donald Smith<br><span class="govuk-caption-m govuk-!-font-size-16">dsmith@moonbeever.com</span>'
+            },
+            {
+              html: now | date( 'subtract', 3, 'days') | date('D MMM YYYY')
+            },
+            {
+              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
+            },
+            {
+              html: tableLink({ text: 'View', href: "/v1b/show-pending3?action="})
+            }
+          ]
+        ]
+      }) }}
+
+    </form>
+
+    {% endset -%}
+
+
+    {% set changeReqs %}
+    <form action="/v1b/check-selected">
+
+      <h2 class="govuk-heading-l">New PBAs</h2>
+      {{ govukTable({
+        head: [
+         
+          {
+            text: "Organisation"
+          },
+          {
+            text: "PBAs"
+          },
+          {
+            text: "Administrator"
+          },
+          {
+            text: "Date received"
+          },
+          {
+            text: "Status"
+          },
+          {
+            text: ""
+          }
+        ],
+        rows: []
+        
+      }) }}
+
+    </form>
+
+    {% endset -%}
+
+
+    {% set active %}
+    <form action="/v1b/check-selected">
+
+      <h2 class="govuk-heading-l">Active organisations</h2>
+      {{ govukTable({
+        head: [
+         
+          {
+            text: "Organisation"
+          },
+          {
+            text: "Addresses"
+          },
+          {
+            text: "Administrator"
+          },
+          {
+            text: "Date approved"
+          },
+          {
+            text: ""
+          }
+        ],
+        rows: [
+          [
+          
+            {
+              html: 'Moon Beever LLP<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span>'
+            },
+            {
+              html: "Bedford House<br />21a John Street<br />London<br />WC1N 2BF"
+            },
+            {
+              html: 'Sharon Love<br><span class="govuk-caption-m govuk-!-font-size-16">slove@moonbeever.com</span>'
+            },
+            {
+              html: now | date( 'subtract', 2, 'days') | date('D MMM YYYY')
+            },
+            {
+              html: tableLink({ text: 'View', href: "/v1b/show-a-3?action="})
+            }
+          ]
+        ]
+      }) }}
+
+    </form>
+
+    {% endset -%}
+
+
+    {{ govukTabs({
+      items: [
+        {
+          label: "New registrations (1)",
+          id: "new-regs",
+          panel: {
+            html: newRegs
+          }
+        },
+        {
+          label: "New PBAs (0)",
+          id: "change-reqs",
+          panel: {
+            html: changeReqs
+          }
+        },
+        {
+          label: "Active organisations (1)",
+          id: "active",
+          panel: {
+            html: active
+          }
+        }
+      ]
+    }) }}
+
+
+
+
+{% endblock %}
