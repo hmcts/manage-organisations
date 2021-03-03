@@ -17,7 +17,7 @@
 {% block header %}
   {{ super() }}
   {{ hmctsIdentityBar({
-    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'pending' }) },
+    title: { html: data['org'] + hmctsBadge({ text: 'pending' }) },
     items: [{
       href: '/v1b/show-just-approved',
       text: 'Activate'
@@ -53,6 +53,17 @@
 
   {% endif %}
 
+  {% if data['decision3'] == 'approve' %}
+  {% set strValue3 = 'Approve' %}
+
+  {% elseif data['decision3'] == 'reject'  %}
+  {% set strValue3 = 'Reject' %}
+
+  {% else %}
+  {% set strValue3 = 'Put on hold' %}
+
+  {% endif %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {{ govukSummaryList({
@@ -62,7 +73,7 @@
               text: "PBA number"
             },
             value: {
-              html: 'PBA646761'
+              html: data['pba1']
             }
           },
           {
@@ -70,7 +81,7 @@
               text: "Name on PBA"
             },
             value: {
-              html: 'Green Law Limited'
+              html: data['org']
             }
           },
           {
@@ -83,6 +94,10 @@
           }
         ]
       }) }}
+
+
+    {% if data['decision2'] %}
+
       {{ govukSummaryList({
         rows: [
           {
@@ -90,7 +105,7 @@
               text: "PBA number"
             },
             value: {
-              html: 'PBA6843131'
+              html: data['pba2']
             }
           },
           {
@@ -98,7 +113,7 @@
               text: "Name on PBA"
             },
             value: {
-              html: 'Slater & Gordon Ltd'
+              html: data['org']
             }
           },
           {
@@ -111,6 +126,41 @@
           }
         ]
       }) }}
+
+    {% endif %}
+
+    {% if data['decision3'] %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "PBA number"
+            },
+            value: {
+              html: data['pba3']
+            }
+          },
+          {
+            key: {
+              text: "Name on PBA"
+            },
+            value: {
+              html: data['org']
+            }
+          },
+          {
+            key: {
+              text: "Decision"
+            },
+            value: {
+             text: strValue3
+            }
+          }
+        ]
+      }) }}
+
+    {% endif %}
 
       <input type="hidden" name="action" value="pba" />
 

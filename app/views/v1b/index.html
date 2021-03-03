@@ -191,13 +191,13 @@
           [
           
             {
-              html: 'Broson Law Limited'
+              html: 'Alison Proctor LLP'
             },
             {
-              html: "2 Bakers Yard<br>Uxbridge<br>Middlesex<br>UB8 1JZ"
+              html: "73 Cornhill<br />London<br />EC3V 3QQ"
             },
             {
-              html: 'Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span>'
+              html: 'Alison Proctor<br><span class="govuk-caption-m govuk-!-font-size-16">alison@proctor.com</span>'
             },
             {
               html: now | date( 'subtract', 3, 'days') | date('D MMM YYYY')
@@ -206,7 +206,7 @@
               html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending2?action="})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending4?action="})
             }
           ],
           [
@@ -448,10 +448,10 @@
               html: now | date( 'subtract', 2, 'days') | date('D MMM YYYY')
             },
             {
-              html: govukTag({ text: "On hold", classes: "govuk-tag--grey" })
+              html: govukTag({ text: "Pending", classes: "govuk-tag--blue" })
             },  
             {
-              html: tableLink({ text: 'View', href: "/v1b/show-pending-pba-requests?action="})
+              html: tableLink({ text: 'View', href: "/v1b/show-pending-pba-requests-4?action="})
             }
           ]
         ]

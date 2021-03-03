@@ -17,7 +17,7 @@
 {% block header %}
   {{ super() }}
   {{ hmctsIdentityBar({
-    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'approved' }) },
+    title: { html: 'David & Snape ' + hmctsBadge({ text: 'approved' }) },
     items: [{
       href: '/v1b/show-just-approved',
       text: 'Activate'
@@ -91,6 +91,9 @@
         }) }}
 
         <br />
+
+        <input type="hidden" name="org" value="David & Snape" />
+        <input type="hidden" name="pba1" value="PBA5746068" />
 
         {% if ( data['pba-number'] ) %}
 
