@@ -337,6 +337,7 @@
 
     {% set active %}
     {% set activeCount = 0 %}
+    {% set activeCountSearch = 0 %}
     <form action="/v1b/check-selected">
 
       <h2 class="govuk-heading-l">Active organisations</h2>
@@ -470,6 +471,7 @@
 
 
           {% if ( not data['search'] or data['search'] | lower in 'Miamora Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Miamora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span></td>
               <td class="govuk-table__cell">30 Portland Place<br>London<br>W1B 1LZ<br><span class="govuk-caption-m govuk-!-font-size-16">+ 1 other</span></td>
@@ -480,6 +482,7 @@
           {% endif %}
           
           {% if ( not data['search'] or data['search'] | lower in 'Turpin Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Turpin Limited<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span></td>
               <td class="govuk-table__cell">2nd Floor<br>34-36 High Street<br>Nantwich<br>Cheshire</td>
@@ -490,6 +493,7 @@
           {% endif %}
           
           {% if ( not data['search'] or data['search'] | lower in 'Gold Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
           
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Gold Limited<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span></td>
@@ -501,6 +505,7 @@
           {% endif %}
           
           {% if ( not data['search'] or data['search'] | lower in '360 Law Group Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
           
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">360 Law Group Limited<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span></td>
@@ -512,6 +517,7 @@
           {% endif %}
           
           {% if ( not data['search'] or data['search'] | lower in 'Silver Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
           
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Silver Limited<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span></td>
@@ -523,6 +529,7 @@
           {% endif %}
           
           {% if ( not data['search'] or data['search'] | lower in 'Moon Beever LLP' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
           
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Moon Beever LLP<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span></td>
@@ -534,6 +541,7 @@
           {% endif %}
           
           {% if ( not data['search'] or data['search'] | lower in 'Williams Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
           
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Williams Limited<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span></td>
@@ -545,6 +553,7 @@
           {% endif %}
           
           {% if ( not data['search'] or data['search'] | lower in 'Divorce Mediation and Family Law' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
           
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Divorce Mediation and Family Law<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span></td>
@@ -556,6 +565,7 @@
           {% endif %}
           
           {% if ( not data['search'] or data['search'] | lower in 'David & Snape' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
           
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">David &amp; Snape<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span></td>
@@ -567,6 +577,7 @@
           {% endif %}
           
           {% if ( not data['search'] or data['search'] | lower in 'Law Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
           
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Law Limited<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span></td>
@@ -584,11 +595,15 @@
         </table>
 
     </form>
-
-    {% if not data['search'] %}
+    
+    {% if data['search'] %}
+    {% set activeCount = activeCountSearch + activeCount %}
+    {% else %}
     {% set activeCount = 47 + activeCount %}
     {% endif %}
 
+
+    {% if not data['search'] %}
     {{hmctsPagination({
       results: {
       from: 1,
@@ -616,6 +631,8 @@
       href: '/page=4'
       }]
     })}}
+    {% endif %}
+
 
     {% endset -%}
 
