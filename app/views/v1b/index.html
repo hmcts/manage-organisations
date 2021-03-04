@@ -89,6 +89,7 @@
               </span>
 
               <input class="govuk-input hmcts-search__input " id="search" name="search" type="search" aria-describedby="search-hint" value="{{ data['search'] }}" >
+              <input type="hidden" name="action" value="" />
             </div>
 
             <button class="govuk-button hmcts-search__button " data-module="govuk-button">
@@ -134,12 +135,12 @@
         {% if data['orgs']['new']['cuthbert'] != 'reject' and data['orgs']['new']['cuthbert'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Cuthbert & Smith Limited' | lower ) %}
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
-           <td class="govuk-table__cell">Cuthbert &amp; Smith Limited</td>
-           <td class="govuk-table__cell">7, Crown Yard<br>Bedgebury Road<br>Goudhurst<br>Kent<br><span class="govuk-caption-m govuk-!-font-size-16">+ 1 other</span></td>
-           <td class="govuk-table__cell">Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span></td>
+           <td class="govuk-table__cell">Cuthbertsons</td>
+           <td class="govuk-table__cell">3 Stanley Street<br />Blyth<br />Northumberland<br />NE24 2BS</td>
+           <td class="govuk-table__cell">Susan McCauley<br><span class="govuk-caption-m govuk-!-font-size-16">susan.mccauley@cuthbertsons.com</span></td>
            <td class="govuk-table__cell">{{ now | date( 'subtract', 3, 'days') | date('D MMM YYYY') }} </td>
            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">On hold</strong></td>
-           <td class="govuk-table__cell"><a href="/v1b/show-pending?action=">View</a></td>
+           <td class="govuk-table__cell"><a href="/v1b/show-pending5?action=">View</a></td>
         </tr>
         {% endif %}
       
@@ -595,7 +596,7 @@
         </table>
 
     </form>
-    
+
     {% if data['search'] %}
     {% set activeCount = activeCountSearch + activeCount %}
     {% else %}
