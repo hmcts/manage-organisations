@@ -80,7 +80,7 @@
               text: "Approve it"
             },
             {
-              value: "Reject",
+              value: "reject",
               text: "Reject it"
             },
             {
@@ -127,7 +127,7 @@
               text: "Approve it"
             },
             {
-              value: "Reject",
+              value: "reject",
               text: "Reject it"
             },
             {
@@ -138,10 +138,12 @@
         }) }}
 
         <br />
-        
+
         <input type="hidden" name="org" value="Miamora Limited" />
+        <input type="hidden" name="org-short" value="miamora" />
         <input type="hidden" name="pba1" value="PBA8475870" />
         <input type="hidden" name="pba2" value="PBA6596078" />
+        <input type="hidden" name="decision3" value="" />
 
 
         {% if ( data['pba-number'] ) %}

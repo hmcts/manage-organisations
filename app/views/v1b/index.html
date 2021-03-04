@@ -131,7 +131,7 @@
         
         <tbody class="govuk-table__body">
 
-        {% if data['orgs']['new']['cuthbert'] != 'active' and ( not data['search'] or data['search'] | lower in 'Cuthbert & Smith Limited' | lower ) %}
+        {% if data['orgs']['new']['cuthbert'] != 'reject' and data['orgs']['new']['cuthbert'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Cuthbert & Smith Limited' | lower ) %}
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Cuthbert &amp; Smith Limited</td>
@@ -143,43 +143,43 @@
         </tr>
         {% endif %}
       
-        {% if data['orgs']['new']['moon'] != 'active' and ( not data['search'] or data['search'] | lower in 'Moon Beever LLP' | lower ) %}
+        {% if data['orgs']['new']['moon'] != 'reject' and data['orgs']['new']['moon'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Moon Beever LLP' | lower ) %}
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Moon Beever LLP</td>
           <td class="govuk-table__cell">260 Avenue West<br>Skyline 120<br>Great Notley<br>Braintree<br>Essex<br>CM77 7AA<br><span class="govuk-caption-m govuk-!-font-size-16">+ 1 other</span></td>
           <td class="govuk-table__cell">Donald Smith<br><span class="govuk-caption-m govuk-!-font-size-16">dsmith@moonbeever.com</span></td>
           <td class="govuk-table__cell">{{ now | date( 'subtract', 3, 'days') | date('D MMM YYYY') }}</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+          <td class="govuk-table__cell">{% if data['orgs']['new']['moon'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
           <td class="govuk-table__cell"><a href="/v1b/show-pending3?action=">View</a></td>
         </tr>
         {% endif %}
       
-        {% if data['orgs']['new']['flg'] != 'active' and ( not data['search'] or data['search'] | lower in 'FLG Ltd' | lower ) %}
+        {% if data['orgs']['new']['flg'] != 'reject' and data['orgs']['new']['flg'] != 'approve' and ( not data['search'] or data['search'] | lower in 'FLG Ltd' | lower ) %}
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">FLG Ltd</td>
            <td class="govuk-table__cell">St Nicholas Court<br>25-27 Castle Gate<br>Nottingham<br>Nottinghamshire<br>NG1 7AR</td>
            <td class="govuk-table__cell">Sheena Lambert<br><span class="govuk-caption-m govuk-!-font-size-16">slambert@aol.com</span></td>
            <td class="govuk-table__cell">{{ now | date( 'subtract', 3, 'days') | date('D MMM YYYY') }}</td>
-           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+           <td class="govuk-table__cell">{% if data['orgs']['new']['flg'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
            <td class="govuk-table__cell"><a href="/v1b/show-pending?action=">View</a></td>
           </tr>
         {% endif %}
       
-        {% if data['orgs']['new']['alison'] != 'active' and ( not data['search'] or data['search'] | lower in 'Alison Proctor LLP'| lower ) %}
+        {% if data['orgs']['new']['alison'] != 'reject' and data['orgs']['new']['alison'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Alison Proctor LLP'| lower ) %}
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Alison Proctor LLP</td>
            <td class="govuk-table__cell">73 Cornhill<br>London<br>EC3V 3QQ</td>
            <td class="govuk-table__cell">Alison Proctor<br><span class="govuk-caption-m govuk-!-font-size-16">alison@proctor.com</span></td>
            <td class="govuk-table__cell">{{ now | date( 'subtract', 3, 'days') | date('D MMM YYYY') }}</td>
-           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+           <td class="govuk-table__cell">{% if data['orgs']['new']['alison'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
            <td class="govuk-table__cell"><a href="/v1b/show-pending4?action=">View</a></td>
           </tr>
         {% endif %}
       
-        {% if data['orgs']['new']['redruth'] != 'active' and ( not data['search'] or data['search'] | lower in 'Redruth Law Limited' | lower ) %}
+        {% if data['orgs']['new']['redruth'] != 'reject' and data['orgs']['new']['redruth'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Redruth Law Limited' | lower ) %}
         {% set newRegCount = newRegCount+1 %}      
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Redruth Law Limited</td>
@@ -191,62 +191,62 @@
           </tr>
         {% endif %}
       
-        {% if data['orgs']['new']['flemming'] != 'active' and ( not data['search'] or data['search'] | lower in 'Flemming & Co Solicitors' | lower ) %}
+        {% if data['orgs']['new']['flemming'] != 'reject' and data['orgs']['new']['flemming'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Flemming & Co Solicitors' | lower ) %}
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Flemming &amp; Co Solicitors</td>
            <td class="govuk-table__cell">Unit 5<br>Old Co-Op Buildings<br>Manchester<br>Greater Manchester<br><span class="govuk-caption-m govuk-!-font-size-16">+ 7 others</span></td>
            <td class="govuk-table__cell">Adam Silver<br><span class="govuk-caption-m govuk-!-font-size-16">adam@silver.com</span></td>
            <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
-           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+           <td class="govuk-table__cell">{% if data['orgs']['new']['flemming'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
            <td class="govuk-table__cell"><a href="/v1b/show-pending?action=">View</a></td>
           </tr>
         {% endif %}
       
-        {% if data['orgs']['new']['roche'] != 'active' and ( not data['search'] or  data['search'] | lower in 'Roche Legal Limited' | lower ) %}
+        {% if data['orgs']['new']['roche'] != 'reject' and data['orgs']['new']['roche'] != 'approve' and ( not data['search'] or  data['search'] | lower in 'Roche Legal Limited' | lower ) %}
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Roche Legal Limited</td>
            <td class="govuk-table__cell">First Floor Office<br>22 Churchill Parade<br>Rustington<br>West Sussex</td>
            <td class="govuk-table__cell">Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span></td>
            <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
-           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+           <td class="govuk-table__cell">{% if data['orgs']['new']['roche'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
            <td class="govuk-table__cell"><a href="/v1b/show-pending?action=">View</a></td>
           </tr>
         {% endif %}
       
-        {% if data['orgs']['new']['pinder'] != 'active' and ( not data['search'] or data['search'] | lower in 'Pinder Reaux & Associates' | lower ) %}
+        {% if data['orgs']['new']['pinder'] != 'reject' and data['orgs']['new']['pinder'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Pinder Reaux & Associates' | lower ) %}
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Pinder Reaux &amp; Associates</td>
            <td class="govuk-table__cell">Vyman House<br>104 College Road<br>Harrow<br>Middlesex<br>HA1 1BQ<br><span class="govuk-caption-m govuk-!-font-size-16">+ 2 others</span></td>
            <td class="govuk-table__cell">Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">mattpinder@aol.com</span></td>
            <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
-           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+           <td class="govuk-table__cell">{% if data['orgs']['new']['pinder'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
            <td class="govuk-table__cell"><a href="/v1b/show-pending?action=">View</a></td>
           </tr>
         {% endif %}
       
-        {% if data['orgs']['new']['metcalfe'] != 'active' and ( not data['search'] or data['search'] | lower in 'Metcalfe Eyres Solicitors' | lower ) %}
+        {% if data['orgs']['new']['metcalfe'] != 'reject' and data['orgs']['new']['metcalfe'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Metcalfe Eyres Solicitors' | lower ) %}
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Metcalfe Eyres Solicitors</td>
            <td class="govuk-table__cell">Fifth Floor<br>Maple House,<br>High Street<br>Potters Bar<br>Hertfordshire<br><span class="govuk-caption-m govuk-!-font-size-16">+ 1 other</span></td>
            <td class="govuk-table__cell">Mama Tora<br><span class="govuk-caption-m govuk-!-font-size-16">metcalfe@mora.com</span></td>
            <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
-           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+           <td class="govuk-table__cell">{% if data['orgs']['new']['metcalfe'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
            <td class="govuk-table__cell"><a href="/v1b/show-pending?action=">View</a></td>
           </tr>
         {% endif %}
       
-        {% if data['orgs']['new']['chris'] != 'active' and ( not data['search'] or data['search'] | lower in 'Chris Alexander Solicitors Limited' | lower ) %}
+        {% if data['orgs']['new']['chris'] != 'reject' and data['orgs']['new']['chris'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Chris Alexander Solicitors Limited' | lower ) %}
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Chris Alexander Solicitors Limited</td>
            <td class="govuk-table__cell">48 Thornton Road<br>Thornton Heath<br>UK<br>CR7 6BA</td>
            <td class="govuk-table__cell">Lee Laurel<br><span class="govuk-caption-m govuk-!-font-size-16">chrisalexander@hotmail.com</span></td>
            <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
-           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+           <td class="govuk-table__cell">{% if data['orgs']['new']['chris'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
            <td class="govuk-table__cell"><a href="/v1b/show-pending?action=">View</a></td>
           </tr>
         {% endif %}      
@@ -279,50 +279,50 @@
 
         <tbody class="govuk-table__body">
 
-        {% if data['orgs']['pbas']['david'] != 'active' and ( not data['search'] or data['search'] | lower in 'David & Snape' | lower ) %}
+        {% if data['orgs']['pbas']['david'] != 'reject' and data['orgs']['pbas']['david'] != 'approve' and ( not data['search'] or data['search'] | lower in 'David & Snape' | lower ) %}
         {% set changeReqCount = changeReqCount+1 %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">David &amp; Snape</td>
             <td class="govuk-table__cell">PBA5746068</td>
             <td class="govuk-table__cell">Snape Hutchinson<br><span class="govuk-caption-m govuk-!-font-size-16">snape@davidandsnape.com</span></td>
             <td class="govuk-table__cell">{{ now | date( 'subtract', 1, 'days') | date('D MMM YYYY') }}</td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+            <td class="govuk-table__cell">{% if data['orgs']['pbas']['david'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
             <td class="govuk-table__cell"><a href="/v1b/show-pending-pba-requests?action=">View</a></td>
           </tr>
         {% endif %}
       
-        {% if data['orgs']['pbas']['divorce'] != 'active' and ( not data['search'] or data['search'] | lower in 'divorce mediation and family law' ) %}
+        {% if data['orgs']['pbas']['divorce'] != 'reject' and data['orgs']['pbas']['divorce'] != 'approve' and ( not data['search'] or data['search'] | lower in 'divorce mediation and family law' ) %}
         {% set changeReqCount = changeReqCount+1 %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Divorce Mediation and Family Law</td>
             <td class="govuk-table__cell">PBA8475870<br>PBA6596078<br>PBA8573650</td>
             <td class="govuk-table__cell">Tomas Daniel Jones<br><span class="govuk-caption-m govuk-!-font-size-16">tom.jones@dmfl.com</span></td>
             <td class="govuk-table__cell">{{ now | date( 'subtract', 1, 'days') | date('D MMM YYYY') }}</td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+            <td class="govuk-table__cell">{% if data['orgs']['pbas']['divorce'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
             <td class="govuk-table__cell"><a href="/v1b/show-pending-pba-requests-3?action=">View</a></td>
           </tr>
         {% endif %}
       
-        {% if data['orgs']['pbas']['360'] != 'active' and ( not data['search'] or data['search'] | lower in '360 Law Group Limited' | lower ) %}
+        {% if data['orgs']['pbas']['360'] != 'reject' and data['orgs']['pbas']['360'] != 'approve' and ( not data['search'] or data['search'] | lower in '360 Law Group Limited' | lower ) %}
         {% set changeReqCount = changeReqCount+1 %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">360 Law Group Limited</td>
             <td class="govuk-table__cell">PBA6350578</td>
             <td class="govuk-table__cell">Jennifer Louise McGuire<br><span class="govuk-caption-m govuk-!-font-size-16">Jennifermcguire@360.net</span></td>
             <td class="govuk-table__cell">{{ now | date( 'subtract', 1, 'days') | date('D MMM YYYY') }}</td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+            <td class="govuk-table__cell">{% if data['orgs']['pbas']['360'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
             <td class="govuk-table__cell"><a href="/v1b/show-pending-pba-requests-2?action=">View</a></td>
           </tr>
         {% endif %}
       
-        {% if data['orgs']['pbas']['miamora'] != 'active' and ( not data['search'] or data['search'] | lower in 'Miamora Limited' | lower ) %}
+        {% if data['orgs']['pbas']['miamora'] != 'reject' and data['orgs']['pbas']['miamora'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Miamora Limited' | lower ) %}
         {% set changeReqCount = changeReqCount+1 %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Miamora Limited</td>
             <td class="govuk-table__cell">PBA6463761<br>PBA6843131</td>
             <td class="govuk-table__cell">Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span></td>
             <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Pending</strong></td>
+            <td class="govuk-table__cell">{% if data['orgs']['pbas']['miamora'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
             <td class="govuk-table__cell"><a href="/v1b/show-pending-pba-requests-4?action=">View</a></td>
           </tr>
         {% endif %}
@@ -355,7 +355,7 @@
           
           <tbody class="govuk-table__body">
       
-          {% if data['orgs']['active']['miamore'] != 'active' and ( not data['search'] or data['search'] | lower in 'Miamora Limited' | lower ) %}
+          {% if data['orgs']['active']['miamore'] != 'reject' and data['orgs']['new']['cuthbert'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Miamora Limited' | lower ) %}
           {% set activeCount = activeCount+1 %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Miamora Limited<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span></td>
@@ -366,7 +366,7 @@
             </tr>
           {% endif %}
           
-          {% if data['orgs']['active']['turpin'] != 'active' and ( not data['search'] or data['search'] | lower in 'Turpin Limited' | lower ) %}
+          {% if data['orgs']['active']['turpin'] != 'reject' and data['orgs']['new']['cuthbert'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Turpin Limited' | lower ) %}
           {% set activeCount = activeCount+1 %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Turpin Limited<br><span class="govuk-caption-m govuk-!-font-size-16">13548945</span></td>
@@ -377,7 +377,7 @@
             </tr>
           {% endif %}
           
-          {% if data['orgs']['active']['gold'] != 'active' and ( not data['search'] or data['search'] | lower in 'Gold Limited' | lower ) %}
+          {% if data['orgs']['active']['gold'] != 'reject' and data['orgs']['new']['cuthbert'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Gold Limited' | lower ) %}
           {% set activeCount = activeCount+1 %}
           
             <tr class="govuk-table__row">
@@ -389,7 +389,7 @@
             </tr>
           {% endif %}
           
-          {% if data['orgs']['active']['360'] != 'active' and ( not data['search'] or data['search'] | lower in '360 Law Group Limited' | lower ) %}
+          {% if data['orgs']['active']['360'] != 'reject' and data['orgs']['new']['cuthbert'] != 'approve' and ( not data['search'] or data['search'] | lower in '360 Law Group Limited' | lower ) %}
           {% set activeCount = activeCount+1 %}
           
             <tr class="govuk-table__row">
@@ -401,7 +401,7 @@
             </tr>
           {% endif %}
           
-          {% if data['orgs']['active']['silver'] != 'active' and ( not data['search'] or data['search'] | lower in 'Silver Limited' | lower ) %}
+          {% if data['orgs']['active']['silver'] != 'reject' and data['orgs']['new']['cuthbert'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Silver Limited' | lower ) %}
           {% set activeCount = activeCount+1 %}
           
             <tr class="govuk-table__row">
@@ -413,7 +413,7 @@
             </tr>
           {% endif %}
           
-          {% if data['orgs']['active']['moon'] != 'active' and ( not data['search'] or data['search'] | lower in 'Moon Beever LLP' | lower ) %}
+          {% if data['orgs']['active']['moon'] != 'reject' and data['orgs']['new']['cuthbert'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Moon Beever LLP' | lower ) %}
           {% set activeCount = activeCount+1 %}
           
             <tr class="govuk-table__row">
@@ -425,7 +425,7 @@
             </tr>
           {% endif %}
           
-          {% if data['orgs']['active']['williams'] != 'active' and ( not data['search'] or data['search'] | lower in 'Williams Limited' | lower ) %}
+          {% if data['orgs']['active']['williams'] != 'reject' and data['orgs']['new']['cuthbert'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Williams Limited' | lower ) %}
           {% set activeCount = activeCount+1 %}
           
             <tr class="govuk-table__row">
@@ -437,7 +437,7 @@
             </tr>
           {% endif %}
           
-          {% if data['orgs']['active']['divorce'] != 'active' and ( not data['search'] or data['search'] | lower in 'Divorce Mediation and Family Law' | lower ) %}
+          {% if data['orgs']['active']['divorce'] != 'reject' and data['orgs']['new']['cuthbert'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Divorce Mediation and Family Law' | lower ) %}
           {% set activeCount = activeCount+1 %}
           
             <tr class="govuk-table__row">
@@ -449,7 +449,7 @@
             </tr>
           {% endif %}
           
-          {% if data['orgs']['active']['david'] != 'active' and ( not data['search'] or data['search'] | lower in 'David & Snape' | lower ) %}
+          {% if data['orgs']['active']['david'] != 'reject' and data['orgs']['new']['cuthbert'] != 'approve' and ( not data['search'] or data['search'] | lower in 'David & Snape' | lower ) %}
           {% set activeCount = activeCount+1 %}
           
             <tr class="govuk-table__row">
@@ -461,7 +461,7 @@
             </tr>
           {% endif %}
           
-          {% if data['orgs']['active']['law'] != 'active' and ( not data['search'] or data['search'] | lower in 'Law Limited' | lower ) %}
+          {% if data['orgs']['active']['law'] != 'reject' and data['orgs']['new']['cuthbert'] != 'approve' and ( not data['search'] or data['search'] | lower in 'Law Limited' | lower ) %}
           {% set activeCount = activeCount+1 %}
           
             <tr class="govuk-table__row">

@@ -164,6 +164,14 @@
 
       <input type="hidden" name="action" value="pba" />
 
+      {% if data['decision1'] == 'hold' or data['decision2'] == 'hold' or data['decision3'] == 'hold' %}
+      <input type="hidden" name="orgs[pbas][{{ data['org-short']}}]" value="hold" />
+      {% elseif data['decision1'] == 'approve' or data['decision2'] == 'approve' or data['decision3'] == 'approve' %}
+      <input type="hidden" name="orgs[pbas][{{ data['org-short']}}]" value="approve" />
+      {% else %}
+      <input type="hidden" name="orgs[pbas][{{ data['org-short']}}]" value="reject" />
+      {% endif %}
+
       {{ govukButton({
         text: 'Confirm'
       }) }}

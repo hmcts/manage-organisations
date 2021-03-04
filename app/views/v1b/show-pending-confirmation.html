@@ -66,6 +66,7 @@
       }) }}
 
       <input type="hidden" name="action" value="{{ data['decision'] }}" />
+      <input type="hidden" name="orgs[new][{{ data['org-short']}}]" value="{{ data['decision'] }}" />
 
       {{ govukButton({
         text: 'Confirm'
