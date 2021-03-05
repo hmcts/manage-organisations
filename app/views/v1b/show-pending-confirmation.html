@@ -8,11 +8,25 @@
 
 {% set pageId = 'organisation-details' %}
 {% block beforeContent %}
+
+{% if data['org-short'] == "moon" %}
+{% set backURL = '/v1b/show-pending3' %}
+{% elseif data['org-short'] == "cuthbert" %}
+{% set backURL = '/v1b/show-pending5' %}
+{% elseif data['org-short'] == "flg" %}
+{% set backURL = '/v1b/show-pending' %}
+{% elseif data['org-short'] == "alison" %}
+{% set backURL = '/v1b/show-pending4' %}
+{% elseif data['org-short'] == "broson" %}
+{% set backURL = '/v1b/show-pending2' %}
+{% endif %}
+
 {{ govukBackLink({
   text: "Back",
-  href: "/v1b/show-pending"
+  href: backURL
 }) }}
 {% endblock %}
+
 
 {% block header %}
   {{ super() }}
