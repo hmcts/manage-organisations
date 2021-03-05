@@ -8,18 +8,30 @@
 
 {% set pageId = 'organisation-details' %}
 {% block beforeContent %}
+
+{% if data['org-short'] == "david" %}
+{% set backURL = '/v1b/show-pending-pba-requests' %}
+{% elseif data['org-short'] == "360" %}
+{% set backURL = '/v1b/show-pending-pba-requests-2' %}
+{% elseif data['org-short'] == "divorce" %}
+{% set backURL = '/v1b/show-pending-pba-requests-3' %}
+{% elseif data['org-short'] == "cuthbert" %}
+{% set backURL = '/v1b/show-pending-pba-requests-5' %}
+
+{% endif %}
+
 {{ govukBackLink({
   text: "Back",
-  href: "/v1b/show-pending-pba-requests"
+  href: ""
 }) }}
 {% endblock %}
 
 {% block header %}
   {{ super() }}
   {{ hmctsIdentityBar({
-    title: { html: data['org'] + hmctsBadge({ text: 'pending' }) },
+    title: { html: data['org'] + ' ' + hmctsBadge({ text: 'Approved' }) },
     items: [{
-      href: '/v1b/show-just-approved',
+      href: backURL,
       text: 'Activate'
     }]
   }) }}
