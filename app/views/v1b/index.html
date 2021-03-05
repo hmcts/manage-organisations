@@ -322,7 +322,7 @@
             <td class="govuk-table__cell">Miamora Limited</td>
             <td class="govuk-table__cell">PBA6463761<br>PBA6843131</td>
             <td class="govuk-table__cell">Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span></td>
-            <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
+            <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
             <td class="govuk-table__cell">{% if data['orgs']['pbas']['miamora'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">On hold</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
             <td class="govuk-table__cell"><a href="/v1b/show-pending-pba-requests-4?action=">View</a></td>
           </tr>
