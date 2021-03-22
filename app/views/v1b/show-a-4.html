@@ -42,6 +42,15 @@ active: false
           },
           value: {
             html: 'Divorce Mediation and Family Law'
+          },
+          actions: {
+            items: [
+              {
+                href: "show-pending-name",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
           }
         },
         {
@@ -87,6 +96,9 @@ active: false
 
         </dd>
         <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
         </dd>
       </div>
     </dl>
@@ -98,7 +110,7 @@ active: false
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          PBA number<br /><br />Name on PBA
+          PBA number<br /><br />Name on Liberata account
         </dt>
         <dd class="govuk-summary-list__value">
           PBA0486730<br /><br />
