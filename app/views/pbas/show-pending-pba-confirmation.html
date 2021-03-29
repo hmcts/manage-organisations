@@ -1,0 +1,197 @@
+
+{% extends "./base.html" %}
+
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+
+{% if data['org-short'] == "david" %}
+{% set backURL = '/pbas/show-pending-pba-requests' %}
+{% elseif data['org-short'] == "360" %}
+{% set backURL = '/pbas/show-pending-pba-requests-2' %}
+{% elseif data['org-short'] == "divorce" %}
+{% set backURL = '/pbas/show-pending-pba-requests-3' %}
+{% elseif data['org-short'] == "cuthbert" %}
+{% set backURL = '/pbas/show-pending-pba-requests-5' %}
+
+{% endif %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: backURL
+}) }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: data['org'] + ' ' + hmctsBadge({ text: 'Approved' }) },
+    items: [{
+      href: backURL,
+      text: 'Activate'
+    }]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">Check your decision</h1>
+
+<form method="post" action="/pbas#change-reqs" >
+  {% if data['decision1'] == 'approve' %}
+  {% set strValue = 'Approve the account' %}
+
+  {% elseif data['decision1'] == 'reject'  %}
+  {% set strValue = 'Reject the account' %}
+
+  {% else %}
+  {% set strValue = 'Place account under review' %}
+
+  {% endif %}
+
+  {% if data['decision2'] == 'approve' %}
+  {% set strValue2 = 'Approve the account' %}
+
+  {% elseif data['decision2'] == 'reject'  %}
+  {% set strValue2 = 'Reject the account' %}
+
+  {% else %}
+  {% set strValue2 = 'Place account under review' %}
+
+  {% endif %}
+
+  {% if data['decision3'] == 'approve' %}
+  {% set strValue3 = 'Approve the account' %}
+
+  {% elseif data['decision3'] == 'reject'  %}
+  {% set strValue3 = 'Reject the account' %}
+
+  {% else %}
+  {% set strValue3 = 'Place account under review' %}
+
+  {% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "PBA number"
+            },
+            value: {
+              html: data['pba1']
+            }
+          },
+          {
+            key: {
+              text: "Name on PBA"
+            },
+            value: {
+              html: data['org']
+            }
+          },
+          {
+            key: {
+              text: "Decision"
+            },
+            value: {
+             text: strValue
+            }
+          }
+        ]
+      }) }}
+
+
+    {% if data['decision2'] %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "PBA number"
+            },
+            value: {
+              html: data['pba2']
+            }
+          },
+          {
+            key: {
+              text: "Name on PBA"
+            },
+            value: {
+              html: data['org']
+            }
+          },
+          {
+            key: {
+              text: "Decision"
+            },
+            value: {
+             text: strValue2
+            }
+          }
+        ]
+      }) }}
+
+    {% endif %}
+
+    {% if data['decision3'] %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "PBA number"
+            },
+            value: {
+              html: data['pba3']
+            }
+          },
+          {
+            key: {
+              text: "Name on PBA"
+            },
+            value: {
+              html: data['org']
+            }
+          },
+          {
+            key: {
+              text: "Decision"
+            },
+            value: {
+             text: strValue3
+            }
+          }
+        ]
+      }) }}
+
+    {% endif %}
+
+      <input type="hidden" name="action" value="pba" />
+
+      {% if data['decision1'] == 'hold' or data['decision2'] == 'hold' or data['decision3'] == 'hold' %}
+      <input type="hidden" name="orgs[pbas][{{ data['org-short']}}]" value="hold" />
+      {% elseif data['decision1'] == 'approve' or data['decision2'] == 'approve' or data['decision3'] == 'approve' %}
+      <input type="hidden" name="orgs[pbas][{{ data['org-short']}}]" value="approve" />
+      {% else %}
+      <input type="hidden" name="orgs[pbas][{{ data['org-short']}}]" value="reject" />
+      {% endif %}
+
+      {{ govukButton({
+        text: 'Confirm'
+      }) }}
+                  
+
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}

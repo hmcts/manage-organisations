@@ -1,0 +1,205 @@
+
+{% extends "./base.html" %}
+
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/pbas"
+}) }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: 'Moon Beever LLP ' + hmctsBadge({ text: 'pending' }) },
+    items: [{
+      href: '/pbas/show-just-approved',
+      text: 'Activate'
+    }]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+<!--
+{% set bannerHtml %}
+
+<p class="govuk-body">This organisation is pending approval.</p>
+{{govukButton({ text: 'Approve', href: '/pbas/show-just-approved', classes: 'govuk-!-margin-bottom-0' })}}
+
+{% endset %}
+
+
+{{ hmctsBanner({
+  html: bannerHtml
+}) }} -->
+
+
+<form action="show-pending-confirmation">
+
+<h1 class="govuk-heading-xl">Approve organisation</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h3 class="govuk-heading-m">Organisation details</h3>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            html: 'Moon Beever LLP'
+          },
+          actions: {
+            items: [
+              {
+                href: "show-pending-name",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "SRA ID"
+          },
+          value: {
+            html: '659195'
+          },
+          actions: {
+            items: [
+              {
+                href: "show-pending-sra",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Administrator"
+          },
+          value: {
+            html: 'Donald Smith<br><span class="govuk-caption-m govuk-!-font-size-16">dsmith@moonbeever.com</span>'
+          }
+        }
+      ]
+    }) }}
+
+    <dl class="govuk-summary-list" style="margin-top: -30px;">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address<br /><br /><br /><br /><br /><br /><br />DX 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          260 Avenue West<br />Skyline 120<br />Great Notley<br />Braintree<br />Essex<br />CM77 7AA<br /><br />
+          12328, Essex
+
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+    </dl>
+
+
+    <br />
+
+    <h3 class="govuk-heading-m">PBAs</h3>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          PBA number<br /><br />Name on Liberata account
+        </dt>
+        <dd class="govuk-summary-list__value">
+          PBA4686435<br /><br />
+          Moon Beever LLP
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="show-pending-pba">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+    <br />
+
+    <input type="hidden" name="org" value="Moon Beever LLP" />
+    <input type="hidden" name="org-short" value="moon" />
+
+    {{ govukRadios({
+      classes: "govuk-radios",
+      idPrefix: "decision",
+      name: "decision",
+      fieldset: {
+        legend: {
+          text: "What would you like to do with this registration?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "approve",
+          text: "Approve it"
+        },
+        {
+          value: "reject",
+          text: "Reject it"
+        },
+        {
+          value: "hold",
+          text: "Put it on hold pending further investigation"
+        }
+      ]
+    }) }}
+
+
+    <br />
+    {{ govukButton({
+      text: 'Submit'
+    }) }}
+
+   
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+
+    <h2 class="govuk-heading-m">
+      Quick links
+    </h2>
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link" href="https://www.sra.org.uk/consumers/register/organisation/?sraNumber=659195" target="_blank">Check SRA</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="https://solicitors.lawsociety.org.uk/search/results?Type=0&Name=Moon+Beever+LLP" target="_blank">Check Law Society</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="https://www.google.com/search?q=Moon+Beever+LLP" target="_blank">Google 'Moon Beever LLP'</a>
+      </li>
+    </ul>
+
+  </div>
+
+
+</div>
+
+</form>
+
+{% endblock %}

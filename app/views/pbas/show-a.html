@@ -1,0 +1,114 @@
+{% extends "./base.html" %}
+{% block pageTitle %}
+Organisation details
+{% endblock %}
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "/pbas#active"
+}) }}
+{% endblock %}
+{% block header %}
+{{ super() }}
+{{ hmctsIdentityBar({
+title: { html: '  Miamora Limited ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+}) }}
+{% endblock %}
+{% block content %}
+{{hmctsSubNavigation({
+items: [ {
+text: 'Organisation details',
+href: '/pbas/show-a-2',
+active: true
+},
+{
+text: 'Users',
+href: '/pbas/users-a-2',
+active: false
+}
+]
+})}}
+
+
+
+    <h3 class="govuk-heading-m">Organisation details</h3>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            html: '360 Law Group Limited'
+          }
+        },
+        {
+          key: {
+            text: "SRA ID"
+          },
+          value: {
+            html: '638685'
+          },
+          actions: {
+            items: [
+              {
+                href: "show-pending-sra",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Administrator"
+          },
+          value: {
+            html: 'Jennifer Louise McGuire<br><span class="govuk-caption-m govuk-!-font-size-16">Jennifermcguire@360.net</span>'
+          }
+        }
+      ]
+    }) }}
+
+    <br />
+
+    <h3 class="govuk-heading-m">Addresses</h3>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address<br /><br /><br /><br /><br /><br /><br />DX 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Quatro House<br />Lyon Way<br />Frimley<br />Camberley<br />Surrey<br />GU16 7ER<br /><br />
+          12348, London
+
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+    </dl>
+
+    <br />
+
+    <h3 class="govuk-heading-m">PBAs</h3>
+    <p>No PBAs registered</p>
+
+
+    <br />
+
+    <br />
+
+
+
+    {{ govukButton({
+      text: "Delete organisation",
+      classes: "govuk-button--secondary",
+      href: "/pbas/show-approved-delete"
+    }) }}
+
+    </div>
+</div>
+{% endblock %}

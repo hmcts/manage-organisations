@@ -1,0 +1,62 @@
+
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Check selected organisations
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/pbas/pending"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">Check details of pending organisation</h1>
+
+          <h2 class="govuk-heading-m">Speak limited</h2>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Address"
+                },
+                value: {
+                  html: "72 Guild Street<br>London<br>SE23 6FH"
+                }
+              },
+              {
+                key: {
+                  text: "Administrator"
+                },
+                value: {
+                  html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+                }
+              }
+            ]
+          }) }}
+
+   
+        
+
+          <form action="/pbas/confirmation">
+            {{ govukButton({
+              text: 'Approve organisation'
+            }) }}
+          </form>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}

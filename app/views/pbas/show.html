@@ -1,0 +1,116 @@
+{% extends "./base.html" %}
+{% block pageTitle %}
+Organisation details
+{% endblock %}
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "/pbas/approved"
+}) }}
+{% endblock %}
+{% block header %}
+{{ super() }}
+{{ hmctsIdentityBar({
+title: { html: 'Wedlake Bell ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+}) }}
+{% endblock %}
+{% block content %}
+{{hmctsSubNavigation({
+items: [ {
+text: 'Organisation details',
+href: '/pbas/show',
+active: true
+},
+{
+text: 'Users',
+href: '/pbas/users',
+active: false
+}
+]
+})}}
+<h1 class="govuk-heading-xl">Organisation details</h1>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ govukSummaryList({
+        rows: [
+        {
+        key: {
+        text: "Name"
+        },
+        value: {
+        text: "Wedlake Bell"
+        }
+        },
+        {
+        key: {
+        text: "Address"
+        },
+        value: {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+        }
+        },
+        {
+        key: {
+        text: "PBA number"
+        },
+        value: {
+        html: 'PBA1234567<br><span class="govuk-caption-m govuk-!-font-size-16">Account name: Account A</span>PBA2233444<span class="govuk-caption-m govuk-!-font-size-16">Account name: Account B</span>'
+        },
+        actions: {
+        items: [
+        {
+        href: "#",
+        text: "Change",
+        visuallyHiddenText: "name"
+        }
+        ]
+        }
+        },
+        {
+        key: {
+        text: "DX number"
+        },
+        value: {
+        html: '12345567'
+        }
+        },
+        {
+        key: {
+        text: "DX exchange"
+        },
+        value: {
+        html: '12345567'
+        }
+        },
+        {
+        key: {
+        text: "Administrator"
+        },
+        value: {
+        html: 'Peter Gold<br><span class="govuk-caption-m govuk-!-font-size-16">peter.gold@wedlakebell.com</span>'
+        }
+        },
+        {
+        key: {
+        text: "SRA ID"
+        },
+        value: {
+        html: 'SRA3347232'
+        },
+        actions: {
+        items: [
+        {
+        href: "#",
+        text: "Change",
+        visuallyHiddenText: "name"
+        }
+        ]
+        }
+        }
+        ]
+        }) }}
+    
+    </div>
+</div>
+{% endblock %}

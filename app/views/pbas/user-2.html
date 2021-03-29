@@ -1,0 +1,65 @@
+
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/pbas/users"
+}) }}
+{% endblock %}
+
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: 'Wedlake Bell ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class="govuk-heading-xl">User</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  
+
+                <table class="govuk-table">
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row">Name</th>
+                            <td class="govuk-table__cell">Amy Venkatanarasimharaj</td>
+                            <td class="govuk-table__cell">
+                                <!-- <a href="/manage-admin/users/update-name">Change</a> -->
+                            </td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row">Email address</th>
+                            <td class="govuk-table__cell">amyvenkatanarasimharaj@wedlakebell.com</td>
+                            <td class="govuk-table__cell">
+                                <!-- <a href="/manage-admin/users/update-email">Change</a> -->
+                            </td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row">Permissions</th>
+                            <td class="govuk-table__cell">
+                                Manage cases<br>
+                              
+                                    Manage fee accounts
+                            </td>
+                            <td class="govuk-table__cell"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+  </div>
+</div>
+
+
+{% endblock %}

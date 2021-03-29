@@ -1,0 +1,79 @@
+
+{% extends "./base.html" %}
+
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/pbas/show-a-2"
+}) }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+title: { html: '  Miamora Limited ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class="govuk-heading-xl">Delete this organisation?</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            html: 'Miamora Limited<span class="govuk-caption-m govuk-!-font-size-16">23456433</span>'
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "72 Guild Street<br>London<br>SE23 6FH"
+          } },
+           {
+                key: {
+                  text: "Administrator"
+                },
+                value: {
+                  html: 'Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span>'
+                }
+              }
+      ]
+    }) }}
+     <form>
+      {{ govukWarningText({
+  text: "Make sure you have the organisation's permission before deleting them.",
+  iconFallbackText: "Warning"
+}) }}
+                {{ govukButton({
+                text: 'Delete organisation',
+                classes: "govuk-button--warning",
+                href: "confirmation-delete-app"
+                }) }}
+           
+            
+            
+            
+  </div>
+</div>
+
+{% endblock %}

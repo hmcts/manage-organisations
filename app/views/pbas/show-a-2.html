@@ -1,0 +1,155 @@
+{% extends "./base.html" %}
+{% block pageTitle %}
+Organisation details
+{% endblock %}
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "/pbas#active"
+}) }}
+{% endblock %}
+{% block header %}
+{{ super() }}
+{{ hmctsIdentityBar({
+title: { html: '  David & Snape ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+}) }}
+{% endblock %}
+{% block content %}
+{{hmctsSubNavigation({
+items: [ {
+text: 'Organisation details',
+href: '/pbas/show-a-2',
+active: true
+},
+{
+text: 'Users',
+href: '/pbas/users-a-2',
+active: false
+}
+]
+})}}
+
+
+
+    <h3 class="govuk-heading-m">Organisation details</h3>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            html: 'David & Snape'
+          },
+          actions: {
+            items: [
+              {
+                href: "show-pending-name",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "SRA ID"
+          },
+          value: {
+            html: '661374'
+          },
+          actions: {
+            items: [
+              {
+                href: "show-pending-sra",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Administrator"
+          },
+          value: {
+            html: 'Snape Hutchinson<br><span class="govuk-caption-m govuk-!-font-size-16">snape@davidandsnape.com</span>'
+          }
+        }
+      ]
+    }) }}
+
+
+    <br />
+
+    <h3 class="govuk-heading-m">Addresses</h3>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address<br /><br /><br /><br />DX 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          4 Lias Road<br />Porthcawl<br />Mid Glamorgan<br />CF36 3AH<br /><br />
+          12348, Westminster
+
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+    <br />
+
+    <h3 class="govuk-heading-m">PBAs</h3>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          PBA number<br /><br />Name on Liberata account
+        </dt>
+        <dd class="govuk-summary-list__value">
+          PBA7485735<br /><br />
+          David & Snape
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          PBA number<br /><br />Name on Liberata account
+        </dt>
+        <dd class="govuk-summary-list__value">
+          PBA5746068<br /><br />
+          David & Snape
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="show-pending-pba">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+    <br />
+
+
+
+
+
+    {{ govukButton({
+  text: "Delete organisation",
+  classes: "govuk-button--secondary",
+  href: "/pbas/show-approved-delete"
+}) }}
+    </div>
+</div>
+{% endblock %}

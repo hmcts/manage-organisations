@@ -1,0 +1,87 @@
+
+{% extends "./base.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/pbas/show-pending"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'pending' }) },
+    items: [{
+      href: '/pbas/show-just-approved',
+      text: 'Activate'
+    }]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<form action="/pbas/show-pending">
+
+         <div class="hmcts-banner hmcts-banner--warning">
+
+<svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+<path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" /></svg>
+
+<div class="hmcts-banner__message">
+<span class="hmcts-banner__assistive">Warning</span>
+Unable to complete your request at this time, try again later.
+</div>
+
+</div> 
+          {% call govukFieldset({
+        legend: {
+          text: "Organisation payment by account (PBA) number",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+     {{ govukInput({
+          label: {
+            html: 'PBA number 1 (optional)',
+            classes: 'govuk-label--m'
+          },
+          id: "address-line-1",
+          name: "address-line-1",
+          classes: 'govuk-input--width-20'
+        }) }}
+
+     {{ govukInput({
+          label: {
+            html: 'PBA number 2 (optional)',
+            classes: 'govuk-label--m'
+          },
+          id: "address-line-1",
+          name: "address-line-1",
+          classes: 'govuk-input--width-20'
+        }) }}
+
+      {% endcall %}
+
+
+
+<button type="submit" class="govuk-button">
+  Submit
+</button>
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

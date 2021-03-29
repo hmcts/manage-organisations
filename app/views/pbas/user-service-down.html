@@ -1,0 +1,34 @@
+
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/pbas/users"
+}) }}
+{% endblock %}
+
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: 'Wedlake Bell ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class="govuk-heading-xl">Sorry, there is a problem with the service</h1>
+        <p class="govuk-body">Try again later.</p>
+
+  </div>
+</div>
+
+
+{% endblock %}

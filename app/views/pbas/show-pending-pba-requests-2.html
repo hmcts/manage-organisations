@@ -1,0 +1,121 @@
+
+{% extends "./base.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/pbas#change-reqs"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: '360 Law Group Limited ' + hmctsBadge({ text: 'approved' }) },
+    items: [{
+      href: '/pbas/show-just-approved',
+      text: 'Activate'
+    }]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="/pbas/show-pending-pba-confirmation">
+
+        <h1 class="govuk-heading-xl hmcts-add-another__heading">Approve new PBA number</h1>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="pba-[0]">
+            Name on MyHMCTS account
+          </label>
+          <p>360 Law Group Limited</p>
+        </div>
+
+        <br />
+        <h3 class="govuk-heading-m">PBA accounts</h3>
+        <hr />
+
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              PBA number<br /><br />Name on Liberata account
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PBA6350578<br /><br />
+              PBA number not recognised
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "decision1",
+          name: "decision1",
+          fieldset: {
+            legend: {
+              text: "Does the name on the Liberata account match the organisation’s name?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "approve",
+              text: "Yes – approve the account"
+            },
+            {
+              value: "reject",
+              text: "No – reject the account"
+            }
+          ]
+        }) }}
+
+        <br />
+        <input type="hidden" name="org" value="360 Law Group Limited" />
+        <input type="hidden" name="org-short" value="360" />
+        <input type="hidden" name="pba1" value="PBA6350578" />
+        <input type="hidden" name="decision2" value="" />
+        <input type="hidden" name="decision3" value="" />
+
+        {% if ( data['pba-number'] ) %}
+
+        {{ govukButton({
+        text: 'Submit',
+        href: "/pbas#change-reqs"
+        }) }} 
+
+        {% else %}
+
+        {{ govukButton({
+        text: 'Continue'
+        }) }} 
+
+        {% endif %}
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+  new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
+</script>
+{% endblock %}

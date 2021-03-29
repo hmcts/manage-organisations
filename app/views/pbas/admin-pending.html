@@ -1,0 +1,70 @@
+
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/pbas/approved-admin-pending"
+}) }}
+{% endblock %}
+
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: 'Wedlake Bell ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+   {{hmctsSubNavigation({
+        items: [ {
+        text: 'Organisation details',
+        href: '/pbas/show-admin-pending',
+        active: false
+        }, 
+        {
+        text: 'Users',
+        href: '/pbas/admin-pending',
+        active: true
+        }
+        ]
+        })}}
+
+<h1 class="govuk-heading-xl">Users</h1>
+
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  
+  
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">Name</th>
+                    <th class="govuk-table__header" scope="col">Email address</th>
+ 
+                    <th class="govuk-table__header" scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="/pbas/user-admin-pending">Peter Gold</a></td>
+                    <td class="govuk-table__cell">peter.gold@wedlakebell.com</td>
+                  
+ 
+                    <td class="govuk-table__cell">Pending</td>
+                </tr>
+               
+            </tbody>
+        </table>
+</div>
+</div>
+
+{% endblock %}
+

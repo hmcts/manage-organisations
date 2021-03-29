@@ -1,0 +1,147 @@
+
+{% extends "./base.html" %}
+
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/pbas/on-hold"
+}) }}
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'On hold' }) },
+    items: [{
+      href: '/pbas/show-just-approved',
+      text: 'Activate'
+    }]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+<!--
+{% set bannerHtml %}
+
+<p class="govuk-body">This organisation is pending approval.</p>
+{{govukButton({ text: 'Approve', href: '/pbas/show-just-approved', classes: 'govuk-!-margin-bottom-0' })}}
+
+{% endset %}
+
+
+{{ hmctsBanner({
+  html: bannerHtml
+}) }} -->
+
+<h1 class="govuk-heading-xl">Organisation details</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            html: 'Speak Law Limited<span class="govuk-caption-m govuk-!-font-size-16">12343211</span>'
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "72 Guild Street<br>London<br>SE23 6FH"
+          }
+        },
+        {
+          key: {
+            text: "PBA number"
+          },
+          value: {
+            html: 'PBA1234567<br><span class="govuk-caption-m govuk-!-font-size-16">Account name: Account A</span>PBA2233444<span class="govuk-caption-m govuk-!-font-size-16">Account name: Account B</span>'
+          },
+          actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+        },
+        {
+          key: {
+            text: "DX number"
+          },
+          value: {
+            html: '12345567'
+          }
+        },
+        {
+          key: {
+            text: "DX exchange"
+          },
+          value: {
+            html: '12345567'
+          }
+        },
+        {
+          key: {
+            text: "Administrator"
+          },
+          value: {
+            html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+          }
+        },
+{
+          key: {
+            text: "SRA ID"
+          },
+          value: {
+            html: 'SRA3347232'
+          },
+          actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+        }
+      ]
+    }) }}
+
+                {{ govukButton({
+                text: 'Approve organisation',
+                href: "/pbas/show-on-hold-confirmation"
+                }) }}
+<!--
+                {{ govukButton({
+                text: 'Put on hold',
+                classes: "govuk-button--secondary",
+                href: "/pbas/on-hold"
+                }) }}
+ -->           
+                {{ govukButton({
+                text: 'Delete organisation',
+                classes: "govuk-button--secondary",
+                href: "/pbas/show-on-hold-delete"
+                }) }}
+           
+   
+  </div>
+</div>
+
+{% endblock %}

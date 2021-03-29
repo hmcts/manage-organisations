@@ -1,0 +1,141 @@
+{% extends "./base.html" %}
+{% block pageTitle %}
+Organisation details
+{% endblock %}
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "/pbas#active"
+}) }}
+{% endblock %}
+{% block header %}
+{{ super() }}
+{{ hmctsIdentityBar({
+title: { html: '  Moon Beever ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+}) }}
+{% endblock %}
+{% block content %}
+{{hmctsSubNavigation({
+items: [ {
+text: 'Organisation details',
+href: '/pbas/show-a-2',
+active: true
+},
+{
+text: 'Users',
+href: '/pbas/users-a-2',
+active: false
+}
+]
+})}}
+
+
+
+    <h3 class="govuk-heading-m">Organisation details</h3>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            html: 'Moon Beever LLP'
+          },
+          actions: {
+            items: [
+              {
+                href: "show-pending-name",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "SRA ID"
+          },
+          value: {
+            html: '659195'
+          },
+          actions: {
+            items: [
+              {
+                href: "show-pending-sra",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Administrator"
+          },
+          value: {
+            html: 'Sharon Love<br><span class="govuk-caption-m govuk-!-font-size-16">slove@moonbeever.com</span>'
+          }
+        }
+      ]
+    }) }}
+
+    <br />
+
+    <h3 class="govuk-heading-m">Addresses</h3>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address<br /><br /><br /><br /><br />DX 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Bedford House<br />
+          21a John Street<br />
+          London<br />
+          WC1N 2BF<br /><br />
+          12348, London
+
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+    <br />
+
+    <h3 class="govuk-heading-m">PBAs</h3>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          PBA number<br /><br />Name on Liberata account
+        </dt>
+        <dd class="govuk-summary-list__value">
+          PBA4686435<br /><br />
+          Moon Beever LLP
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="show-pending-pba">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+
+
+
+    {{ govukButton({
+      text: "Delete organisation",
+      classes: "govuk-button--secondary",
+      href: "/pbas/show-approved-delete"
+    }) }}
+    
+    </div>
+</div>
+{% endblock %}

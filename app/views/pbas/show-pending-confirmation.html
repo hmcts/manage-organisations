@@ -1,0 +1,95 @@
+
+{% extends "./base.html" %}
+
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+
+{% if data['org-short'] == "moon" %}
+{% set backURL = '/pbas/show-pending3' %}
+{% elseif data['org-short'] == "cuthbert" %}
+{% set backURL = '/pbas/show-pending5' %}
+{% elseif data['org-short'] == "flg" %}
+{% set backURL = '/pbas/show-pending' %}
+{% elseif data['org-short'] == "alison" %}
+{% set backURL = '/pbas/show-pending4' %}
+{% elseif data['org-short'] == "broson" %}
+{% set backURL = '/pbas/show-pending2' %}
+{% endif %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: backURL
+}) }}
+{% endblock %}
+
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: data['org'] + ' ' + hmctsBadge({ text: 'Approved' }) },
+    items: [{
+      href: '/pbas/show-just-approved',
+      text: 'Activate'
+    }]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">Confirm your decision</h1>
+
+<form method="post" action="/pbas" >
+  {% if data['decision'] == 'approve' %}
+  {% set strValue = 'Approve the registration' %}
+
+  {% elseif data['decision'] == 'reject'  %}
+  {% set strValue = 'Reject the registration' %}
+
+  {% else %}
+  {% set strValue = 'Put the registration on hold' %}
+
+  {% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              html: data['org'] or 'Speak Law Limited'
+            }
+          },
+          {
+            key: {
+              text: "Decision"
+            },
+            value: {
+             text: strValue
+            }
+          }
+        ]
+      }) }}
+
+      <input type="hidden" name="action" value="{{ data['decision'] }}" />
+      <input type="hidden" name="orgs[new][{{ data['org-short']}}]" value="{{ data['decision'] }}" />
+
+      {{ govukButton({
+        text: 'Confirm'
+      }) }}
+                  
+
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Case worker admin
+{% endblock %}
+
+{% set pageId = 'cwa' %}
+
+
+{% macro tableCheckbox(params) %}
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="{{params.id}}" name="{{params.name}}" type="radio" value="{{params.value}}">
+    <label class="govuk-label govuk-radios__label" for="{{params.id}}"></label>
+  </div>
+{% endmacro %}
+
+{% macro tableLink(params) %}
+  <a href="{{params.href}}">{{params.text}}</a>
+{% endmacro %}
+
+{% block content %}
+
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+  <h2 class="govuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+  <div class="govuk-error-summary__body">
+    <ul class="govuk-list govuk-error-summary__list">
+      <li>
+        <a href="#passport-issued-error">   Invalid file format. File provided in request is not in xlsx format</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <h1 class="govuk-heading-xl">Caseworker admin control</h1>
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+
+        <p class="govuk-body">Please click <a href="#">here</a> to download the latest template.</p>
+
+        <p class="govuk-body">Please add the relevant caseworker information in the excel sheet and upload the file.</p>
+
+        <div class="govuk-form-group govuk-form-group--error">
+          <label class="govuk-label" for="file-upload-1"><strong>
+            Upload a file</strong>
+          </label>
+          <div id="passport-issued-hint" class="govuk-hint">
+     The file must be a password protected xlsx or xls and not exceed (x) MB
+   </div>
+          <span id="file-upload-1-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Invalid file format. File provided in request is not in xlsx format
+          </span>
+          <input class="govuk-file-upload govuk-file-upload--error" id="file-upload-1" name="file-upload-1" type="file" aria-describedby="file-upload-1-error">
+        </div>
+
+        {{ govukButton({
+        text: 'Upload',
+        href: "/pbas/cwa-confirmation"
+        }) }}
+
+</div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "./base.html" %}
+{% block pageTitle %}
+Confirmation
+{% endblock %}
+{% set mainClasses = "govuk-main-wrapper--l" %}
+{% from "panel/macro.njk" import govukPanel %}
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ govukPanel({
+        titleText: "Miamora Limited",
+        html: 'has been deleted '
+        }) }}
+        <h3 class="govuk-heading-m">What happens next</h3>
+        <p class="govuk-body">
+            You should tell the organisation they’ve been deleted.</p>
+ <p class="govuk-body">They’ve also been removed from your list of active organisations.
+
+        </p>
+         <p class="govuk-body"><a href="/pbas/approved-deleted">Go back to active organisations</a></p>
+    </div>
+</div>
+{% endblock %}

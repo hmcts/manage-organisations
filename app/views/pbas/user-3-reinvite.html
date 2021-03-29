@@ -1,0 +1,86 @@
+{% extends "./base.html" %}
+{% block pageTitle %}
+Organisation details
+{% endblock %}
+{% set pageId = 'organisation-details' %}
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "/pbas/user-3"
+}) }}
+{% endblock %}
+{% block header %}
+{{ super() }}
+{{ hmctsIdentityBar({
+title: { html: 'Wedlake Bell ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+}) }}
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Invite user</h1>
+        <p class="govuk-body">When you send this invitation, the user will receive an email from HM Courts and Tribunals Registrations so they can finish setting up their account.</p>
+        <div class="govuk-form-group">
+            <label class="govuk-label--m" for="first-name">
+                First name
+                <!--<span id="passport-issued-hint" class="govuk-hint">
+                            Include all middle names.
+                        </span> -->
+            </label>
+            <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Tim" disabled="">
+        </div>
+        <div class="govuk-form-group">
+            <label class="govuk-label--m" for="first-name">
+                Last name </label>
+            <input class="govuk-input" id="full-name" name="full-name" type="text" autocomplete="name" spellcheck="false" value="Brock" disabled="">
+        </div>
+        <div class="govuk-form-group">
+            <label class="govuk-label--m" for="first-name">
+                Email address
+            </label>
+            <input class="govuk-input" id="emailaddress" name="full-name" type="text" autocomplete="name" spellcheck="false" value="  timbrock@wedlakebell.com" disabled>
+        </div>
+        <form action="./confirmation-user-3">
+            {{ govukCheckboxes({
+            idPrefix: "permissions",
+            name: "permissions",
+            fieldset: {
+            legend: {
+            text: "Permissions",
+            classes: "govuk-fieldset__legend--m"
+            }
+            },
+            hint: {
+            text: "Choose at least one action the user can do. You can change this later."
+            },
+            items: [
+            {
+            value: "cases",
+            text: "Manage cases",
+            hint: {
+            text: "View, create and progress cases."
+            }
+            },
+            {
+            value: "users",
+            text: "Manage users",
+            hint: {
+            text: "Invite users."
+            }
+            },
+            {
+            value: "organisation",
+            text: "Manage organisation",
+            hint: {
+            text: "View the organisation name and address."
+            }
+            }
+            ]
+            }) }}
+            {{govukButton({
+            text: 'Send invitation'
+            })}}
+        </form>
+    </div>
+</div>
+{% endblock %}

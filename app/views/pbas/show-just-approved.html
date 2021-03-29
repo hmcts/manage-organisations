@@ -1,0 +1,86 @@
+
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'Active', classes: 'hmcts-badge--green'}) }
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  {{ hmctsBanner({
+    type: 'success',
+    text: 'You have activated the organisation.',
+    iconFallbackText: 'Success'
+  }) }}
+
+
+<h1 class="govuk-heading-xl">Organisation details</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Speak Limited"
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "72 Guild Street<br>London<br>SE23 6FH"
+          }
+        },
+        {
+          key: {
+            text: "PBA number"
+          },
+          value: {
+            text: "1234567"
+          }
+        },
+        {
+          key: {
+            text: "DX number"
+          },
+          value: {
+            html: '12345567'
+          }
+        },
+        {
+          key: {
+            text: "DX exchange"
+          },
+          value: {
+            html: '12345567'
+          }
+        },
+        {
+          key: {
+            text: "Administrator"
+          },
+          value: {
+            html: 'Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">matt@speak.com</span>'
+          }
+        }
+      ]
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

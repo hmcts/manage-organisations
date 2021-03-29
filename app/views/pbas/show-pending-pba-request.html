@@ -1,0 +1,112 @@
+
+{% extends "./base.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/pbas"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'approved' }) },
+    items: [{
+      href: '/pbas/show-just-approved',
+      text: 'Activate'
+    }]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="/pbas/show-pending-pba-requests">
+
+        <h1 class="govuk-heading-xl hmcts-add-another__heading">Approve new PBA number</h1>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="pba-[0]">
+            PBA number
+          </label>
+          <p>{{ ( data['pba-number'] or 'PBA5469871' ) }}</p>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="pba-[0]">
+            Name on PBA account:
+          </label>
+          <p>Speake Law Ltd</p>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="pba-[0]">
+            Name on MyHMCTS account:
+          </label>
+          <p>Speak Law Limited</p>
+        </div>
+
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "decision",
+          name: "decision",
+          fieldset: {
+            legend: {
+              text: "What would you like to do with this request?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "approve",
+              text: "Approve it"
+            },
+            {
+              value: "Reject",
+              text: "Reject it"
+            }
+          ]
+        }) }}
+
+
+        <input type="hidden" name="pba-number" value="PBA3541892" />
+
+        <br />
+
+        {% if ( data['pba-number'] ) %}
+
+        {{ govukButton({
+        text: 'Submit',
+        href: "/pbas#change-reqs"
+        }) }} 
+
+        {% else %}
+
+        {{ govukButton({
+        text: 'Continue'
+        }) }} 
+
+        {% endif %}
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+  new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
+</script>
+{% endblock %}

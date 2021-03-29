@@ -1,0 +1,67 @@
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Case worker admin
+{% endblock %}
+
+{% set pageId = 'cwa' %}
+
+
+{% macro tableCheckbox(params) %}
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="{{params.id}}" name="{{params.name}}" type="radio" value="{{params.value}}">
+    <label class="govuk-label govuk-radios__label" for="{{params.id}}"></label>
+  </div>
+{% endmacro %}
+
+{% macro tableLink(params) %}
+  <a href="{{params.href}}">{{params.text}}</a>
+{% endmacro %}
+
+{% block content %}
+
+<div class="hmcts-banner hmcts-banner--warning">
+
+<svg class="hmcts-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+<path d="M13.6,15.4h-2.3v-4.5h2.3V15.4z M13.6,19.8h-2.3v-2.2h2.3V19.8z M0,23.2h25L12.5,2L0,23.2z" /></svg>
+
+<div class="hmcts-banner__message">
+<span class="hmcts-banner__assistive">Warning</span>
+ Unauthorised request.  <p>Request has not been applied since user does not have sufficient access to call this API.</p>
+</div>
+
+</div>
+
+<h1 class="govuk-heading-xl">Caseworker admin control</h1>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+
+
+      <p class="govuk-body">Please click <a href="#">here</a> to download the latest template.</p>
+
+      <p class="govuk-body">Please add the relevant caseworker information in the excel sheet and upload the file.</p>
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="file-upload-1"><strong>
+          Upload a file</strong>
+        </label>
+        <div id="passport-issued-hint" class="govuk-hint">
+   The file must be a password protected xlsx or xls and not exceed (x) MB
+ </div>
+        <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+      </div>
+
+        {{ govukButton({
+        text: 'Upload',
+        href: "/pbas/cwa-confirmation"
+        }) }}
+
+</div>
+</div>
+
+
+
+{% endblock %}

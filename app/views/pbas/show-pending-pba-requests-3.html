@@ -1,0 +1,216 @@
+
+{% extends "./base.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/pbas#change-reqs"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% set pageId = 'organisation-details' %}
+
+{% block header %}
+  {{ super() }}
+  {{ hmctsIdentityBar({
+    title: { html: 'Speak Law Limited ' + hmctsBadge({ text: 'approved' }) },
+    items: [{
+      href: '/pbas/show-just-approved',
+      text: 'Activate'
+    }]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="/pbas/show-pending-pba-confirmation">
+
+        <h1 class="govuk-heading-xl hmcts-add-another__heading">Approve new PBA number</h1>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="pba-[0]">
+            Name on MyHMCTS account
+          </label>
+          <p>Divorce Mediation and Family Law</p>
+        </div>
+
+        <br />
+        <h3 class="govuk-heading-m">PBA accounts</h3>
+        <hr />
+
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              PBA number<br /><br />Name on Liberata account
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PBA8475870<br /><br />
+              Divorce Mediation and Family Law
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "decision1",
+          name: "decision1",
+          fieldset: {
+            legend: {
+              text: "Does the name on the Liberata account match the organisation’s name?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "approve",
+              text: "Yes – approve the account"
+            },
+            {
+              value: "reject",
+              text: "No – reject the account"
+            }
+          ]
+        }) }}
+
+        <br />
+        <hr />
+
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              PBA number<br /><br />Name on Liberata account
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PBA6596078<br /><br />
+              Divorce Mediation and Family Law
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "decision2",
+          name: "decision2",
+          fieldset: {
+            legend: {
+              text: "Does the name on the Liberata account match the organisation’s name?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "approve",
+              text: "Yes – approve the account"
+            },
+            {
+              value: "reject",
+              text: "No – reject the account"
+            },
+            {
+              value: "hold",
+              text: "No – place account under reviewing pending further investigation"
+            }
+          ]
+        }) }}
+
+        <br />
+        <hr />
+        
+        <dl class="govuk-summary-list govuk-summary-list--no-border">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              PBA number<br /><br />Name on Liberata account
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PBA8573650<br /><br />
+              Austen Jones Solicitors
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "decision3",
+          name: "decision3",
+          fieldset: {
+            legend: {
+              text: "Does the name on the Liberata account match the organisation’s name?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "approve",
+              text: "Yes – approve the account"
+            },
+            {
+              value: "reject",
+              text: "No – reject the account"
+            },
+            {
+              value: "hold",
+              text: "No – place account under reviewing pending further investigation"
+            }
+          ]
+        }) }}
+
+        <br />
+        <input type="hidden" name="org" value="Divorce Mediation and Family Law" />
+        <input type="hidden" name="org-short" value="divorce" />
+        <input type="hidden" name="pba1" value="PBA8475870" />
+        <input type="hidden" name="pba2" value="PBA6596078" />
+        <input type="hidden" name="pba3" value="PBA8573650" />
+
+
+        {% if ( data['pba-number'] ) %}
+
+        {{ govukButton({
+        text: 'Submit',
+        href: "/pbas#change-reqs"
+        }) }} 
+
+        {% else %}
+
+        {{ govukButton({
+        text: 'Continue'
+        }) }} 
+
+        {% endif %}
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+  new HMCTSFrontend.AddAnother($('.hmcts-add-another'));
+</script>
+{% endblock %}
