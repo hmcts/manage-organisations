@@ -44,35 +44,35 @@
 
 <form method="post" action="/v1b#change-reqs" >
   {% if data['decision1'] == 'approve' %}
-  {% set strValue = 'Approve' %}
+  {% set strValue = 'Approve the account' %}
 
   {% elseif data['decision1'] == 'reject'  %}
-  {% set strValue = 'Reject' %}
+  {% set strValue = 'Reject the account' %}
 
   {% else %}
-  {% set strValue = 'Put on hold' %}
+  {% set strValue = 'Place account under review' %}
 
   {% endif %}
 
   {% if data['decision2'] == 'approve' %}
-  {% set strValue2 = 'Approve' %}
+  {% set strValue2 = 'Approve the account' %}
 
   {% elseif data['decision2'] == 'reject'  %}
-  {% set strValue2 = 'Reject' %}
+  {% set strValue2 = 'Reject the account' %}
 
   {% else %}
-  {% set strValue2 = 'Put on hold' %}
+  {% set strValue2 = 'Place account under review' %}
 
   {% endif %}
 
   {% if data['decision3'] == 'approve' %}
-  {% set strValue3 = 'Approve' %}
+  {% set strValue3 = 'Approve the account' %}
 
   {% elseif data['decision3'] == 'reject'  %}
-  {% set strValue3 = 'Reject' %}
+  {% set strValue3 = 'Reject the account' %}
 
   {% else %}
-  {% set strValue3 = 'Put on hold' %}
+  {% set strValue3 = 'Place account under review' %}
 
   {% endif %}
 
