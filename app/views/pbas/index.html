@@ -128,7 +128,7 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Organisation</th>
-            <th scope="col" class="govuk-table__header">Addresses</th>
+            <th scope="col" class="govuk-table__header">Address</th>
             <th scope="col" class="govuk-table__header">Administrator</th>
             <th scope="col" class="govuk-table__header">Date received</th>
             <th scope="col" class="govuk-table__header">Status</th>
@@ -154,7 +154,7 @@
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Moon Beever LLP</td>
-          <td class="govuk-table__cell">260 Avenue West<br>Skyline 120<br>Great Notley<br>Braintree<br>Essex<br>CM77 7AA<br><span class="govuk-caption-m govuk-!-font-size-16">+ 1 other</span></td>
+          <td class="govuk-table__cell">260 Avenue West<br>Skyline 120<br>Great Notley<br>Braintree<br>Essex<br>CM77 7AA</td>
           <td class="govuk-table__cell">Donald Smith<br><span class="govuk-caption-m govuk-!-font-size-16">dsmith@moonbeever.com</span></td>
           <td class="govuk-table__cell">{{ now | date( 'subtract', 3, 'days') | date('D MMM YYYY') }}</td>
           <td class="govuk-table__cell">{% if data['orgs']['new']['moon'] == 'hold' %}Under review</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
@@ -202,7 +202,7 @@
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Flemming &amp; Co Solicitors</td>
-           <td class="govuk-table__cell">Unit 5<br>Old Co-Op Buildings<br>Manchester<br>Greater Manchester<br><span class="govuk-caption-m govuk-!-font-size-16">+ 7 others</span></td>
+           <td class="govuk-table__cell">Unit 5<br>Old Co-Op Buildings<br>Manchester<br>Greater Manchester</td>
            <td class="govuk-table__cell">Adam Silver<br><span class="govuk-caption-m govuk-!-font-size-16">adam@silver.com</span></td>
            <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
            <td class="govuk-table__cell">{% if data['orgs']['new']['flemming'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">Under review</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
@@ -226,7 +226,7 @@
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Pinder Reaux &amp; Associates</td>
-           <td class="govuk-table__cell">Vyman House<br>104 College Road<br>Harrow<br>Middlesex<br>HA1 1BQ<br><span class="govuk-caption-m govuk-!-font-size-16">+ 2 others</span></td>
+           <td class="govuk-table__cell">Vyman House<br>104 College Road<br>Harrow<br>Middlesex<br>HA1 1BQ</td>
            <td class="govuk-table__cell">Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">mattpinder@aol.com</span></td>
            <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
            <td class="govuk-table__cell">{% if data['orgs']['new']['pinder'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">Under review</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
@@ -238,7 +238,7 @@
         {% set newRegCount = newRegCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Metcalfe Eyres Solicitors</td>
-           <td class="govuk-table__cell">Fifth Floor<br>Maple House,<br>High Street<br>Potters Bar<br>Hertfordshire<br><span class="govuk-caption-m govuk-!-font-size-16">+ 1 other</span></td>
+           <td class="govuk-table__cell">Fifth Floor<br>Maple House,<br>High Street<br>Potters Bar<br>Hertfordshire</td>
            <td class="govuk-table__cell">Mama Tora<br><span class="govuk-caption-m govuk-!-font-size-16">metcalfe@mora.com</span></td>
            <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
            <td class="govuk-table__cell">{% if data['orgs']['new']['metcalfe'] == 'hold' %}<strong class="govuk-tag govuk-tag--grey">Under review</strong>{% else %}<strong class="govuk-tag govuk-tag--blue">Pending</strong>{% endif %}</td>
@@ -363,7 +363,7 @@
         {% set activeCount = activeCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Cuthbert &amp; Smith Limited</td>
-           <td class="govuk-table__cell">7, Crown Yard<br>Bedgebury Road<br>Goudhurst<br>Kent<br><span class="govuk-caption-m govuk-!-font-size-16">+ 1 other</span></td>
+           <td class="govuk-table__cell">7, Crown Yard<br>Bedgebury Road<br>Goudhurst<br>Kent</td>
            <td class="govuk-table__cell">Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span></td>
            <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }} </td>
            <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
@@ -374,7 +374,7 @@
         {% set activeCount = activeCount+1 %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Moon Beever LLP</td>
-          <td class="govuk-table__cell">260 Avenue West<br>Skyline 120<br>Great Notley<br>Braintree<br>Essex<br>CM77 7AA<br><span class="govuk-caption-m govuk-!-font-size-16">+ 1 other</span></td>
+          <td class="govuk-table__cell">260 Avenue West<br>Skyline 120<br>Great Notley<br>Braintree<br>Essex<br>CM77 7AA</td>
           <td class="govuk-table__cell">Donald Smith<br><span class="govuk-caption-m govuk-!-font-size-16">dsmith@moonbeever.com</span></td>
           <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
           <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
@@ -418,7 +418,7 @@
         {% set activeCount = activeCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Flemming &amp; Co Solicitors</td>
-           <td class="govuk-table__cell">Unit 5<br>Old Co-Op Buildings<br>Manchester<br>Greater Manchester<br><span class="govuk-caption-m govuk-!-font-size-16">+ 7 others</span></td>
+           <td class="govuk-table__cell">Unit 5<br>Old Co-Op Buildings<br>Manchester<br>Greater Manchester</td>
            <td class="govuk-table__cell">Adam Silver<br><span class="govuk-caption-m govuk-!-font-size-16">adam@silver.com</span></td>
            <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
            <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
@@ -440,7 +440,7 @@
         {% set activeCount = activeCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Pinder Reaux &amp; Associates</td>
-           <td class="govuk-table__cell">Vyman House<br>104 College Road<br>Harrow<br>Middlesex<br>HA1 1BQ<br><span class="govuk-caption-m govuk-!-font-size-16">+ 2 others</span></td>
+           <td class="govuk-table__cell">Vyman House<br>104 College Road<br>Harrow<br>Middlesex<br>HA1 1BQ</td>
            <td class="govuk-table__cell">Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">mattpinder@aol.com</span></td>
            <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
            <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
@@ -451,7 +451,7 @@
         {% set activeCount = activeCount+1 %}
         <tr class="govuk-table__row">
            <td class="govuk-table__cell">Metcalfe Eyres Solicitors</td>
-           <td class="govuk-table__cell">Fifth Floor<br>Maple House,<br>High Street<br>Potters Bar<br>Hertfordshire<br><span class="govuk-caption-m govuk-!-font-size-16">+ 1 other</span></td>
+           <td class="govuk-table__cell">Fifth Floor<br>Maple House,<br>High Street<br>Potters Bar<br>Hertfordshire</td>
            <td class="govuk-table__cell">Mama Tora<br><span class="govuk-caption-m govuk-!-font-size-16">metcalfe@mora.com</span></td>
            <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
            <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
@@ -476,7 +476,7 @@
           {% set activeCountSearch = activeCountSearch+1 %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Miamora Limited</td>
-              <td class="govuk-table__cell">30 Portland Place<br>London<br>W1B 1LZ<br><span class="govuk-caption-m govuk-!-font-size-16">+ 1 other</span></td>
+              <td class="govuk-table__cell">30 Portland Place<br>London<br>W1B 1LZ</td>
               <td class="govuk-table__cell">Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span></td>
               <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td></td>
               <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
@@ -499,7 +499,7 @@
           
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Gold Limited</td>
-              <td class="govuk-table__cell">2nd Floor Langdon House<br>Langdon Road<br>Swansea<br><span class="govuk-caption-m govuk-!-font-size-16">+ 2 others</span></td>
+              <td class="govuk-table__cell">2nd Floor Langdon House<br>Langdon Road<br>Swansea</td>
               <td class="govuk-table__cell">Steph Gold<br><span class="govuk-caption-m govuk-!-font-size-16">steph@gold.com</span></td>
               <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td></td>
               <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
@@ -523,7 +523,7 @@
           
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Silver Limited</td>
-              <td class="govuk-table__cell">Quay House<br>Quay Road<br>Newton Abbot<br>Devon<br><span class="govuk-caption-m govuk-!-font-size-16">+ 3 others</span></td>
+              <td class="govuk-table__cell">Quay House<br>Quay Road<br>Newton Abbot<br>Devon</td>
               <td class="govuk-table__cell">Adam Silver<br><span class="govuk-caption-m govuk-!-font-size-16">adam@silver.com</span></td>
               <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
               <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
@@ -547,7 +547,7 @@
           
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Williams Limited</td>
-              <td class="govuk-table__cell">Bramangarth<br>Church Road<br>Mylor<br>Cornwall<br><span class="govuk-caption-m govuk-!-font-size-16">+ 2 others</span></td>
+              <td class="govuk-table__cell">Bramangarth<br>Church Road<br>Mylor<br>Cornwall</td>
               <td class="govuk-table__cell">Gareth Williams<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@williams.com</span></td>
               <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
               <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
@@ -583,7 +583,7 @@
           
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Law Limited</td>
-              <td class="govuk-table__cell">12 North Pallant<br>Chichester<br>West Sussex<br>PO19 1TQ<br><span class="govuk-caption-m govuk-!-font-size-16">+ 1 other</span></td>
+              <td class="govuk-table__cell">12 North Pallant<br>Chichester<br>West Sussex<br>PO19 1TQ</td>
               <td class="govuk-table__cell">Lee Laurel<br><span class="govuk-caption-m govuk-!-font-size-16">lee@law.com</span></td>
               <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
               <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>

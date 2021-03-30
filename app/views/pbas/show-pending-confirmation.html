@@ -31,7 +31,7 @@
 {% block header %}
   {{ super() }}
   {{ hmctsIdentityBar({
-    title: { html: data['org'] + ' ' + hmctsBadge({ text: 'Approved' }) },
+    title: { html: data['org'] + ' ' + hmctsBadge({ text: 'Pending' }) },
     items: [{
       href: '/pbas/show-just-approved',
       text: 'Activate'
