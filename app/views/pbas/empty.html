@@ -1,0 +1,473 @@
+{% extends "./base.html" %}
+
+{% block pageTitle %}
+  Organisations pending approval
+{% endblock %}
+
+{% set pageId = 'organisations' %}
+
+{% macro tableCheckbox(params) %}
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="{{params.id}}" name="{{params.name}}" type="radio" value="{{params.value}}">
+    <label class="govuk-label govuk-radios__label" for="{{params.id}}"></label>
+  </div>
+{% endmacro %}
+
+{% macro tableLink(params) %}
+  <a href="{{params.href}}">{{params.text}}</a>
+{% endmacro %}
+
+
+{% block beforeContent %}
+  {% if data['search'] %}
+    {{ govukBackLink({
+      text: "Back",
+      href: "/pbas?action=&search="
+    }) }}
+  {% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+    {% if data['search'] %}
+      <h1 class="govuk-heading-xl">Search results</h1>
+    {% else %}
+      <h1 class="govuk-heading-xl">Organisation approvals</h1>
+    {% endif %}
+
+
+  {% if data['action'] == 'approve' %}
+
+  {{ hmctsBanner({
+    type: 'success',
+    text: 'Registration approved',
+    iconFallbackText: 'Success'
+  }) }} 
+
+  {% elseif data['action'] == 'reject' %}
+
+  {{ hmctsBanner({
+    type: 'success',
+    text: 'Registration rejected',
+    iconFallbackText: 'Success'
+  }) }} 
+
+  {% elseif data['action'] == 'hold' %}
+
+  {{ hmctsBanner({
+    type: 'success',
+    text: 'Registration put under review',
+    iconFallbackText: 'Success'
+  }) }} 
+
+  {% elseif data['action'] == 'pba' %}
+
+  {{ hmctsBanner({
+    type: 'success',
+    text: 'PBA numbers updated',
+    iconFallbackText: 'Success'
+  }) }} 
+
+  {% endif %}
+
+  <style>
+  .govuk-tag--grey {
+    text-align: center;
+  }
+  </style>
+
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+
+        <div class="hmcts-search">
+
+          <form action="./pbas" method="get">
+
+            <div class="govuk-form-group">
+              <label class="govuk-label hmcts-search__label govuk-label--m" for="search">
+                Search
+              </label>
+
+              <span id="search-hint" class="govuk-hint hmcts-search__hint ">
+                Search for an organisation, for example by name or postcode
+              </span>
+
+              <input class="govuk-input hmcts-search__input " id="search" name="search" type="search" aria-describedby="search-hint" value="{{ data['search'] }}" >
+              <input type="hidden" name="action" value="" />
+            </div>
+
+            <button class="govuk-button hmcts-search__button " data-module="govuk-button">
+              Search
+            </button>
+
+            <a href="/pbas?search=" class="govuk-button govuk-button--secondary hmcts-search__button">Reset</a>
+
+          </form>
+
+        </div>
+      </div>
+  </div>
+
+  <br />
+<p>
+
+ <!--   {{govukButton({
+      text: 'Activate organisation'
+    })}} -->
+
+    {% set newRegs %}
+    {% set newRegCount = 0 %}
+    <form action="/pbas/check-selected">
+
+      <h2 class="govuk-heading-l">New registrations</h2>
+      <p>There are no new registrations.</p>
+
+    </form>
+
+    {% endset -%}
+
+    {% set changeReqs %}
+    {% set changeReqCount = 0 %}
+    <form action="/pbas/check-selected">
+
+      <h2 class="govuk-heading-l">New PBAs</h2>
+      <p>There are no new PBA requests.</p>
+
+
+    </form>
+
+    {% endset -%}
+
+    {% set active %}
+    {% set activeCount = 0 %}
+    {% set activeCountSearch = 0 %}
+    <form action="/pbas/check-selected">
+
+      <h2 class="govuk-heading-l">Active organisations</h2>
+
+        <table class="govuk-table">
+                    
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Organisation</th>
+              <th scope="col" class="govuk-table__header">Address</th>
+              <th scope="col" class="govuk-table__header">Administrator</th>
+              <th scope="col" class="govuk-table__header">Date approved</th>
+              <th scope="col" class="govuk-table__header"></th>
+            </tr>
+          </thead>
+          
+          <tbody class="govuk-table__body">
+      
+
+        {% if data['orgs']['new']['cuthbert'] == 'approve' and ( not data['search'] or data['search'] | lower in 'Cuthbert & Smith Limited' | lower ) %}
+        {% set activeCount = activeCount+1 %}
+        <tr class="govuk-table__row">
+           <td class="govuk-table__cell">Cuthbert &amp; Smith Limited</td>
+           <td class="govuk-table__cell">7, Crown Yard<br>Bedgebury Road<br>Goudhurst<br>Kent</td>
+           <td class="govuk-table__cell">Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span></td>
+           <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }} </td>
+           <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+        </tr>
+        {% endif %}
+      
+        {% if data['orgs']['new']['moon'] == 'approve' and ( not data['search'] or data['search'] | lower in 'Moon Beever LLP' | lower ) %}
+        {% set activeCount = activeCount+1 %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Moon Beever LLP</td>
+          <td class="govuk-table__cell">260 Avenue West<br>Skyline 120<br>Great Notley<br>Braintree<br>Essex<br>CM77 7AA</td>
+          <td class="govuk-table__cell">Donald Smith<br><span class="govuk-caption-m govuk-!-font-size-16">dsmith@moonbeever.com</span></td>
+          <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
+          <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+        </tr>
+        {% endif %}
+      
+        {% if data['orgs']['new']['flg'] == 'approve' and ( not data['search'] or data['search'] | lower in 'FLG Ltd' | lower ) %}
+        {% set activeCount = activeCount+1 %}
+        <tr class="govuk-table__row">
+           <td class="govuk-table__cell">FLG Ltd</td>
+           <td class="govuk-table__cell">St Nicholas Court<br>25-27 Castle Gate<br>Nottingham<br>Nottinghamshire<br>NG1 7AR</td>
+           <td class="govuk-table__cell">Sheena Lambert<br><span class="govuk-caption-m govuk-!-font-size-16">slambert@aol.com</span></td>
+           <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
+           <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+          </tr>
+        {% endif %}
+      
+        {% if data['orgs']['new']['alison'] == 'approve' and ( not data['search'] or data['search'] | lower in 'Alison Proctor LLP'| lower ) %}
+        {% set activeCount = activeCount+1 %}
+        <tr class="govuk-table__row">
+           <td class="govuk-table__cell">Alison Proctor LLP</td>
+           <td class="govuk-table__cell">73 Cornhill<br>London<br>EC3V 3QQ</td>
+           <td class="govuk-table__cell">Alison Proctor<br><span class="govuk-caption-m govuk-!-font-size-16">alison@proctor.com</span></td>
+           <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
+           <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+          </tr>
+        {% endif %}
+      
+        {% if data['orgs']['new']['redruth'] == 'approve' and ( not data['search'] or data['search'] | lower in 'Redruth Law Limited' | lower ) %}
+        {% set activeCount = activeCount+1 %}      
+        <tr class="govuk-table__row">
+           <td class="govuk-table__cell">Redruth Law Limited</td>
+           <td class="govuk-table__cell">Bank House<br>West End<br>Redruth<br>Cornwall</td>
+           <td class="govuk-table__cell">James Green<br><span class="govuk-caption-m govuk-!-font-size-16">james@green.com</span></td>
+           <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
+           <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+          </tr>
+        {% endif %}
+      
+        {% if data['orgs']['new']['flemming'] == 'approve' and ( not data['search'] or data['search'] | lower in 'Flemming & Co Solicitors' | lower ) %}
+        {% set activeCount = activeCount+1 %}
+        <tr class="govuk-table__row">
+           <td class="govuk-table__cell">Flemming &amp; Co Solicitors</td>
+           <td class="govuk-table__cell">Unit 5<br>Old Co-Op Buildings<br>Manchester<br>Greater Manchester</td>
+           <td class="govuk-table__cell">Adam Silver<br><span class="govuk-caption-m govuk-!-font-size-16">adam@silver.com</span></td>
+           <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
+           <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+          </tr>
+        {% endif %}
+      
+        {% if data['orgs']['new']['roche'] == 'approve' and ( not data['search'] or  data['search'] | lower in 'Roche Legal Limited' | lower ) %}
+        {% set activeCount = activeCount+1 %}
+        <tr class="govuk-table__row">
+           <td class="govuk-table__cell">Roche Legal Limited</td>
+           <td class="govuk-table__cell">First Floor Office<br>22 Churchill Parade<br>Rustington<br>West Sussex</td>
+           <td class="govuk-table__cell">Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span></td>
+           <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
+           <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+          </tr>
+        {% endif %}
+      
+        {% if data['orgs']['new']['pinder'] == 'approve' and ( not data['search'] or data['search'] | lower in 'Pinder Reaux & Associates' | lower ) %}
+        {% set activeCount = activeCount+1 %}
+        <tr class="govuk-table__row">
+           <td class="govuk-table__cell">Pinder Reaux &amp; Associates</td>
+           <td class="govuk-table__cell">Vyman House<br>104 College Road<br>Harrow<br>Middlesex<br>HA1 1BQ</td>
+           <td class="govuk-table__cell">Matt Speak<br><span class="govuk-caption-m govuk-!-font-size-16">mattpinder@aol.com</span></td>
+           <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
+           <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+          </tr>
+        {% endif %}
+      
+        {% if data['orgs']['new']['metcalfe'] == 'approve' and ( not data['search'] or data['search'] | lower in 'Metcalfe Eyres Solicitors' | lower ) %}
+        {% set activeCount = activeCount+1 %}
+        <tr class="govuk-table__row">
+           <td class="govuk-table__cell">Metcalfe Eyres Solicitors</td>
+           <td class="govuk-table__cell">Fifth Floor<br>Maple House,<br>High Street<br>Potters Bar<br>Hertfordshire</td>
+           <td class="govuk-table__cell">Mama Tora<br><span class="govuk-caption-m govuk-!-font-size-16">metcalfe@mora.com</span></td>
+           <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
+           <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+          </tr>
+        {% endif %}
+      
+        {% if data['orgs']['new']['chris'] == 'approve' and ( not data['search'] or data['search'] | lower in 'Chris Alexander Solicitors Limited' | lower ) %}
+        {% set activeCount = activeCount+1 %}
+        <tr class="govuk-table__row">
+           <td class="govuk-table__cell">Chris Alexander Solicitors Limited</td>
+           <td class="govuk-table__cell">48 Thornton Road<br>Thornton Heath<br>UK<br>CR7 6BA</td>
+           <td class="govuk-table__cell">Lee Laurel<br><span class="govuk-caption-m govuk-!-font-size-16">chrisalexander@hotmail.com</span></td>
+           <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td>
+           <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+          </tr>
+        {% endif %}      
+    
+
+
+
+          {% if ( not data['search'] or data['search'] | lower in 'Miamora Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Miamora Limited</td>
+              <td class="govuk-table__cell">30 Portland Place<br>London<br>W1B 1LZ</td>
+              <td class="govuk-table__cell">Mia Mamatora<br><span class="govuk-caption-m govuk-!-font-size-16">mia@mamatora.com</span></td>
+              <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td></td>
+              <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+            </tr>
+          {% endif %}
+          
+          {% if ( not data['search'] or data['search'] | lower in 'Turpin Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Turpin Limited</td>
+              <td class="govuk-table__cell">2nd Floor<br>34-36 High Street<br>Nantwich<br>Cheshire</td>
+              <td class="govuk-table__cell">Gareth Turpin<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@turpin.com</span></td>
+              <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td></td>
+              <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+            </tr>
+          {% endif %}
+          
+          {% if ( not data['search'] or data['search'] | lower in 'Gold Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Gold Limited</td>
+              <td class="govuk-table__cell">2nd Floor Langdon House<br>Langdon Road<br>Swansea</td>
+              <td class="govuk-table__cell">Steph Gold<br><span class="govuk-caption-m govuk-!-font-size-16">steph@gold.com</span></td>
+              <td class="govuk-table__cell">{{ now | date('D MMM YYYY') }}</td></td>
+              <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+            </tr>
+          {% endif %}
+          
+          {% if ( not data['search'] or data['search'] | lower in '360 Law Group Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">360 Law Group Limited</td>
+              <td class="govuk-table__cell">Quatro House<br>Lyon Way<br>Frimley<br>Camberley<br>Surrey<br>GU16 7ER</td>
+              <td class="govuk-table__cell">Jennifer Louise McGuire<br><span class="govuk-caption-m govuk-!-font-size-16">Jennifermcguire@360.net</span></td>
+              <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
+              <td class="govuk-table__cell"><a href="/pbas/show-a?action=">View</a></td>
+            </tr>
+          {% endif %}
+          
+          {% if ( not data['search'] or data['search'] | lower in 'Silver Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Silver Limited</td>
+              <td class="govuk-table__cell">Quay House<br>Quay Road<br>Newton Abbot<br>Devon</td>
+              <td class="govuk-table__cell">Adam Silver<br><span class="govuk-caption-m govuk-!-font-size-16">adam@silver.com</span></td>
+              <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
+              <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+            </tr>
+          {% endif %}
+          
+          {% if ( not data['search'] or data['search'] | lower in 'Moon Beever LLP' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Moon Beever LLP</td>
+              <td class="govuk-table__cell">Bedford House<br>21a John Street<br>London<br>WC1N 2BF</td>
+              <td class="govuk-table__cell">Sharon Love<br><span class="govuk-caption-m govuk-!-font-size-16">slove@moonbeever.com</span></td>
+              <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
+              <td class="govuk-table__cell"><a href="/pbas/show-a-3?action=">View</a></td>
+            </tr>
+          {% endif %}
+          
+          {% if ( not data['search'] or data['search'] | lower in 'Williams Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Williams Limited</td>
+              <td class="govuk-table__cell">Bramangarth<br>Church Road<br>Mylor<br>Cornwall</td>
+              <td class="govuk-table__cell">Gareth Williams<br><span class="govuk-caption-m govuk-!-font-size-16">gareth@williams.com</span></td>
+              <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
+              <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+            </tr>
+          {% endif %}
+          
+          {% if ( not data['search'] or data['search'] | lower in 'Divorce Mediation and Family Law' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Divorce Mediation and Family Law</td>
+              <td class="govuk-table__cell">St. Johns Innovation Centre<br>Cowley Road<br>Cambridge<br>Cambridgeshire<br>CB4 0WS</td>
+              <td class="govuk-table__cell">Tomas Daniel Jones<br><span class="govuk-caption-m govuk-!-font-size-16">tom.jones@dmfl.com</span></td>
+              <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
+              <td class="govuk-table__cell"><a href="/pbas/show-a-4?action=">View</a></td>
+            </tr>
+          {% endif %}
+          
+          {% if ( not data['search'] or data['search'] | lower in 'David & Snape' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">David &amp; Snape</td>
+              <td class="govuk-table__cell">4 Lias Road<br>Porthcawl<br>Mid Glamorgan<br>CF36 3AH</td>
+              <td class="govuk-table__cell">Snape Hutchinson<br><span class="govuk-caption-m govuk-!-font-size-16">snape@davidandsnape.com</span></td>
+              <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
+              <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+            </tr>
+          {% endif %}
+          
+          {% if ( not data['search'] or data['search'] | lower in 'Law Limited' | lower ) %}
+          {% set activeCountSearch = activeCountSearch+1 %}
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Law Limited</td>
+              <td class="govuk-table__cell">12 North Pallant<br>Chichester<br>West Sussex<br>PO19 1TQ</td>
+              <td class="govuk-table__cell">Lee Laurel<br><span class="govuk-caption-m govuk-!-font-size-16">lee@law.com</span></td>
+              <td class="govuk-table__cell">{{ now | date( 'subtract', 2, 'days') | date('D MMM YYYY') }}</td>
+              <td class="govuk-table__cell"><a href="/pbas/show-a-2?action=">View</a></td>
+            </tr>
+          {% endif %}
+            
+
+
+
+          </tbody>
+        </table>
+
+    </form>
+
+    {% if data['search'] %}
+    {% set activeCount = activeCountSearch + activeCount %}
+    {% else %}
+    {% set activeCount = 47 + activeCount %}
+    {% endif %}
+
+
+    {% if not data['search'] %}
+    {{hmctsPagination({
+      results: {
+      from: 1,
+      to: 10,
+      count: 40
+      },
+
+      next: {
+        text: 'Next',
+        href: ''
+      },
+      items: [{
+        text: '1',
+        href: '/page=1',
+        selected: true
+      }, {
+      text: '2',
+      href: '/page=2'
+      }, {
+      text: '3',
+      href: '/page=3'
+
+      }, {
+      text: '4',
+      href: '/page=4'
+      }]
+    })}}
+    {% endif %}
+
+
+    {% endset -%}
+
+    {{ govukTabs({
+      items: [
+        {
+          label: "New registrations (" + newRegCount + ")",
+          id: "new-regs",
+          panel: {
+            html: newRegs
+          }
+        },
+        {
+          label: "New PBAs (" + changeReqCount + ")",
+          id: "change-reqs",
+          panel: {
+            html: changeReqs
+          }
+        },
+        {
+          label: "Active organisations (" + activeCount + ")",
+          id: "active",
+          panel: {
+            html: active
+          }
+        }
+      ]
+    }) }}
+
+
+  {% set data = [] %}
+
+{% endblock %}
