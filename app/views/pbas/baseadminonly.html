@@ -72,10 +72,17 @@
     label: 'Primary navigation',
     items: [
       {
-          active: pageId == 'organisations',
-          text: 'Staff details',
-          href: '/pbas/caseworkerdetails?anerror=false&uploaderror=0&',
-          active: pageId == 'cwa'
+          text: 'Organisations',
+          href: '/v1b?search=&action=',
+      },
+      {
+          active: true,
+          text: 'Staff detailsX',
+          href: '/v1b/caseworkerdetails',
+    },
+      {
+          text: 'Location data',
+          href: '/v1b/locationdata',
     }]
 
   }) }}

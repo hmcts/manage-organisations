@@ -72,10 +72,19 @@
     label: 'Primary navigation',
     items: [
       {
-          active: pageId == 'organisations',
+          text: 'Organisations',
+          href: '/v1b?search=&action=',
+          active: pageId == 'organisations'
+      },
+      {
           text: 'Staff details',
-          href: '/v1b/caseworkerdetails?anerror=false&uploaderror=0&',
-          active: pageId == 'cwa'
+          href: '/v1b/caseworkerdetails',
+          active: pageId == 'caseworkerdetails'
+    },
+      {
+          text: 'Location data',
+          href: '/v1b/locationdata',
+          active: pageId == 'locationdata'
     }]
 
   }) }}
