@@ -70,58 +70,41 @@
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-three-quarters">
 
-                <p class="govuk-body">You can add, update or delete existing staff details. For example, their name, role and location.</p>
+            {{ govukRadios({
+              id: "data-type",
+              name: "data-type",
+              fieldset: {
+                legend: {
+                  text: "Select data type",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              items: [
+                {
+                  value: "government-gateway",
+                  text: "Staff data",
+                  hint: {
+                    html: "Add, update or delete existing staff details. For example, their name, role and location. <a href=''>Download staff data spreadsheet</a>"
+                  }
+                },
+                {
+                  value: "govuk-verify",
+                  text: "Service IDAM Roles",
+                  hint: {
+                    html: "Create and maintain service roles in IDAM <a href=''>Download IDAM roles spreadsheet</a>"
+                  }
+                }
+              ]
+            }) }}
 
-                <p class="govuk-body">You can do this by:</p>
-
-                <ol class="govuk-body">
-                    <li>Opening your existing staff details spreadsheet. If you don’t have one, you can <a href="#">download a copy</a>.</li>
-                    <li>Updating the staff details in the spreadsheet.</li>
-                    <li>Clicking the ‘Choose file’ button to select the updated spreadsheet.</li>
-                    <li>Clicking ‘Upload’.</li>
-                </ol>
-
-                <!--<p class="govuk-body">You’ll then be able to assign tasks to your colleagues using the Manage cases application.</p>-->
-
-                <!-- <p class="govuk-body">Please add the relevant caseworker information in the excel sheet and upload the file.</p>  -->
-
-                {% if data.anerror == 'true' %}
-                    <div class="govuk-form-group  govuk-form-group--error" id="uploadarea">
-                        <label class="govuk-label" for="file-upload-1"><strong>
-                            Upload file</strong>
-                        </label>
-
-                        {% if data.uploaderror == '1' %}
-                            <span id="" class="govuk-error-message">
-                              <span class="govuk-visually-hidden">Error:</span> You need to select a file to upload. Try again.
-                            </span>
-                        {% elif data.uploaderror == '2' %}
-                            <span id="" class="govuk-error-message">
-                              <span class="govuk-visually-hidden">Error:</span> You can only upload a file with a valid password. Try again.
-                            </span>
-                        {% elif data.uploaderror == '3' %}
-                            <span id="" class="govuk-error-message">
-                              <span class="govuk-visually-hidden">Error:</span> You can only upload xlsx or xls files. Check it’s saved in the correct format and try again.
-                            </span>
-                        {% elif data.uploaderror == '4' %}
-                            <span id="" class="govuk-error-message">
-                              <span class="govuk-visually-hidden">Error:</span> The template is missing some column headers. Review and upload again.
-                            </span>
-                        {% endif %}
-
-                {% else %}
-                    <div class="govuk-form-group">
-                        <label class="govuk-label" for="file-upload-1"><strong>
-                            Upload file</strong>
-                        </label>
-                {% endif %}
-                    <!--<div id="passport-issued-hint" class="govuk-hint">
-                 The file must be a password protected xlsx or xls and not exceed (x) MB
-               </div> -->
-                    <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
-                </div>
-
-                <br>
+            {{ govukFileUpload({
+              id: "file-upload-1",
+              name: "file-upload-1",
+              label: {
+                text: "Upload spreadsheet"
+              }
+            }) }}
 
                 {{ govukButton({
                 text: 'Upload',
@@ -132,14 +115,6 @@
         </div>
 
 {% endif %}
-
-
-
-
-
-
-
-
 
 
 <form method="post"  action="#" class="for4" style=" float: left; margin-top: 50px;">
